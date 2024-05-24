@@ -1,0 +1,348 @@
+"use client";
+import Image from "next/image";
+import Link from "next/link";
+import {useTheme} from "next-themes";
+import {useEffect, useState} from "react";
+import {File} from "lucide-react";
+
+import Footer from "@/components/footer";
+import Navbar from "@/components/navbar";
+import {Button} from "@/components/ui/button";
+import CarouselCard from "@/components/site/carousel-card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import FeaturedCard from "@/components/site/featured-card";
+import {motion} from "framer-motion";
+
+export default function Home() {
+  const [isMounted, setIsMounted] = useState(false);
+  const {theme} = useTheme();
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) return;
+
+  return (
+    <main>
+      <Navbar />
+
+      {/* hero section */}
+      <div className="relative overflow-visible overflow-x-clip ">
+        <div className=" max-w-[1164px] mx-auto px-4 mt-4 md:mt-10">
+          <div className="flex flex-col md:flex-row items-center gap-12 md:gap-4 justify-between bg-card shadow-2xl shadow-inner p-8 rounded-2xl">
+            <div
+              className="max-w-[500px] flex  gap-10 flex-col"
+              data-aos="fade-right"
+            >
+              <h1 className="text-3xl md:text-4xl font-bold text-foreground">
+                Tokenizing The Most Bullish Narratives
+              </h1>
+
+              <p className="text-muted-foreground">
+                Decentralized Protocol For Narrative-Driven
+                Index Funds. Never miss a rotation, Never
+                miss a Pump.
+              </p>
+
+              <div className="flex items-center gap-4 ">
+                <Button size="lg"> Launch app</Button>
+                <Button
+                  variant="link"
+                  size="lg"
+                  className="text-primary mx-0"
+                  asChild
+                >
+                  <Link href="#" className="!p-0">
+                    Checkout Features
+                  </Link>
+                </Button>
+              </div>
+            </div>
+
+            <div data-aos="fade-left">
+              <Image
+                src="/assets/heroImage.webp"
+                height={420}
+                width={420}
+                alt="hero image"
+              />
+            </div>
+          </div>
+        </div>
+
+        <Image
+          className="absolute -top-1/4 right-0"
+          src="/assets/blueShadow.webp"
+          alt="squiggle"
+          width={600}
+          height={600}
+        />
+
+        <Image
+          className="absolute left-0 -bottom-80 -z-10"
+          src="/assets/redShadow.webp"
+          alt="squiggle"
+          width={600}
+          height={600}
+        />
+
+        <Image
+          className="absolute left-0 -bottom-1/4 -z-10"
+          src="/assets/shape.webp"
+          alt="squiggle"
+          width={200}
+          height={200}
+        />
+      </div>
+
+      {/* Carousel section */}
+      <div>
+        <div className=" max-w-[1164px] mx-auto px-4 mt-4 md:mt-10 flex flex-col gap-6 overflow-x-hidden lg:overflow-x-visible">
+          <h2 className="text-2xl font-semibold">
+            Featured Narratives
+          </h2>
+
+          <Carousel>
+            <CarouselContent>
+              <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+                <CarouselCard />
+              </CarouselItem>
+
+              <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+                <CarouselCard />
+              </CarouselItem>
+
+              <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+                <CarouselCard />
+              </CarouselItem>
+
+              <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+                <CarouselCard />
+              </CarouselItem>
+              <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+                <CarouselCard />
+              </CarouselItem>
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
+        </div>
+      </div>
+
+      {/*  companines section*/}
+      <div>
+        <div className=" max-w-[1164px] mx-auto  mt-12 md:mt-24 px-4">
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-xl font-semibold text-center">
+                Narratives Ecosystem
+              </CardTitle>
+            </CardHeader>
+
+            <CardContent className="flex items-center  flex-wrap justify-center gap-4 md:gap-24">
+              <Image
+                src={`/assets/companies/${
+                  theme === "dark" ? "dark" : "light"
+                }/company1.png`}
+                width={100}
+                height={100}
+                alt="company logo"
+                data-aos="zoom"
+              />
+              <Image
+                src={`/assets/companies/${
+                  theme === "dark" ? "dark" : "light"
+                }/company2.png`}
+                width={100}
+                height={100}
+                alt="company logo"
+                data-aos="zoom"
+              />
+
+              <Image
+                src={`/assets/companies/${
+                  theme === "dark" ? "dark" : "light"
+                }/company3.png`}
+                width={100}
+                height={100}
+                alt="company logo"
+                data-aos="zoom"
+              />
+
+              <Image
+                src={`/assets/companies/${
+                  theme === "dark" ? "dark" : "light"
+                }/company4.png`}
+                width={100}
+                height={100}
+                alt="company logo"
+                data-aos="zoom"
+              />
+
+              <Image
+                src={`/assets/companies/${
+                  theme === "dark" ? "dark" : "light"
+                }/company5.png`}
+                width={100}
+                height={100}
+                alt="company logo"
+                data-aos="zoom"
+              />
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+
+      {/* Earnup to 25% APY */}
+      <div>
+        <div className="max-w-[1164px] mx-auto mt-12 md:mt-24 px-4">
+          <div
+            className="relative p-8 md:p-16 bg-primary text-white rounded-3xl flex flex-col md:flex-row 
+          items-center gap-8 md:gap-4 min-h-[400px] overflow-hidden"
+          >
+            <div
+              className="flex flex-col gap-8 max-w-[500px] "
+              data-aos="fade-right"
+            >
+              <h3 className="text-3xl md:text-4xl font-bold">
+                Earn Up to 25% APY Staking Narratives $N
+              </h3>
+              <p>
+                Participate in the network and earn rewards
+                by leveraging our built-in staking
+                mechanism. Narratives Protocol encourages
+                users to stake their assets.
+              </p>
+
+              <div className="flex items-center gap-2">
+                <Button
+                  size="lg"
+                  className="bg-white text-[#0f172a] hover:bg-white hover:opacity-80"
+                >
+                  Buy $N
+                </Button>
+                <Button
+                  size="lg"
+                  className="border border-white bg-transparent text-white flex items-center gap-2 hover:opacity-80"
+                >
+                  <File size={16} />
+                  <span>Docs</span>
+                </Button>
+              </div>
+            </div>
+
+            <div
+              className="flex items-center justify-center w-full"
+              data-aos="fade-left"
+            >
+              <div className="relative h-[200px] w-[200px] sm:w-[250px] sm:h-[250px] md:h-[300px] md:w-[300px]">
+                <Image
+                  src="/assets/bigCoin.png"
+                  layout="fill"
+                  objectFit="contain"
+                  alt="vector"
+                />
+              </div>
+            </div>
+
+            <Image
+              src="/assets/vectorWhite1.png"
+              width={120}
+              height={120}
+              className="absolute top-0 left-0 hidden md:block"
+              alt="vector"
+            />
+
+            <Image
+              src="/assets/vectorWhite2.png"
+              width={250}
+              height={250}
+              className="absolute bottom-0 right-0 hidden md:block"
+              alt="vector"
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Features Section */}
+      <div>
+        <div className=" max-w-[1164px] mx-auto px-4 mt-12 md:mt-24 flex flex-col gap-6 overflow-x-hidden md:overflow-x-visible">
+          <h2 className="text-2xl font-semibold">
+            Why Narratives protocol ?
+          </h2>
+
+          <p className="text-muted-foreground">
+            Welcome to Narratives Protocol, a cutting-edge
+            cryptocurrency protocol platform designed to
+            revolutionize the way we interact with digital
+            assets. Here&apos;s why Narratives Protocol
+            stands out:
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <FeaturedCard
+              title="Diversify With Ease"
+              description="Experience lightning-fast transaction speeds with our high-throughput architecture. Narratives Protocol is engineered to handle a large number of transactions per second,
+               ensuring that you can execute transactions swiftly and efficiently."
+              icon="/assets/icons/box-remove.png"
+              vectorColor="blue"
+            />
+
+            <FeaturedCard
+              title="Reduce Risk"
+              description="Experience lightning-fast transaction speeds with our high-throughput architecture. Narratives Protocol is engineered to handle a large number of transactions per second, ensuring that you can execute transactions swiftly and efficiently"
+              icon="/assets/icons/security-safe.png"
+              vectorColor="red"
+            />
+
+            <FeaturedCard
+              title="Exposure to Upside"
+              description="As the demand for blockchain technology grows, Narratives Protocol scales effortlessly to meet the evolving needs of its users. Enjoy a scalable infrastructure that adapts to increasing transaction volumes without compromising performance."
+              icon="/assets/icons/chart.png"
+              vectorColor="blue"
+            />
+
+            <FeaturedCard
+              title="Governance Token"
+              description="Narratives Holders will be able to vote on key decisions such as asset allocation and new asset onboarding. Narratives is a decentralized Index fund with rewards to all holders."
+              icon="/assets/icons/trade.png"
+              vectorColor="red"
+            />
+
+            <FeaturedCard
+              title="Built-in Staking"
+              description="Participate in the network and earn rewards by leveraging our built-in staking Protocol. $N stakers will get protocol fees distributed directly into their wallet. "
+              icon="/assets/icons/archive.png"
+              vectorColor="blue"
+            />
+
+            <FeaturedCard
+              title="Low Fees"
+              description="Narratives Protocol prioritizes cost-effectiveness by offering low transaction fees. Say goodbye to exorbitant fees and. Enjoy the benefits of a cost-efficient platform that makes blockchain technology accessible to a broader audience."
+              icon="/assets/icons/money-recive.png"
+              vectorColor="red"
+            />
+          </div>
+        </div>
+      </div>
+
+      <Footer />
+    </main>
+  );
+}
