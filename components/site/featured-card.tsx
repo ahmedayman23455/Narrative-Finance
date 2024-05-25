@@ -29,7 +29,9 @@ const FeaturedCard = ({
     <div className="relative overflow-visible">
       <Card
         className={` relative h-[420px] z-10 overflow-clip ${
-          theme === "light" ? "!bg-white" : "!bg-['#1E1E22']"
+          theme === "light"
+            ? "!bg-white"
+            : "!bg-['#1E1E22']"
         } `}
         data-aos="fade-up"
       >
@@ -77,6 +79,7 @@ const FeaturedCard = ({
         layout="fill"
         alt="class square"
         className="absolute -z-1 !top-[3%] !left-[3%] w-full h-full"
+        data-aos="fade-up"
       />
     </div>
   );
