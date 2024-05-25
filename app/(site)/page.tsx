@@ -4,6 +4,17 @@ import Link from "next/link";
 import {useTheme} from "next-themes";
 import {useEffect, useState} from "react";
 import {File} from "lucide-react";
+import {
+  Navigation,
+  Pagination,
+  Scrollbar,
+  A11y,
+} from "swiper/modules";
+
+import {Swiper, SwiperSlide} from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
@@ -16,7 +27,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-
 import {
   Card,
   CardContent,
@@ -26,7 +36,10 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import FeaturedCard from "@/components/site/featured-card";
-import {motion} from "framer-motion";
+import {
+  ArrowLeftIcon,
+  ArrowRightIcon,
+} from "@radix-ui/react-icons";
 
 export default function Home() {
   const [isMounted, setIsMounted] = useState(false);
@@ -112,7 +125,7 @@ export default function Home() {
       </div>
 
       {/* Carousel section */}
-      <div>
+      {/* <div>
         <div className=" max-w-[1164px] mx-auto px-4 mt-4 md:mt-10 flex flex-col gap-6 overflow-x-hidden lg:overflow-x-visible">
           <h2 className="text-2xl font-semibold">
             Featured Narratives
@@ -143,12 +156,59 @@ export default function Home() {
             <CarouselNext />
           </Carousel>
         </div>
+      </div> */}
+
+      {/* new carousel section */}
+      <div>
+        <div className=" max-w-[1164px] mx-auto px-4 mt-4 md:mt-10">
+          <Swiper
+            modules={[
+              Navigation,
+              Pagination,
+              Scrollbar,
+              A11y,
+            ]}
+            spaceBetween={16}
+            slidesPerView={1}
+            breakpoints={{
+              768: {
+                slidesPerView: 2,
+              },
+              1024: {
+                slidesPerView: 3,
+              },
+            }}
+            pagination={{clickable: true}}
+            scrollbar={{draggable: true}}
+            onSwiper={(swiper) => console.log(swiper)}
+            onSlideChange={() =>
+              console.log("slide change")
+            }
+            navigation
+          >
+            <SwiperSlide>
+              <CarouselCard />
+            </SwiperSlide>
+
+            <SwiperSlide>
+              <CarouselCard />
+            </SwiperSlide>
+
+            <SwiperSlide>
+              <CarouselCard />
+            </SwiperSlide>
+
+            <SwiperSlide>
+              <CarouselCard />
+            </SwiperSlide>
+          </Swiper>
+        </div>
       </div>
 
       {/*  companines section*/}
-      <div>
-        <div className=" max-w-[1164px] mx-auto  mt-12 md:mt-24 px-4">
-          <Card>
+      <div className="relative overflow-visible overflow-x-clip">
+        <div className=" max-w-[1164px] mx-auto  mt-12 md:mt-24 px-4 ">
+          <Card className="border-none bg-none border-none companeis-section">
             <CardHeader>
               <CardTitle className="text-xl font-semibold text-center">
                 Narratives Ecosystem
@@ -207,10 +267,24 @@ export default function Home() {
             </CardContent>
           </Card>
         </div>
+        <Image
+          className="absolute -top-[270px] -right-[120px]"
+          src="/assets/blueShadow.webp"
+          alt="squiggle"
+          width={1000}
+          height={1000}
+        />
+        <Image
+          className="absolute -top-[370px] -left-[120px] rotate-180"
+          src="/assets/blueShadow.webp"
+          alt="squiggle"
+          width={1000}
+          height={1000}
+        />
       </div>
 
       {/* Earnup to 25% APY */}
-      <div>
+      <div className="relative overflow-visible overflow-x-clip">
         <div className="max-w-[1164px] mx-auto mt-12 md:mt-24 px-4">
           <div
             className="relative p-8 md:p-16 bg-primary text-white rounded-3xl flex flex-col md:flex-row 
@@ -278,11 +352,19 @@ export default function Home() {
             />
           </div>
         </div>
+
+        <Image
+          className="absolute left-0 -top-[95%] -z-10"
+          src="/assets/redShadow.webp"
+          alt="squiggle"
+          width={1200}
+          height={1200}
+        />
       </div>
 
       {/* Features Section */}
-      <div>
-        <div className=" max-w-[1164px] mx-auto px-4 mt-12 md:mt-24 flex flex-col gap-6 overflow-x-hidden md:overflow-x-visible">
+      <div className="relative overflow-visible overflow-x-clip">
+        <div className=" max-w-[1164px] mx-auto px-4 mt-12 md:mt-24 flex flex-col gap-6 ">
           <h2 className="text-2xl font-semibold">
             Why Narratives protocol ?
           </h2>
@@ -340,6 +422,14 @@ export default function Home() {
             />
           </div>
         </div>
+
+        <Image
+          className="absolute top-[180px] -right-[150px]"
+          src="/assets/blueShadow.webp"
+          alt="squiggle"
+          width={1000}
+          height={1000}
+        />
       </div>
 
       <Footer />
