@@ -124,41 +124,7 @@ export default function Home() {
         />
       </div>
 
-      {/* Carousel section */}
-      {/* <div>
-        <div className=" max-w-[1164px] mx-auto px-4 mt-4 md:mt-10 flex flex-col gap-6 overflow-x-hidden lg:overflow-x-visible">
-          <h2 className="text-2xl font-semibold">
-            Featured Narratives
-          </h2>
-
-          <Carousel>
-            <CarouselContent>
-              <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-                <CarouselCard />
-              </CarouselItem>
-
-              <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-                <CarouselCard />
-              </CarouselItem>
-
-              <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-                <CarouselCard />
-              </CarouselItem>
-
-              <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-                <CarouselCard />
-              </CarouselItem>
-              <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-                <CarouselCard />
-              </CarouselItem>
-            </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
-          </Carousel>
-        </div>
-      </div> */}
-
-      {/* new carousel section */}
+      {/*  carousel section */}
       <div>
         <div className=" max-w-[1164px] mx-auto px-4 mt-4 md:mt-10">
           <Swiper
@@ -377,7 +343,7 @@ export default function Home() {
             stands out:
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             <FeaturedCard
               title="Diversify With Ease"
               description="Experience lightning-fast transaction speeds with our high-throughput architecture. Narratives Protocol is engineered to handle a large number of transactions per second,
