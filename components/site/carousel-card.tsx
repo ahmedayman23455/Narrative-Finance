@@ -168,7 +168,7 @@ const CarouselCard = ({
                   <div className="relative h-24 w-24">
                     {theme === "light" ? (
                       <Image
-                        src="/assets/percentage.png"
+                        src="/assets/lightpercentage.png"
                         layout="fill"
                         objectFit="contain"
                         alt="percentage image"
@@ -228,7 +228,7 @@ const CarouselCard = ({
                 <Image
                   width={120}
                   height={120}
-                  src="/assets/darkStats.png"
+                  src="/assets/darkstats.png"
                   alt="dark stats"
                   priority={true}
                 />
