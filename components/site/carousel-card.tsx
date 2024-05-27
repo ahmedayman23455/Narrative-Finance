@@ -226,7 +226,7 @@ const CarouselCard = ({
                   width={120}
                   height={120}
                   src="/assets/darkStats.png"
-                  alt="sark stats"
+                  alt="dark stats"
                 />
               )}
             </div>
