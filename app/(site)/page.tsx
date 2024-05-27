@@ -167,15 +167,17 @@ export default function Home() {
               Scrollbar,
               A11y,
             ]}
-            slidesPerGroup={3}
+            slidesPerGroup={1}
             spaceBetween={24}
             slidesPerView={1}
             breakpoints={{
               768: {
                 slidesPerView: 2,
+                slidesPerGroup:2
               },
               1024: {
                 slidesPerView: 3,
+                slidesPerGroup:3
               },
             }}
             pagination={{clickable: true}}
