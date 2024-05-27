@@ -172,6 +172,7 @@ const CarouselCard = ({
                         layout="fill"
                         objectFit="contain"
                         alt="percentage image"
+                        priority={true}
                       />
                     ) : (
                       <Image
@@ -179,6 +180,7 @@ const CarouselCard = ({
                         layout="fill"
                         objectFit="contain"
                         alt="percentage image"
+                        priority={true}
                       />
                     )}
                   </div>
@@ -220,6 +222,7 @@ const CarouselCard = ({
                   height={120}
                   src="/assets/lightstats.png"
                   alt="light stats"
+                  priority={true}
                 />
               ) : (
                 <Image
@@ -227,6 +230,7 @@ const CarouselCard = ({
                   height={120}
                   src="/assets/darkStats.png"
                   alt="dark stats"
+                  priority={true}
                 />
               )}
             </div>
