@@ -12,13 +12,41 @@ import Image from "next/image";
 import {Button} from "../ui/button";
 import CircularProgress from "@mui/joy/CircularProgress";
 import {useTheme} from "next-themes";
+import {cn} from "@/lib/utils";
+import {light} from "@mui/material/styles/createPalette";
 
-const CarouselCard = () => {
+const CarouselCard = ({
+  vectorColor,
+  title,
+  badge,
+  children,
+}: {
+  vectorColor: "red" | "blue";
+  title: string;
+  badge: string;
+  children: React.ReactNode;
+}) => {
+  const {theme} = useTheme();
+
   return (
-    <div data-aos="zoom-in">
-      <Card>
-        <CardHeader className=" relative overflow-clip h-24  rounded-tl-md rounded-tr-md h-max border-b border">
-          <CardTitle className="text-lg text-primary-foreground flex items-center gap-4 relative z-2">
+    <div data-aos="zoom-in" className="relative   ">
+      <Card
+        className={`relative z-50 bg-transparent  border ${
+          theme === "light"
+            ? "border-white bg-white"
+            : "border-[#787878] bg-[#1E1E22]"
+        }`}
+      >
+        <CardHeader
+          className={`rounded-tl-xl  rounded-tr-xl ${
+            theme === "light"
+              ? "bg-white border-b-white carouselCardHeaderShadow"
+              : "bg-[#242424] border-b-[#787878]"
+          }
+         relative overflow-clip h-24   h-max border-b border 
+        `}
+        >
+          <CardTitle className="text-lg text-primary-foreground flex items-center gap-2 relative z-2">
             <Image
               width={60}
               height={60}
@@ -28,8 +56,14 @@ const CarouselCard = () => {
 
             <div className="flex flex-col gap-1">
               <div className="flex items-center gap-2">
-                <h3 className="text-foreground">
-                  Solana Narrative
+                <h3
+                  className={cn(
+                    theme === "light"
+                      ? "text-[#484856]"
+                      : "text-white"
+                  )}
+                >
+                  {title}
                 </h3>
 
                 <svg
@@ -45,125 +79,184 @@ const CarouselCard = () => {
                 </svg>
               </div>
 
-              <div className="bg-secondary py-2 px-4 rounded-md text-foreground text-sm w-max">
-                $N-Defi
+              <div
+                className={cn(
+                  " px-2 rounded-[2px] text-foreground text-xs w-max",
+                  theme === "light"
+                    ? "bg-[#E4E7EC] text-[#484856]"
+                    : "bg-[#1E1E22]"
+                )}
+              >
+                {badge}
               </div>
             </div>
           </CardTitle>
-          <Image
-            src="/assets/vectorRed1.png"
-            width={120}
-            height={120}
-            alt="vector"
-            className="absolute top-0 right-0 bottom-0 z-2"
-          />
+
+          {vectorColor === "red" ? (
+            <Image
+              src="/assets/vectorRed1.png"
+              width={120}
+              height={120}
+              alt="vector"
+              className="absolute top-0 right-0 bottom-0 z-2"
+            />
+          ) : (
+            <Image
+              src="/assets/vectorBlue1.png"
+              width={120}
+              height={120}
+              alt="vector"
+              className="absolute top-0 right-0 bottom-0 z-2"
+            />
+          )}
         </CardHeader>
-        <CardContent className="mt-4">
+
+        <CardContent className={cn("mt-4 ")}>
           <div className="flex items-start gap-2 ">
             <div className="flex flex-col gap-4 flex-1 w-full">
-              <Card className="bg-none border-none p-0 shadow-none">
+              <Card className="bg-transparent border-none p-0 shadow-none">
                 <CardHeader className="flex flex-row items-center p-0 justify-between space-y-0 pb-2">
-                  <CardTitle className="text-sm font-medium">
+                  <CardTitle
+                    className={cn(
+                      "text-xs font-medium",
+                      theme === "light"
+                        ? "text-[#414C5E]"
+                        : "text-[#E6E9FF]"
+                    )}
+                  >
                     Price
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="p-0">
-                  <div className=" font-semibold">$500</div>
+                  <div
+                    className={cn(
+                      "font-semibold text-md md:text-xl",
+                      theme === "light"
+                        ? "text-[#484856]"
+                        : "text-white"
+                    )}
+                  >
+                    $500
+                  </div>
                 </CardContent>
               </Card>
 
-              <Card className="bg-none border-none p-0 shadow-none">
+              <Card className="bg-transparent border-none p-0 shadow-none">
                 <CardHeader className="flex flex-row items-center p-0 justify-between space-y-0 pb-2">
-                  <CardTitle className="text-sm font-medium">
+                  <CardTitle
+                    className={cn(
+                      "text-xs font-medium",
+                      theme === "light"
+                        ? "text-[#414C5E]"
+                        : "text-[#E6E9FF]"
+                    )}
+                  >
                     composition
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="flex items-center  p-0">
-                  <Image
-                    src="/assets/coins/coin1.png"
-                    width={30}
-                    height={30}
-                    alt="coin image"
-                  />
-                  <Image
-                    src="/assets/coins/coin2.png"
-                    width={30}
-                    height={30}
-                    alt="coin image"
-                  />
-                  <Image
-                    src="/assets/coins/coin3.png"
-                    width={30}
-                    height={30}
-                    alt="coin image"
-                  />
+                  {children}
+
+                  <div className="h-7 w-7 text-white text-xs text-center bg-[#1D9BF0] rounded-full flex items-center justify-center">
+                    +10
+                  </div>
                 </CardContent>
               </Card>
 
-              <Card className="bg-none border-none p-0 shadow-none">
-                <CardHeader className="flex flex-row items-center p-0 justify-between space-y-0 pb-2">
-                  <CardTitle className="text-sm font-medium">
-                    All time
-                  </CardTitle>
-                </CardHeader>
+              <Card className="bg-transparent border-none p-0 shadow-none">
                 <CardContent className="flex items-center  p-0">
-                  <CircularProgress
-                    size="lg"
-                    determinate
-                    value={66.67}
-                  >
-                    <span className="text-foreground">
-                      78.1%
-                    </span>
-                  </CircularProgress>
+                  <div className="relative h-24 w-24">
+                    {theme === "light" ? (
+                      <Image
+                        src="/assets/percentage.png"
+                        layout="fill"
+                        objectFit="contain"
+                        alt="percentage image"
+                      />
+                    ) : (
+                      <Image
+                        src="/assets/darkpercentage.png"
+                        layout="fill"
+                        objectFit="contain"
+                        alt="percentage image"
+                      />
+                    )}
+                  </div>
                 </CardContent>
               </Card>
             </div>
 
-            <div className="flex flex-col gap-4 flex-1 w-full">
-              <Card className="bg-none border-none p-0 shadow-none">
+            <div className="flex flex-col gap-8 flex-1 w-full">
+              <Card className="bg-transparent border-none p-0 shadow-none">
                 <CardHeader className="flex flex-row items-center p-0 justify-between space-y-0 pb-2">
-                  <CardTitle className="text-sm font-medium">
+                  <CardTitle
+                    className={cn(
+                      "text-xs font-medium",
+                      theme === "light"
+                        ? "text-[#414C5E]"
+                        : "text-[#E6E9FF]"
+                    )}
+                  >
                     TVL
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="p-0">
-                  <div className=" font-semibold">
+                  <div
+                    className={cn(
+                      "font-semibold text-md md:text-xl",
+                      theme === "light"
+                        ? "text-[#484856]"
+                        : "text-white"
+                    )}
+                  >
                     $760,000
                   </div>
                 </CardContent>
               </Card>
 
-              <Card className=" ">
-                <CardHeader className="flex flex-row items-center p-2 justify-between space-y-0 pb-2">
-                  <CardTitle className="text-sm font-medium">
-                    Stats
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="relative p-0  h-32">
-                  <div className="w-full h-full relative">
-                    <div className="px-2  font-semibold mb-4">
-                      3.8k
-                    </div>
-                    <Image
-                      src="/assets/charts/chartup.png"
-                      className="absolute bottom-[-25px] right-0 left-0"
-                      alt="chart up"
-                      width={200}
-                      height={200}
-                    />
-                  </div>
-                </CardContent>
-              </Card>
+              {theme === "light" ? (
+                <Image
+                  width={120}
+                  height={120}
+                  src="/assets/lightstats.png"
+                  alt="light stats"
+                />
+              ) : (
+                <Image
+                  width={120}
+                  height={120}
+                  src="/assets/darkStats.png"
+                  alt="sark stats"
+                />
+              )}
             </div>
           </div>
         </CardContent>
+
         <CardFooter className="flex justify-between">
           <Button className="w-full" size="lg">
             See Details
           </Button>
         </CardFooter>
       </Card>
+
+      {theme === "light" ? (
+        <Image
+          src="/assets/lightglass.png"
+          layout="fill"
+          alt="class square"
+          className="absolute -z-30 !top-[3%] !left-[3%] w-full h-full"
+          data-aos="zoom-in"
+        />
+      ) : (
+        <Image
+          src="/assets/darkglass.png"
+          layout="fill"
+          alt="class square"
+          className="absolute -z-5 !top-[3%] !left-[3%] w-full h-full"
+          data-aos="zoom-in"
+        />
+      )}
     </div>
   );
 };

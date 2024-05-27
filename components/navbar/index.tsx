@@ -24,7 +24,7 @@ const Navbar = () => {
   const {theme, setTheme} = useTheme();
 
   return (
-    <div className="relative z-10">
+    <div className="relative z-10 bg-card">
       <div className="max-w-[1164px] mx-auto px-4 py-6 flex items-center gap-4 justify-between text-foreground">
         <Image
           src={
@@ -37,7 +37,7 @@ const Navbar = () => {
           height={200}
         />
 
-        <div className="hidden md:flex items-center gap-4 ">
+        {/* <div className="hidden md:flex items-center gap-4 ">
           <Link
             href="#"
             className="text-base p-2  hover:text-primary rounded-md"
@@ -56,28 +56,30 @@ const Navbar = () => {
           >
             Products
           </Link>
-        </div>
+        </div> */}
 
         <div className="hidden md:flex items-center gap-4">
-          <ModeToggle />
           <Button
             variant="default"
             className="hidden md:block"
           >
             Launch App
           </Button>
+          <ModeToggle />
         </div>
 
         <div className="flex md:hidden">
           <Sheet>
-            <SheetTrigger asChild>
-              <div className="flex items-center gap-2">
-                <ModeToggle />
-                <Button variant="outline" size="icon">
-                  <Menu />
-                </Button>
-              </div>
-            </SheetTrigger>
+            <div className="flex items-center gap-2">
+              <ModeToggle />
+              <SheetTrigger asChild>
+                <div className="flex items-center gap-2">
+                  <Button variant="outline" size="icon">
+                    <Menu />
+                  </Button>
+                </div>
+              </SheetTrigger>
+            </div>
             <SheetContent side="left">
               <SheetHeader className="mb-8">
                 <SheetTitle className="text-left">

@@ -10,6 +10,7 @@ import {
 
 import Image from "next/image";
 import {useTheme} from "next-themes";
+import {cn} from "@/lib/utils";
 
 interface IFeatureCardPros {
   title: string;
@@ -28,14 +29,14 @@ const FeaturedCard = ({
   return (
     <div className="relative overflow-visible">
       <Card
-        className={` relative h-[420px] z-10 overflow-clip ${
+        className={` relative min-h-[370px] md:min-h-[400px] z-10 overflow-clip ${
           theme === "light"
             ? "!bg-white"
             : "!bg-['#1E1E22']"
         } `}
         data-aos="fade-up"
       >
-        <CardHeader>
+        <CardHeader className="pb-2">
           <div className="mb-2 h-16 w-16 bg-primary rounded-full flex items-center justify-center">
             <Image
               src={icon}
@@ -44,12 +45,25 @@ const FeaturedCard = ({
               height={35}
             />
           </div>
-          <CardTitle className="text-foreground text-xl font-semibold">
+          <CardTitle
+            className={cn(
+              "text-xl font-semibold",
+              theme === "light"
+                ? "text-[#252C4E]"
+                : "text-white"
+            )}
+          >
             {title}
           </CardTitle>
         </CardHeader>
 
-        <CardContent className="text-muted-foreground">
+        <CardContent
+          className={cn("text-sm md:text-base",
+            theme === "light"
+              ? "text-[#545978]"
+              : "text-white"
+          )}
+        >
           {description}
         </CardContent>
 
@@ -78,7 +92,7 @@ const FeaturedCard = ({
         src="/assets/glassSquare.png"
         layout="fill"
         alt="class square"
-        className="absolute -z-1 !top-[3%] !left-[3%] w-full h-full"
+        className="absolute -z-5 !top-[3%] !left-[3%] w-full h-full"
         data-aos="fade-up"
       />
     </div>

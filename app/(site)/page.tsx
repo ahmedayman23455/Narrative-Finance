@@ -40,6 +40,7 @@ import {
   ArrowLeftIcon,
   ArrowRightIcon,
 } from "@radix-ui/react-icons";
+import {cn} from "@/lib/utils";
 
 export default function Home() {
   const [isMounted, setIsMounted] = useState(false);
@@ -63,25 +64,46 @@ export default function Home() {
               className="max-w-[500px] flex  gap-10 flex-col"
               data-aos="fade-right"
             >
-              <h1 className="text-3xl md:text-4xl font-bold text-foreground">
+              <h1
+                className={cn(
+                  "text-2xl  md:text-4xl font-bold text-foreground",
+                  theme === "dark"
+                    ? "text-white"
+                    : "text-[#1D2939]"
+                )}
+              >
                 Tokenizing The Most Bullish Narratives
               </h1>
 
-              <p className="text-muted-foreground">
+              <p
+                className={cn(
+                  "text-muted-foreground",
+                  theme === "dark"
+                    ? "text-white"
+                    : "text-black"
+                )}
+              >
                 Decentralized Protocol For Narrative-Driven
                 Index Funds. Never miss a rotation, Never
                 miss a Pump.
               </p>
 
               <div className="flex items-center gap-4 ">
-                <Button size="lg"> Launch app</Button>
+                <Button size="lg">Get started</Button>
                 <Button
                   variant="link"
                   size="lg"
                   className="text-primary mx-0"
                   asChild
                 >
-                  <Link href="#" className="!p-0">
+                  <Link
+                    href="#"
+                    className={`!p-0 underline ${
+                      theme === "dark"
+                        ? "text-white"
+                        : "text-[#2466D7"
+                    }`}
+                  >
                     Checkout Features
                   </Link>
                 </Button>
@@ -127,6 +149,17 @@ export default function Home() {
       {/*  carousel section */}
       <div>
         <div className=" max-w-[1164px] mx-auto px-4 mt-4 md:mt-10">
+          <h2
+            className={cn(
+              "text-2xl md:text-3xl font-semibold my-8",
+              theme === "dark"
+                ? "text-white"
+                : "text-[#484856]"
+            )}
+          >
+            Featured Narratives
+          </h2>
+
           <Swiper
             modules={[
               Navigation,
@@ -134,7 +167,8 @@ export default function Home() {
               Scrollbar,
               A11y,
             ]}
-            spaceBetween={16}
+            slidesPerGroup={3}
+            spaceBetween={24}
             slidesPerView={1}
             breakpoints={{
               768: {
@@ -150,22 +184,249 @@ export default function Home() {
             onSlideChange={() =>
               console.log("slide change")
             }
-            navigation
+            // className="overflow-x-visible"
           >
             <SwiperSlide>
-              <CarouselCard />
+              <CarouselCard
+                title="Solana Narrative"
+                badge="$N-Sol"
+                vectorColor="blue"
+              >
+                <Image
+                  src="/assets/coins/coin1.png"
+                  width={28}
+                  height={28}
+                  alt="coin image"
+                />
+                <Image
+                  src="/assets/coins/coin2.png"
+                  width={28}
+                  height={28}
+                  alt="coin image"
+                />
+                <Image
+                  src="/assets/coins/coin3.png"
+                  width={28}
+                  height={28}
+                  alt="coin image"
+                />
+              </CarouselCard>
             </SwiperSlide>
 
             <SwiperSlide>
-              <CarouselCard />
+              <CarouselCard
+                title="AI Narrative"
+                badge="$N-AI"
+                vectorColor="red"
+              >
+                <Image
+                  src="/assets/coins/coin4.png"
+                  width={28}
+                  height={28}
+                  alt="coin image"
+                />
+                <Image
+                  src="/assets/coins/coin5.png"
+                  width={28}
+                  height={28}
+                  alt="coin image"
+                />
+                <Image
+                  src="/assets/coins/coin6.png"
+                  width={28}
+                  height={28}
+                  alt="coin image"
+                />
+              </CarouselCard>
             </SwiperSlide>
 
             <SwiperSlide>
-              <CarouselCard />
+              <CarouselCard
+                title="MEME Narrative"
+                badge="$N-MEME"
+                vectorColor="blue"
+              >
+                <Image
+                  src="/assets/coins/coin7.png"
+                  width={28}
+                  height={28}
+                  alt="coin image"
+                />
+                <Image
+                  src="/assets/coins/coin8.png"
+                  width={28}
+                  height={28}
+                  alt="coin image"
+                />
+                <Image
+                  src="/assets/coins/coin9.png"
+                  width={28}
+                  height={28}
+                  alt="coin image"
+                />
+              </CarouselCard>
             </SwiperSlide>
 
             <SwiperSlide>
-              <CarouselCard />
+              <CarouselCard
+                title="EVM Narrative"
+                badge="$N-EVM"
+                vectorColor="blue"
+              >
+                <Image
+                  src="/assets/coins/coin10.png"
+                  width={28}
+                  height={28}
+                  alt="coin image"
+                />
+                <Image
+                  src="/assets/coins/coin11.png"
+                  width={28}
+                  height={28}
+                  alt="coin image"
+                />
+                <Image
+                  src="/assets/coins/coin12.png"
+                  width={28}
+                  height={28}
+                  alt="coin image"
+                />
+              </CarouselCard>
+            </SwiperSlide>
+
+            <SwiperSlide>
+              <CarouselCard
+                title="DeFi Narrative"
+                badge="$N-Defi"
+                vectorColor="red"
+              >
+                <Image
+                  src="/assets/coins/coin13.png"
+                  width={28}
+                  height={28}
+                  alt="coin image"
+                />
+                <Image
+                  src="/assets/coins/coin14.png"
+                  width={28}
+                  height={28}
+                  alt="coin image"
+                />
+                <Image
+                  src="/assets/coins/coin15.png"
+                  width={28}
+                  height={28}
+                  alt="coin image"
+                />
+              </CarouselCard>
+            </SwiperSlide>
+
+            <SwiperSlide>
+              <CarouselCard
+                title="DePin Narrative"
+                badge="$N-DePin"
+                vectorColor="blue"
+              >
+                <Image
+                  src="/assets/coins/coin16.png"
+                  width={28}
+                  height={28}
+                  alt="coin image"
+                />
+                <Image
+                  src="/assets/coins/coin17.png"
+                  width={28}
+                  height={28}
+                  alt="coin image"
+                />
+                <Image
+                  src="/assets/coins/coin18.png"
+                  width={28}
+                  height={28}
+                  alt="coin image"
+                />
+              </CarouselCard>
+            </SwiperSlide>
+
+            <SwiperSlide>
+              <CarouselCard
+                title="GameFi Narrative"
+                badge="$N-GameFi"
+                vectorColor="blue"
+              >
+                <Image
+                  src="/assets/coins/coin19.png"
+                  width={28}
+                  height={28}
+                  alt="coin image"
+                />
+                <Image
+                  src="/assets/coins/coin20.png"
+                  width={28}
+                  height={28}
+                  alt="coin image"
+                />
+                <Image
+                  src="/assets/coins/coin21.png"
+                  width={28}
+                  height={28}
+                  alt="coin image"
+                />
+              </CarouselCard>
+            </SwiperSlide>
+
+            <SwiperSlide>
+              <CarouselCard
+                title="RWA Narrative"
+                badge="$N-RWA"
+                vectorColor="red"
+              >
+                <Image
+                  src="/assets/coins/coin22.png"
+                  width={28}
+                  height={28}
+                  alt="coin image"
+                />
+                <Image
+                  src="/assets/coins/coin23.png"
+                  width={28}
+                  height={28}
+                  alt="coin image"
+                />
+                <Image
+                  src="/assets/coins/coin24.png"
+                  width={28}
+                  height={28}
+                  alt="coin image"
+                />
+              </CarouselCard>
+            </SwiperSlide>
+
+            <SwiperSlide>
+              <CarouselCard
+                title="BRC20 Narrative"
+                badge="$N-BRC20"
+                vectorColor="blue"
+              >
+                <Image
+                  src="/assets/coins/coin25.png"
+                  width={28}
+                  height={28}
+                  alt="coin image"
+                />
+                <Image
+                  src="/assets/coins/coin26.png"
+                  width={28}
+                  height={28}
+                  alt="coin image"
+                />
+                <Image
+                  src="/assets/coins/coin27.png"
+                  width={28}
+                  height={28}
+                  alt="coin image"
+                />
+              </CarouselCard>
             </SwiperSlide>
           </Swiper>
         </div>
@@ -174,9 +435,16 @@ export default function Home() {
       {/*  companines section*/}
       <div className="relative overflow-visible overflow-x-clip">
         <div className=" max-w-[1164px] mx-auto  mt-12 md:mt-24 px-4 ">
-          <Card className="border-none bg-none border-none companeis-section">
+          <Card className="companeis-section">
             <CardHeader>
-              <CardTitle className="text-xl font-semibold text-center">
+              <CardTitle
+                className={cn(
+                  "text-2xl md:text-3xl font-semibold text-center",
+                  theme === "dark"
+                    ? "text-white"
+                    : "text-[#484856]"
+                )}
+              >
                 Narratives Ecosystem
               </CardTitle>
             </CardHeader>
@@ -250,17 +518,17 @@ export default function Home() {
       </div>
 
       {/* Earnup to 25% APY */}
-      <div className="relative overflow-visible overflow-x-clip">
-        <div className="max-w-[1164px] mx-auto mt-12 md:mt-24 px-4">
+      <div className="relative overflow-visible overflow-x-clip ">
+        <div className="max-w-[1164px] mx-auto mt-12 md:mt-24 px-4  ">
           <div
             className="relative p-8 md:p-16 bg-primary text-white rounded-3xl flex flex-col md:flex-row 
-          items-center gap-8 md:gap-4 min-h-[400px] overflow-hidden"
+          items-center gap-8 md:gap-4 min-h-[400px] overflow-hidden border border-white border-4"
           >
             <div
               className="flex flex-col gap-8 max-w-[500px] "
               data-aos="fade-right"
             >
-              <h3 className="text-3xl md:text-4xl font-bold">
+              <h3 className="text-2xl  md:text-4xl font-bold">
                 Earn Up to 25% APY Staking Narratives $N
               </h3>
               <p>
@@ -273,7 +541,7 @@ export default function Home() {
               <div className="flex items-center gap-2">
                 <Button
                   size="lg"
-                  className="bg-white text-[#0f172a] hover:bg-white hover:opacity-80"
+                  className="bg-white  text-primary hover:bg-white hover:opacity-80"
                 >
                   Buy $N
                 </Button>
@@ -282,7 +550,7 @@ export default function Home() {
                   className="border border-white bg-transparent text-white flex items-center gap-2 hover:opacity-80"
                 >
                   <File size={16} />
-                  <span>Docs</span>
+                  <span className="underline">Docs</span>
                 </Button>
               </div>
             </div>
@@ -329,13 +597,26 @@ export default function Home() {
       </div>
 
       {/* Features Section */}
-      <div className="relative overflow-visible overflow-x-clip">
+      <div className="relative overflow-visible overflow-x-clip mb-44">
         <div className=" max-w-[1164px] mx-auto px-4 mt-12 md:mt-24 flex flex-col gap-6 ">
-          <h2 className="text-2xl font-semibold">
+          <h2
+            className={cn(
+              "text-2xl md:text-3xl font-semibold",
+              theme === "light"
+                ? "text-[#484856]"
+                : "text-white"
+            )}
+          >
             Why Narratives protocol ?
           </h2>
 
-          <p className="text-muted-foreground">
+          <p
+            className={cn(
+              theme === "light"
+                ? "text-[#292D32]"
+                : "text-white"
+            )}
+          >
             Welcome to Narratives Protocol, a cutting-edge
             cryptocurrency protocol platform designed to
             revolutionize the way we interact with digital
@@ -343,7 +624,7 @@ export default function Home() {
             stands out:
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <FeaturedCard
               title="Diversify With Ease"
               description="Experience lightning-fast transaction speeds with our high-throughput architecture. Narratives Protocol is engineered to handle a large number of transactions per second,
@@ -370,21 +651,21 @@ export default function Home() {
               title="Governance Token"
               description="Narratives Holders will be able to vote on key decisions such as asset allocation and new asset onboarding. Narratives is a decentralized Index fund with rewards to all holders."
               icon="/assets/icons/trade.png"
-              vectorColor="red"
+              vectorColor="blue"
             />
 
             <FeaturedCard
               title="Built-in Staking"
               description="Participate in the network and earn rewards by leveraging our built-in staking Protocol. $N stakers will get protocol fees distributed directly into their wallet. "
               icon="/assets/icons/archive.png"
-              vectorColor="blue"
+              vectorColor="red"
             />
 
             <FeaturedCard
               title="Low Fees"
               description="Narratives Protocol prioritizes cost-effectiveness by offering low transaction fees. Say goodbye to exorbitant fees and. Enjoy the benefits of a cost-efficient platform that makes blockchain technology accessible to a broader audience."
               icon="/assets/icons/money-recive.png"
-              vectorColor="red"
+              vectorColor="blue"
             />
           </div>
         </div>
