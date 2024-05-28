@@ -504,14 +504,14 @@ export default function Home() {
           </Card>
         </div>
         <Image
-          className="absolute -top-[270px] -right-[120px]"
+          className="absolute hidden md:block -top-[270px] -right-[120px]"
           src="/assets/blueShadow.webp"
           alt="squiggle"
           width={1000}
           height={1000}
         />
         <Image
-          className="absolute -top-[370px] -left-[120px] rotate-180"
+          className="absolute hidden md:block -top-[370px] -left-[120px] rotate-180"
           src="/assets/blueShadow.webp"
           alt="squiggle"
           width={1000}
