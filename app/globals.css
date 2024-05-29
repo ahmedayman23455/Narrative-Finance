@@ -73,12 +73,13 @@ body,
 
 .companeis-section {
   border-radius: 15px;
-  border: 1px solid #fff;
-  background: linear-gradient(
+  border:0px
+  /* border: 1px solid #fff; */
+  /* background: linear-gradient(
     316deg,
     rgba(230, 233, 255, 0.55) -8.43%,
     rgba(230, 233, 255, 0) 45.63%
-  );
+  ); */
 }
 
 .swiper {  

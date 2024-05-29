@@ -590,7 +590,7 @@ export default function Home() {
         </div>
 
         <Image
-          className="absolute left-0 -top-[95%] -z-10"
+          className="absolute left-0 -top-[95%] -z-10 hidden md:block"
           src="/assets/redShadow.webp"
           alt="squiggle"
           width={1200}
