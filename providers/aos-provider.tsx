@@ -15,7 +15,7 @@ const AOSProvider = ({
         easing: "ease-out-quad",
         duration: 1000,
         once: false,
-        offset: 80,
+        offset: 10,
       });
     }, 500);
   }, []);
