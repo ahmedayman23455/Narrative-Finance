@@ -24,7 +24,7 @@ const Footer = () => {
           <div className="flex flex-col gap-8 max-w-[300px] ">
             {/* <div className="relative h-25 w-25 md"> */}
               <Image
-                src="/assets/footerLogo.png"
+                src="/assets/site/footerLogo.png"
                 alt="Logo"
                 layout="responsive" 
                 width={250}

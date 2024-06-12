@@ -19,50 +19,35 @@ const CarouselCard = ({
   vectorColor,
   title,
   badge,
-  children,
+  images,
+  price,
+  tvl,
 }: {
   vectorColor: "red" | "blue";
   title: string;
   badge: string;
-  children: React.ReactNode;
+
+  images: string[];
+  price: string;
+  tvl: string;
 }) => {
   const {theme} = useTheme();
 
   return (
     <div data-aos="zoom-in" className="relative   ">
-      <Card
-        className={`relative z-50 bg-transparent  border ${
-          theme === "light"
-            ? "border-white bg-white"
-            : "border-[#787878] bg-[#1E1E22]"
-        }`}
-      >
-        <CardHeader
-          className={`rounded-tl-xl  rounded-tr-xl ${
-            theme === "light"
-              ? "bg-white border-b-white carouselCardHeaderShadow"
-              : "bg-[#242424] border-b-[#787878]"
-          }
-         relative overflow-clip h-24   h-max border-b border 
-        `}
-        >
+      <Card className="relative z-50 bg-transparent  border border-white bg-white dark:border-[#787878] dark:bg-[#1E1E22]">
+        <CardHeader className="relative overflow-clip h-24 h-max border-b border rounded-tl-xl  rounded-tr-xl bg-white border-b-white carouselCardHeaderShadow dark:bg-[#242424] dark:border-b-[#787878] ">
           <CardTitle className="text-lg text-primary-foreground flex items-center gap-2 relative z-2">
             <Image
               width={60}
               height={60}
-              src="/assets/logoIcon.png"
+              src="/assets/site/logoIcon.png"
               alt="card icon"
             />
 
             <div className="flex flex-col gap-1">
               <div className="flex items-center gap-2">
-                <h3
-                  className={cn(
-                    theme === "light"
-                      ? "text-[#484856]"
-                      : "text-white"
-                  )}
-                >
+                <h3 className="text-[#484856] dark:text-white">
                   {title}
                 </h3>
 
@@ -79,14 +64,7 @@ const CarouselCard = ({
                 </svg>
               </div>
 
-              <div
-                className={cn(
-                  " px-2 rounded-[2px] text-foreground text-xs w-max",
-                  theme === "light"
-                    ? "bg-[#E4E7EC] text-[#484856]"
-                    : "bg-[#1E1E22]"
-                )}
-              >
+              <div className="px-2 rounded-[2px] text-foreground text-xs w-max  bg-[#E4E7EC] text-[#484856] dark:bg-[#1E1E22]">
                 {badge}
               </div>
             </div>
@@ -94,7 +72,7 @@ const CarouselCard = ({
 
           {vectorColor === "red" ? (
             <Image
-              src="/assets/vectorRed1.png"
+              src="/assets/site/vectorRed1.png"
               width={120}
               height={120}
               alt="vector"
@@ -102,7 +80,7 @@ const CarouselCard = ({
             />
           ) : (
             <Image
-              src="/assets/vectorBlue1.png"
+              src="/assets/site/vectorBlue1.png"
               width={120}
               height={120}
               alt="vector"
@@ -117,45 +95,38 @@ const CarouselCard = ({
               <Card className="bg-transparent border-none p-0 shadow-none">
                 <CardHeader className="flex flex-row items-center p-0 justify-between space-y-0 pb-2">
                   <CardTitle
-                    className={cn(
-                      "text-xs font-medium",
-                      theme === "light"
-                        ? "text-[#414C5E]"
-                        : "text-[#E6E9FF]"
-                    )}
+                    className={
+                      "text-xs font-medium text-[#414C5E] dark:text-[#E6E9FF]"
+                    }
                   >
                     Price
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="p-0">
-                  <div
-                    className={cn(
-                      "font-semibold text-md md:text-xl",
-                      theme === "light"
-                        ? "text-[#484856]"
-                        : "text-white"
-                    )}
-                  >
-                    $500
+                  <div className="font-semibold text-md md:text-xl text-[#484856] dark:text-white">
+                    {price}
                   </div>
                 </CardContent>
               </Card>
 
               <Card className="bg-transparent border-none p-0 shadow-none">
                 <CardHeader className="flex flex-row items-center p-0 justify-between space-y-0 pb-2">
-                  <CardTitle
-                    className={cn(
-                      "text-xs font-medium",
-                      theme === "light"
-                        ? "text-[#414C5E]"
-                        : "text-[#E6E9FF]"
-                    )}
-                  >
+                  <CardTitle className="text-xs font-medium text-[#414C5E] dark:text-[#E6E9FF]">
                     composition
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="flex items-center  p-0">
-                  {children}
+                  {images.map((image, index) => {
+                    return (
+                      <Image
+                        key={index}
+                        src={image}
+                        width={28}
+                        height={28}
+                        alt="coin image"
+                      />
+                    );
+                  })}
 
                   <div className="h-7 w-7 text-white text-xs text-center bg-[#1D9BF0] rounded-full flex items-center justify-center">
                     +10
@@ -168,7 +139,7 @@ const CarouselCard = ({
                   <div className="relative h-24 w-24">
                     {theme === "light" ? (
                       <Image
-                        src="/assets/lightpercentage.png"
+                        src="/assets/site/lightpercentage.png"
                         layout="fill"
                         objectFit="contain"
                         alt="percentage image"
@@ -176,7 +147,7 @@ const CarouselCard = ({
                       />
                     ) : (
                       <Image
-                        src="/assets/darkpercentage.png"
+                        src="/assets/site/darkpercentage.png"
                         layout="fill"
                         objectFit="contain"
                         alt="percentage image"
@@ -191,27 +162,13 @@ const CarouselCard = ({
             <div className="flex flex-col gap-8 flex-1 w-full">
               <Card className="bg-transparent border-none p-0 shadow-none">
                 <CardHeader className="flex flex-row items-center p-0 justify-between space-y-0 pb-2">
-                  <CardTitle
-                    className={cn(
-                      "text-xs font-medium",
-                      theme === "light"
-                        ? "text-[#414C5E]"
-                        : "text-[#E6E9FF]"
-                    )}
-                  >
+                  <CardTitle className="text-xs font-medium text-[#414C5E] dark:text-[#E6E9FF]">
                     TVL
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="p-0">
-                  <div
-                    className={cn(
-                      "font-semibold text-md md:text-xl",
-                      theme === "light"
-                        ? "text-[#484856]"
-                        : "text-white"
-                    )}
-                  >
-                    $760,000
+                  <div className="font-semibold text-md md:text-xl text-[#484856] dark:text-white">
+                    {tvl}
                   </div>
                 </CardContent>
               </Card>
@@ -220,7 +177,7 @@ const CarouselCard = ({
                 <Image
                   width={120}
                   height={120}
-                  src="/assets/lightstats.png"
+                  src="/assets/site/lightstats.png"
                   alt="light stats"
                   priority={true}
                 />
@@ -228,7 +185,7 @@ const CarouselCard = ({
                 <Image
                   width={120}
                   height={120}
-                  src="/assets/darkstats.png"
+                  src="/assets/site/darkstats.png"
                   alt="dark stats"
                   priority={true}
                 />
@@ -246,7 +203,7 @@ const CarouselCard = ({
 
       {theme === "light" ? (
         <Image
-          src="/assets/lightglass.png"
+          src="/assets/site/lightglass.png"
           layout="fill"
           alt="class square"
           className="absolute -z-30 !top-[3%] !left-[3%] w-full h-full"
@@ -254,7 +211,7 @@ const CarouselCard = ({
         />
       ) : (
         <Image
-          src="/assets/darkglass.png"
+          src="/assets/site/darkglass.png"
           layout="fill"
           alt="class square"
           className="absolute -z-5 !top-[3%] !left-[3%] w-full h-full"

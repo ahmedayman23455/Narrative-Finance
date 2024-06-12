@@ -29,11 +29,7 @@ const FeaturedCard = ({
   return (
     <div className="relative overflow-visible">
       <Card
-        className={` relative min-h-[370px] md:min-h-[400px] z-10 overflow-clip ${
-          theme === "light"
-            ? "!bg-white"
-            : "!bg-['#1E1E22']"
-        } `}
+        className=" relative min-h-[370px] md:min-h-[400px] z-10 overflow-clip bg-white dark:bg-[#1E1E22] "
         data-aos="fade-up"
       >
         <CardHeader className="pb-2">
@@ -45,31 +41,18 @@ const FeaturedCard = ({
               height={35}
             />
           </div>
-          <CardTitle
-            className={cn(
-              "text-xl font-semibold",
-              theme === "light"
-                ? "text-[#252C4E]"
-                : "text-white"
-            )}
-          >
+          <CardTitle className="text-xl font-semibold  text-[#252C4E] dark:text-white  ">
             {title}
           </CardTitle>
         </CardHeader>
 
-        <CardContent
-          className={cn("text-sm md:text-base",
-            theme === "light"
-              ? "text-[#545978]"
-              : "text-white"
-          )}
-        >
+        <CardContent className="text-sm md:text-base  text-[#545978] dark:text-white ">
           {description}
         </CardContent>
 
         {vectorColor === "red" && (
           <Image
-            src="/assets/vectorRed2.png"
+            src="/assets/site/vectorRed2.png"
             alt="image"
             width={200}
             height={200}
@@ -79,7 +62,7 @@ const FeaturedCard = ({
 
         {vectorColor === "blue" && (
           <Image
-            src="/assets/vectorBlue2.png"
+            src="/assets/site/vectorBlue2.png"
             alt="image"
             width={200}
             height={200}
@@ -89,7 +72,7 @@ const FeaturedCard = ({
       </Card>
 
       <Image
-        src="/assets/glassSquare.png"
+        src="/assets/site/glassSquare.png"
         layout="fill"
         alt="class square"
         className="absolute -z-5 !top-[3%] !left-[3%] w-full h-full"

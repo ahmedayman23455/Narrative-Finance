@@ -20,26 +20,16 @@ import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import {Button} from "@/components/ui/button";
 import CarouselCard from "@/components/site/carousel-card";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
+
 import {
   Card,
   CardContent,
-  CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+
 import FeaturedCard from "@/components/site/featured-card";
-import {
-  ArrowLeftIcon,
-  ArrowRightIcon,
-} from "@radix-ui/react-icons";
+
 import {cn} from "@/lib/utils";
 
 export default function Home() {
@@ -66,23 +56,13 @@ export default function Home() {
             >
               <h1
                 className={cn(
-                  "text-2xl  md:text-4xl font-bold text-foreground",
-                  theme === "dark"
-                    ? "text-white"
-                    : "text-[#1D2939]"
+                  "text-2xl  md:text-4xl font-bold   text-[#1D2939] dark:text-white"
                 )}
               >
                 Tokenizing The Most Bullish Narratives
               </h1>
 
-              <p
-                className={cn(
-                  "text-muted-foreground",
-                  theme === "dark"
-                    ? "text-white"
-                    : "text-black"
-                )}
-              >
+              <p className="text-muted-foreground text-black dark:text-white">
                 Decentralized Protocol For Narrative-Driven
                 Index Funds. Never miss a rotation, Never
                 miss a Pump.
@@ -98,11 +78,7 @@ export default function Home() {
                 >
                   <Link
                     href="#"
-                    className={`!p-0 underline ${
-                      theme === "dark"
-                        ? "text-white"
-                        : "text-[#2466D7"
-                    }`}
+                    className="!p-0 underline text-[#2466D7] dark:text-white"
                   >
                     Checkout Features
                   </Link>
@@ -112,7 +88,7 @@ export default function Home() {
 
             <div data-aos="fade-left">
               <Image
-                src="/assets/heroImage.webp"
+                src="/assets/site/heroImage.webp"
                 height={420}
                 width={420}
                 alt="hero image"
@@ -123,7 +99,7 @@ export default function Home() {
 
         <Image
           className="absolute -top-1/4 right-0"
-          src="/assets/blueShadow.webp"
+          src="/assets/site/blueShadow.webp"
           alt="squiggle"
           width={600}
           height={600}
@@ -131,7 +107,7 @@ export default function Home() {
 
         <Image
           className="absolute left-0 -bottom-80 -z-10"
-          src="/assets/redShadow.webp"
+          src="/assets/site/redShadow.webp"
           alt="squiggle"
           width={600}
           height={600}
@@ -139,7 +115,7 @@ export default function Home() {
 
         <Image
           className="absolute left-0 -bottom-1/4 -z-10"
-          src="/assets/shape.webp"
+          src="/assets/site/shape.webp"
           alt="squiggle"
           width={200}
           height={200}
@@ -149,14 +125,7 @@ export default function Home() {
       {/*  carousel section */}
       <div>
         <div className=" max-w-[1164px] mx-auto px-4 mt-4 md:mt-10">
-          <h2
-            className={cn(
-              "text-2xl md:text-3xl font-semibold my-8",
-              theme === "dark"
-                ? "text-white"
-                : "text-[#484856]"
-            )}
-          >
+          <h2 className="text-2xl md:text-3xl font-semibold my-8 text-[#484856] dark:text-white">
             Featured Narratives
           </h2>
 
@@ -173,46 +142,29 @@ export default function Home() {
             breakpoints={{
               768: {
                 slidesPerView: 2,
-                slidesPerGroup:2
+                slidesPerGroup: 2,
               },
               1024: {
                 slidesPerView: 3,
-                slidesPerGroup:3
+                slidesPerGroup: 3,
               },
             }}
             pagination={{clickable: true}}
             scrollbar={{draggable: true}}
-            onSwiper={(swiper) => console.log(swiper)}
-            onSlideChange={() =>
-              console.log("slide change")
-            }
-            // className="overflow-x-visible"
           >
             <SwiperSlide>
               <CarouselCard
                 title="Solana Narrative"
                 badge="$N-Sol"
                 vectorColor="blue"
-              >
-                <Image
-                  src="/assets/coins/coin1.png"
-                  width={28}
-                  height={28}
-                  alt="coin image"
-                />
-                <Image
-                  src="/assets/coins/coin2.png"
-                  width={28}
-                  height={28}
-                  alt="coin image"
-                />
-                <Image
-                  src="/assets/coins/coin3.png"
-                  width={28}
-                  height={28}
-                  alt="coin image"
-                />
-              </CarouselCard>
+                price="$500"
+                tvl="$760.000"
+                images={[
+                  "/assets/site/coins/coin1.png",
+                  "/assets/site/coins/coin2.png",
+                  "/assets/site/coins/coin3.png",
+                ]}
+              />
             </SwiperSlide>
 
             <SwiperSlide>
@@ -220,26 +172,14 @@ export default function Home() {
                 title="AI Narrative"
                 badge="$N-AI"
                 vectorColor="red"
-              >
-                <Image
-                  src="/assets/coins/coin4.png"
-                  width={28}
-                  height={28}
-                  alt="coin image"
-                />
-                <Image
-                  src="/assets/coins/coin5.png"
-                  width={28}
-                  height={28}
-                  alt="coin image"
-                />
-                <Image
-                  src="/assets/coins/coin6.png"
-                  width={28}
-                  height={28}
-                  alt="coin image"
-                />
-              </CarouselCard>
+                price="$500"
+                tvl="$760.000"
+                images={[
+                  "/assets/site/coins/coin1.png",
+                  "/assets/site/coins/coin2.png",
+                  "/assets/site/coins/coin3.png",
+                ]}
+              />
             </SwiperSlide>
 
             <SwiperSlide>
@@ -247,26 +187,14 @@ export default function Home() {
                 title="MEME Narrative"
                 badge="$N-MEME"
                 vectorColor="blue"
-              >
-                <Image
-                  src="/assets/coins/coin7.png"
-                  width={28}
-                  height={28}
-                  alt="coin image"
-                />
-                <Image
-                  src="/assets/coins/coin8.png"
-                  width={28}
-                  height={28}
-                  alt="coin image"
-                />
-                <Image
-                  src="/assets/coins/coin9.png"
-                  width={28}
-                  height={28}
-                  alt="coin image"
-                />
-              </CarouselCard>
+                price="$500"
+                tvl="$760.000"
+                images={[
+                  "/assets/site/coins/coin1.png",
+                  "/assets/site/coins/coin2.png",
+                  "/assets/site/coins/coin3.png",
+                ]}
+              />
             </SwiperSlide>
 
             <SwiperSlide>
@@ -274,26 +202,14 @@ export default function Home() {
                 title="EVM Narrative"
                 badge="$N-EVM"
                 vectorColor="blue"
-              >
-                <Image
-                  src="/assets/coins/coin10.png"
-                  width={28}
-                  height={28}
-                  alt="coin image"
-                />
-                <Image
-                  src="/assets/coins/coin11.png"
-                  width={28}
-                  height={28}
-                  alt="coin image"
-                />
-                <Image
-                  src="/assets/coins/coin12.png"
-                  width={28}
-                  height={28}
-                  alt="coin image"
-                />
-              </CarouselCard>
+                price="$500"
+                tvl="$760.000"
+                images={[
+                  "/assets/site/coins/coin1.png",
+                  "/assets/site/coins/coin2.png",
+                  "/assets/site/coins/coin3.png",
+                ]}
+              />
             </SwiperSlide>
 
             <SwiperSlide>
@@ -301,26 +217,14 @@ export default function Home() {
                 title="DeFi Narrative"
                 badge="$N-Defi"
                 vectorColor="red"
-              >
-                <Image
-                  src="/assets/coins/coin13.png"
-                  width={28}
-                  height={28}
-                  alt="coin image"
-                />
-                <Image
-                  src="/assets/coins/coin14.png"
-                  width={28}
-                  height={28}
-                  alt="coin image"
-                />
-                <Image
-                  src="/assets/coins/coin15.png"
-                  width={28}
-                  height={28}
-                  alt="coin image"
-                />
-              </CarouselCard>
+                price="$500"
+                tvl="$760.000"
+                images={[
+                  "/assets/site/coins/coin1.png",
+                  "/assets/site/coins/coin2.png",
+                  "/assets/site/coins/coin3.png",
+                ]}
+              />
             </SwiperSlide>
 
             <SwiperSlide>
@@ -328,26 +232,14 @@ export default function Home() {
                 title="DePin Narrative"
                 badge="$N-DePin"
                 vectorColor="blue"
-              >
-                <Image
-                  src="/assets/coins/coin16.png"
-                  width={28}
-                  height={28}
-                  alt="coin image"
-                />
-                <Image
-                  src="/assets/coins/coin17.png"
-                  width={28}
-                  height={28}
-                  alt="coin image"
-                />
-                <Image
-                  src="/assets/coins/coin18.png"
-                  width={28}
-                  height={28}
-                  alt="coin image"
-                />
-              </CarouselCard>
+                price="$500"
+                tvl="$760.000"
+                images={[
+                  "/assets/site/coins/coin1.png",
+                  "/assets/site/coins/coin2.png",
+                  "/assets/site/coins/coin3.png",
+                ]}
+              />
             </SwiperSlide>
 
             <SwiperSlide>
@@ -355,26 +247,14 @@ export default function Home() {
                 title="GameFi Narrative"
                 badge="$N-GameFi"
                 vectorColor="blue"
-              >
-                <Image
-                  src="/assets/coins/coin19.png"
-                  width={28}
-                  height={28}
-                  alt="coin image"
-                />
-                <Image
-                  src="/assets/coins/coin20.png"
-                  width={28}
-                  height={28}
-                  alt="coin image"
-                />
-                <Image
-                  src="/assets/coins/coin21.png"
-                  width={28}
-                  height={28}
-                  alt="coin image"
-                />
-              </CarouselCard>
+                price="$500"
+                tvl="$760.000"
+                images={[
+                  "/assets/site/coins/coin1.png",
+                  "/assets/site/coins/coin2.png",
+                  "/assets/site/coins/coin3.png",
+                ]}
+              />
             </SwiperSlide>
 
             <SwiperSlide>
@@ -382,26 +262,14 @@ export default function Home() {
                 title="RWA Narrative"
                 badge="$N-RWA"
                 vectorColor="red"
-              >
-                <Image
-                  src="/assets/coins/coin22.png"
-                  width={28}
-                  height={28}
-                  alt="coin image"
-                />
-                <Image
-                  src="/assets/coins/coin23.png"
-                  width={28}
-                  height={28}
-                  alt="coin image"
-                />
-                <Image
-                  src="/assets/coins/coin24.png"
-                  width={28}
-                  height={28}
-                  alt="coin image"
-                />
-              </CarouselCard>
+                price="$500"
+                tvl="$760.000"
+                images={[
+                  "/assets/site/coins/coin1.png",
+                  "/assets/site/coins/coin2.png",
+                  "/assets/site/coins/coin3.png",
+                ]}
+              />
             </SwiperSlide>
 
             <SwiperSlide>
@@ -409,26 +277,14 @@ export default function Home() {
                 title="BRC20 Narrative"
                 badge="$N-BRC20"
                 vectorColor="blue"
-              >
-                <Image
-                  src="/assets/coins/coin25.png"
-                  width={28}
-                  height={28}
-                  alt="coin image"
-                />
-                <Image
-                  src="/assets/coins/coin26.png"
-                  width={28}
-                  height={28}
-                  alt="coin image"
-                />
-                <Image
-                  src="/assets/coins/coin27.png"
-                  width={28}
-                  height={28}
-                  alt="coin image"
-                />
-              </CarouselCard>
+                price="$500"
+                tvl="$760.000"
+                images={[
+                  "/assets/site/coins/coin1.png",
+                  "/assets/site/coins/coin2.png",
+                  "/assets/site/coins/coin3.png",
+                ]}
+              />
             </SwiperSlide>
           </Swiper>
         </div>
@@ -439,21 +295,14 @@ export default function Home() {
         <div className=" max-w-[1164px] mx-auto  mt-12 md:mt-24 px-4 ">
           <Card className="companeis-section">
             <CardHeader>
-              <CardTitle
-                className={cn(
-                  "text-2xl md:text-3xl font-semibold text-center",
-                  theme === "dark"
-                    ? "text-white"
-                    : "text-[#484856]"
-                )}
-              >
+              <CardTitle className="text-2xl md:text-3xl font-semibold text-center text-[#484856] dark:text-white">
                 Narratives Ecosystem
               </CardTitle>
             </CardHeader>
 
             <CardContent className="flex items-center  flex-wrap justify-center gap-4 md:gap-24">
               <Image
-                src={`/assets/companies/${
+                src={`/assets/site/companies/${
                   theme === "dark" ? "dark" : "light"
                 }/company1.png`}
                 width={100}
@@ -462,7 +311,7 @@ export default function Home() {
                 data-aos="zoom"
               />
               <Image
-                src={`/assets/companies/${
+                src={`/assets/site/companies/${
                   theme === "dark" ? "dark" : "light"
                 }/company2.png`}
                 width={100}
@@ -472,7 +321,7 @@ export default function Home() {
               />
 
               <Image
-                src={`/assets/companies/${
+                src={`/assets/site/companies/${
                   theme === "dark" ? "dark" : "light"
                 }/company3.png`}
                 width={100}
@@ -482,7 +331,7 @@ export default function Home() {
               />
 
               <Image
-                src={`/assets/companies/${
+                src={`/assets/site/companies/${
                   theme === "dark" ? "dark" : "light"
                 }/company4.png`}
                 width={100}
@@ -492,7 +341,7 @@ export default function Home() {
               />
 
               <Image
-                src={`/assets/companies/${
+                src={`/assets/site/companies/${
                   theme === "dark" ? "dark" : "light"
                 }/company5.png`}
                 width={100}
@@ -505,14 +354,14 @@ export default function Home() {
         </div>
         <Image
           className="absolute hidden md:block -top-[270px] -right-[120px]"
-          src="/assets/blueShadow.webp"
+          src="/assets/site/blueShadow.webp"
           alt="squiggle"
           width={1000}
           height={1000}
         />
         <Image
           className="absolute hidden md:block -top-[370px] -left-[120px] rotate-180"
-          src="/assets/blueShadow.webp"
+          src="/assets/site/blueShadow.webp"
           alt="squiggle"
           width={1000}
           height={1000}
@@ -563,7 +412,7 @@ export default function Home() {
             >
               <div className="relative h-[200px] w-[200px] sm:w-[250px] sm:h-[250px] md:h-[300px] md:w-[300px]">
                 <Image
-                  src="/assets/bigCoin.png"
+                  src="/assets/site/bigCoin.png"
                   layout="fill"
                   objectFit="contain"
                   alt="vector"
@@ -572,7 +421,7 @@ export default function Home() {
             </div>
 
             <Image
-              src="/assets/vectorWhite1.png"
+              src="/assets/site/vectorWhite1.png"
               width={120}
               height={120}
               className="absolute top-0 left-0 hidden md:block"
@@ -580,7 +429,7 @@ export default function Home() {
             />
 
             <Image
-              src="/assets/vectorWhite2.png"
+              src="/assets/site/vectorWhite2.png"
               width={250}
               height={250}
               className="absolute bottom-0 right-0 hidden md:block"
@@ -591,7 +440,7 @@ export default function Home() {
 
         <Image
           className="absolute left-0 -top-[95%] -z-10 hidden md:block"
-          src="/assets/redShadow.webp"
+          src="/assets/site/redShadow.webp"
           alt="squiggle"
           width={1200}
           height={1200}
@@ -601,24 +450,11 @@ export default function Home() {
       {/* Features Section */}
       <div className="relative overflow-visible overflow-x-clip mb-44">
         <div className=" max-w-[1164px] mx-auto px-4 mt-12 md:mt-24 flex flex-col gap-6 ">
-          <h2
-            className={cn(
-              "text-2xl md:text-3xl font-semibold",
-              theme === "light"
-                ? "text-[#484856]"
-                : "text-white"
-            )}
-          >
+          <h2 className="text-2xl md:text-3xl font-semibold text-[#484856] dark:text-white">
             Why Narratives protocol ?
           </h2>
 
-          <p
-            className={cn(
-              theme === "light"
-                ? "text-[#292D32]"
-                : "text-white"
-            )}
-          >
+          <p className="text-[#292d32] dark:text-white">
             Welcome to Narratives Protocol, a cutting-edge
             cryptocurrency protocol platform designed to
             revolutionize the way we interact with digital
@@ -631,42 +467,42 @@ export default function Home() {
               title="Diversify With Ease"
               description="Experience lightning-fast transaction speeds with our high-throughput architecture. Narratives Protocol is engineered to handle a large number of transactions per second,
                ensuring that you can execute transactions swiftly and efficiently."
-              icon="/assets/icons/box-remove.png"
+              icon="/assets/site/icons/box-remove.png"
               vectorColor="blue"
             />
 
             <FeaturedCard
               title="Reduce Risk"
               description="Experience lightning-fast transaction speeds with our high-throughput architecture. Narratives Protocol is engineered to handle a large number of transactions per second, ensuring that you can execute transactions swiftly and efficiently"
-              icon="/assets/icons/security-safe.png"
+              icon="/assets/site/icons/security-safe.png"
               vectorColor="red"
             />
 
             <FeaturedCard
               title="Exposure to Upside"
               description="As the demand for blockchain technology grows, Narratives Protocol scales effortlessly to meet the evolving needs of its users. Enjoy a scalable infrastructure that adapts to increasing transaction volumes without compromising performance."
-              icon="/assets/icons/chart.png"
+              icon="/assets/site/icons/chart.png"
               vectorColor="blue"
             />
 
             <FeaturedCard
               title="Governance Token"
               description="Narratives Holders will be able to vote on key decisions such as asset allocation and new asset onboarding. Narratives is a decentralized Index fund with rewards to all holders."
-              icon="/assets/icons/trade.png"
+              icon="/assets/site/icons/trade.png"
               vectorColor="blue"
             />
 
             <FeaturedCard
               title="Built-in Staking"
               description="Participate in the network and earn rewards by leveraging our built-in staking Protocol. $N stakers will get protocol fees distributed directly into their wallet. "
-              icon="/assets/icons/archive.png"
+              icon="/assets/site/icons/archive.png"
               vectorColor="red"
             />
 
             <FeaturedCard
               title="Low Fees"
               description="Narratives Protocol prioritizes cost-effectiveness by offering low transaction fees. Say goodbye to exorbitant fees and. Enjoy the benefits of a cost-efficient platform that makes blockchain technology accessible to a broader audience."
-              icon="/assets/icons/money-recive.png"
+              icon="/assets/site/icons/money-recive.png"
               vectorColor="blue"
             />
           </div>
@@ -674,7 +510,7 @@ export default function Home() {
 
         <Image
           className="absolute top-[180px] -right-[150px]"
-          src="/assets/blueShadow.webp"
+          src="/assets/site/blueShadow.webp"
           alt="squiggle"
           width={1000}
           height={1000}

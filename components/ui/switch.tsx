@@ -39,7 +39,7 @@ const Switch = React.forwardRef<
       {theme === "light" && (
         <>
           <Image
-            src="/assets/mode/darksun.png"
+            src="/assets/site/mode/darksun.png"
             width={20}
             height={20}
             alt="Dark Sun"
@@ -47,7 +47,7 @@ const Switch = React.forwardRef<
           />
 
           <Image
-            src="/assets/mode/darkmoon.png"
+            src="/assets/site/mode/darkmoon.png"
             width={20}
             height={20}
             alt="Dark Moon"
@@ -59,7 +59,7 @@ const Switch = React.forwardRef<
       {theme === "dark" && (
         <>
             <Image
-            src="/assets/mode/lightsun.png"
+            src="/assets/site/mode/lightsun.png"
             width={20}
             height={20}
             alt="Light Sun"
@@ -67,7 +67,7 @@ const Switch = React.forwardRef<
           />
 
           <Image
-            src="/assets/mode/lightmoon.png"
+            src="/assets/site/mode/lightmoon.png"
             width={20}
             height={20}
             alt="Light Moon"

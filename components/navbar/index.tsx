@@ -29,34 +29,13 @@ const Navbar = () => {
         <Image
           src={
             theme === "light"
-              ? "/assets/logoLight.webp"
-              : "/assets/logoDark.webp"
+              ? "/assets/site/logoLight.webp"
+              : "/assets/site/logoDark.webp"
           }
           alt="Logo"
           width={200}
           height={200}
         />
-
-        {/* <div className="hidden md:flex items-center gap-4 ">
-          <Link
-            href="#"
-            className="text-base p-2  hover:text-primary rounded-md"
-          >
-            Why Narratives
-          </Link>
-          <Link
-            href="#"
-            className="text-sm p-2  hover:text-primary rounded-md"
-          >
-            Resources
-          </Link>
-          <Link
-            href="#"
-            className="text-sm p-2  hover:text-primary rounded-md"
-          >
-            Products
-          </Link>
-        </div> */}
 
         <div className="hidden md:flex items-center gap-4">
           <Button
@@ -80,7 +59,7 @@ const Navbar = () => {
                 </div>
               </SheetTrigger>
             </div>
-            <SheetContent side="left">
+            <SheetContent showX side="left">
               <SheetHeader className="mb-8">
                 <SheetTitle className="text-left">
                   Menu
