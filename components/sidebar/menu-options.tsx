@@ -53,7 +53,7 @@ const MenuOptions = ({
 
   return (
     <Sheet modal={!defaultOpen} {...openState}>
-      <div className="fixed top-3 z-20 left-4 right-4 lg:!hidden flex items-center justify-between">
+      <div className="fixed top-0 right-0 left-0 z-[50]  p-4 lg:!hidden flex items-center justify-between ">
         <div className="flex items-center gap-4">
           <SheetTrigger asChild className=" ">
             <Button
@@ -101,7 +101,7 @@ const MenuOptions = ({
           {
             "hidden lg:inline-block z-0 w-[240px] shadow-none ":
               defaultOpen,
-            "inline-block lg:hidden z-[100] ": !defaultOpen,
+            "inline-block lg:hidden z-[400] ": !defaultOpen,
             "bg-[#1E1E1E]": theme === "dark",
             "bg-white": theme === "light",
           }

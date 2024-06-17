@@ -10,7 +10,7 @@ import {
 
 const StatsCard = () => {
   return (
-    <div className="flex-1 w-max bg-white dark:bg-[#222325] dark:border dark:border-[#363638] p-4 rounded-lg shadow-lg">
+    <div className="flex-1 bg-white dark:bg-[#222325] dark:border dark:border-[#363638] p-4 rounded-lg shadow-lg">
       <div className="flex flex-row items-center justify-between space-y-0 pb-2">
         <div className="text-sm font-medium flex items-center gap-2">
           <div className="text-[#484856] dark:text-[#B7B7B7]">
@@ -38,10 +38,10 @@ const StatsCard = () => {
             +10.5%
           </span>
           <span className="text-sm text-[#484856]   dark:text-[#B7B7B7]">
-            <p className="hidden lg:block">
+            <p className="hidden xl:block">
               Over the last 1 week
             </p>
-            <p className="block lg:hidden"> In 1 week </p>
+            <p className="block xl:hidden"> In 1 week </p>
           </span>
         </div>
       </div>

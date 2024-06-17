@@ -9,7 +9,7 @@ const RoutesLayout = ({
   children: React.ReactNode;
 }) => {
   return (
-    <div className="overflow-auto">
+    <div className="overflow-auto ">
       <Sidebar />
 
       {children}
