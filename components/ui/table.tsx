@@ -76,7 +76,7 @@ const TableRow = React.forwardRef<
     <tr
       ref={ref}
       className={cn(
-        "test_solution overflow-hidden rounded-2xl bg-white shadow-sm cursor-pointer border-b transition-colors  data-[state=selected]:bg-muted  ",
+        "test_solution overflow-hidden rounded-2xl  shadow-sm cursor-pointer border-b transition-colors  data-[state=selected]:bg-muted  ",
         className
       )}
       {...props}
@@ -112,8 +112,8 @@ const TableCell = React.forwardRef<
       className={cn(
         ` py-4 px-4 font-semibold text-sm  bg-white
       dark:bg-[#1E1E1E] text-[#484856] dark:text-[#FFFFFF] 
-      align-middle [&:has([role=checkbox])]:pr-0 
-      [&>[role=checkbox]]:translate-y-[2px] dark:border-b dark:border-t  
+      align-middle [&:has([role=checkbox])]:pr-0  dark:!border-t-4 dark:!border-b-4 dark:first:!border-l-4 dark:last:!border-r-4
+      [&>[role=checkbox]]:translate-y-[2px]   first:dark:border-l last:dark:border-r 
       dark:border-[#363638] first:rounded-tl-2xl   first:rounded-bl-2xl last:rounded-tr-2xl   last:rounded-br-2xl `,
         {
           "dark:first:border-l dark:last:border-r ":

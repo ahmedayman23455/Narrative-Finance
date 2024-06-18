@@ -29,7 +29,7 @@ const FeaturedCard = ({
   return (
     <div className="relative overflow-visible">
       <Card
-        className=" relative min-h-[370px] md:min-h-[400px] z-10 overflow-clip bg-white dark:bg-[#1E1E22] "
+        className=" relative min-h-[370px] md:min-h-[370px] z-10 overflow-clip bg-white dark:bg-[#1E1E22] "
         data-aos="fade-up"
       >
         <CardHeader className="pb-2">

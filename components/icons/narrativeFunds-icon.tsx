@@ -10,86 +10,42 @@ const NarrativeFundsIcon = ({
 
   return (
     <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      stroke={
-        theme === "dark" || active === true
-          ? "white"
-          : "black"
-      }
+      width="25"
+      height="25"
+      viewBox="0 0 25 25"
+      fill="none"
     >
       <path
-        d="M17 20.5H7C4 20.5 2 19 2 15.5V8.5C2 5 4 3.5 7 3.5H17C20 3.5 22 5 22 8.5V15.5C22 19 20 20.5 17 20.5Z"
+        d="M9.29539 3.25892L3.90539 7.45892C3.00539 8.15892 2.27539 9.64892 2.27539 10.7789V18.1889C2.27539 20.5089 4.16539 22.4089 6.48539 22.4089H18.0654C20.3854 22.4089 22.2754 20.5089 22.2754 18.1989V10.9189C22.2754 9.70892 21.4654 8.15892 20.4754 7.46892L14.2954 3.13892C12.8954 2.15892 10.6454 2.20892 9.29539 3.25892Z"
         stroke={
           theme === "dark" || active === true
             ? "white"
-            : "black"
+            : "#292D32"
         }
         stroke-width="1.5"
-        stroke-miterlimit="10"
         stroke-linecap="round"
         stroke-linejoin="round"
       />
       <path
-        d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z"
+        d="M16.7754 11.9189L12.5754 16.1189L10.9754 13.7189L7.77539 16.9189"
         stroke={
           theme === "dark" || active === true
             ? "white"
-            : "black"
+            : "#292D32"
         }
         stroke-width="1.5"
-        stroke-miterlimit="10"
         stroke-linecap="round"
         stroke-linejoin="round"
       />
       <path
-        d="M8.5 6H7C5.62 6 4.5 7.12 4.5 8.5V10"
+        d="M14.7754 11.9189H16.7754V13.9189"
         stroke={
           theme === "dark" || active === true
             ? "white"
-            : "black"
+            : "#292D32"
         }
         stroke-width="1.5"
-        stroke-miterlimit="10"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      />
-      <path
-        d="M15.5 6H17C18.38 6 19.5 7.12 19.5 8.5V10"
-        stroke={
-          theme === "dark" || active === true
-            ? "white"
-            : "black"
-        }
-        stroke-width="1.5"
-        stroke-miterlimit="10"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      />
-      <path
-        d="M8.5 18H7C5.62 18 4.5 16.88 4.5 15.5V14"
-        stroke={
-          theme === "dark" || active === true
-            ? "white"
-            : "black"
-        }
-        stroke-width="1.5"
-        stroke-miterlimit="10"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      />
-      <path
-        d="M15.5 18H17C18.38 18 19.5 16.88 19.5 15.5V14"
-        stroke={
-          theme === "dark" || active === true
-            ? "white"
-            : "black"
-        }
-        stroke-width="1.5"
-        stroke-miterlimit="10"
         stroke-linecap="round"
         stroke-linejoin="round"
       />

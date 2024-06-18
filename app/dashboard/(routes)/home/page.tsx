@@ -62,22 +62,21 @@ const HomePage = () => {
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-4">
               <h2 className="text-lg lg:text-2xl font-semibold">
-                Cryptocurrency funds
+                Narrative funds
               </h2>
               <Button className="lg:hidden relative z-10 bg-white text-[#484856] hover:bg-white hover:opacity-80">
                 News
               </Button>
             </div>
             <p className="text-sm lg:text-base">
-              Create on-chain funds or explore funds from
-              the community.
+              Index Funds that track the top Narratives
             </p>
 
             <Button
               size="lg"
               className="w-max bg-white text-[#484856] hover:bg-white hover:opacity-80"
             >
-              Create Funds
+              Narratives Token
               <RightArrow />
             </Button>
           </div>
@@ -121,10 +120,34 @@ const HomePage = () => {
          rounded-xl mt-8"
           >
             <div className="flex flex-wrap items-center gap-4 relative z-30">
-              <StatsCard />
-              <StatsCard />
-              <StatsCard />
-              <StatsCard />
+              <StatsCard
+                tvl="TVL"
+                change24hr="3$"
+                totalValue="$2,279,507"
+                percentageChange="+10.5%"
+                change1week="Over the last 1 week"
+              />
+              <StatsCard
+                tvl="TVL"
+                change24hr="3$"
+                totalValue="$2,279,507"
+                percentageChange="+10.5%"
+                change1week="Over the last 1 week"
+              />
+              <StatsCard
+                tvl="TVL"
+                change24hr="3$"
+                totalValue="$2,279,507"
+                percentageChange="+10.5%"
+                change1week="Over the last 1 week"
+              />
+              <StatsCard
+                tvl="TVL"
+                change24hr="3$"
+                totalValue="$2,279,507"
+                percentageChange="+10.5%"
+                change1week="Over the last 1 week"
+              />
             </div>
           </div>
 

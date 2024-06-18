@@ -53,7 +53,7 @@ const MenuOptions = ({
 
   return (
     <Sheet modal={!defaultOpen} {...openState}>
-      <div className="fixed top-0 right-0 left-0 z-[50]  p-4 lg:!hidden flex items-center justify-between ">
+      <div className="fixed top-0 right-0 left-0 z-[50]  p-4 lg:!hidden flex items-center justify-between  bg-background">
         <div className="flex items-center gap-4">
           <SheetTrigger asChild className=" ">
             <Button

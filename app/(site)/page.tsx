@@ -163,6 +163,9 @@ export default function Home() {
                   "/assets/site/coins/coin1.png",
                   "/assets/site/coins/coin2.png",
                   "/assets/site/coins/coin3.png",
+                  "/assets/site/coins/coin1.png",
+                  "/assets/site/coins/coin2.png",
+                  "/assets/site/coins/coin3.png",
                 ]}
               />
             </SwiperSlide>
@@ -175,9 +178,9 @@ export default function Home() {
                 price="$500"
                 tvl="$760.000"
                 images={[
-                  "/assets/site/coins/coin1.png",
-                  "/assets/site/coins/coin2.png",
-                  "/assets/site/coins/coin3.png",
+                  "/assets/site/coins/coin4.png",
+                  "/assets/site/coins/coin5.png",
+                  "/assets/site/coins/coin6.png",
                 ]}
               />
             </SwiperSlide>
@@ -190,9 +193,9 @@ export default function Home() {
                 price="$500"
                 tvl="$760.000"
                 images={[
-                  "/assets/site/coins/coin1.png",
-                  "/assets/site/coins/coin2.png",
-                  "/assets/site/coins/coin3.png",
+                  "/assets/site/coins/coin7.png",
+                  "/assets/site/coins/coin8.png",
+                  "/assets/site/coins/coin9.png",
                 ]}
               />
             </SwiperSlide>
@@ -205,9 +208,9 @@ export default function Home() {
                 price="$500"
                 tvl="$760.000"
                 images={[
-                  "/assets/site/coins/coin1.png",
-                  "/assets/site/coins/coin2.png",
-                  "/assets/site/coins/coin3.png",
+                  "/assets/site/coins/coin10.png",
+                  "/assets/site/coins/coin11.png",
+                  "/assets/site/coins/coin12.png",
                 ]}
               />
             </SwiperSlide>
@@ -220,9 +223,9 @@ export default function Home() {
                 price="$500"
                 tvl="$760.000"
                 images={[
-                  "/assets/site/coins/coin1.png",
-                  "/assets/site/coins/coin2.png",
-                  "/assets/site/coins/coin3.png",
+                  "/assets/site/coins/coin13.png",
+                  "/assets/site/coins/coin14.png",
+                  "/assets/site/coins/coin15.png",
                 ]}
               />
             </SwiperSlide>
@@ -235,9 +238,9 @@ export default function Home() {
                 price="$500"
                 tvl="$760.000"
                 images={[
-                  "/assets/site/coins/coin1.png",
-                  "/assets/site/coins/coin2.png",
-                  "/assets/site/coins/coin3.png",
+                  "/assets/site/coins/coin16.png",
+                  "/assets/site/coins/coin17.png",
+                  "/assets/site/coins/coin18.png",
                 ]}
               />
             </SwiperSlide>
@@ -250,9 +253,9 @@ export default function Home() {
                 price="$500"
                 tvl="$760.000"
                 images={[
-                  "/assets/site/coins/coin1.png",
-                  "/assets/site/coins/coin2.png",
-                  "/assets/site/coins/coin3.png",
+                  "/assets/site/coins/coin19.png",
+                  "/assets/site/coins/coin20.png",
+                  "/assets/site/coins/coin21.png",
                 ]}
               />
             </SwiperSlide>
@@ -265,9 +268,9 @@ export default function Home() {
                 price="$500"
                 tvl="$760.000"
                 images={[
-                  "/assets/site/coins/coin1.png",
-                  "/assets/site/coins/coin2.png",
-                  "/assets/site/coins/coin3.png",
+                  "/assets/site/coins/coin22.png",
+                  "/assets/site/coins/coin23.png",
+                  "/assets/site/coins/coin24.png",
                 ]}
               />
             </SwiperSlide>
@@ -280,9 +283,9 @@ export default function Home() {
                 price="$500"
                 tvl="$760.000"
                 images={[
-                  "/assets/site/coins/coin1.png",
-                  "/assets/site/coins/coin2.png",
-                  "/assets/site/coins/coin3.png",
+                  "/assets/site/coins/coin25.png",
+                  "/assets/site/coins/coin26.png",
+                  "/assets/site/coins/coin27.png",
                 ]}
               />
             </SwiperSlide>
@@ -465,22 +468,21 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <FeaturedCard
               title="Diversify With Ease"
-              description="Experience lightning-fast transaction speeds with our high-throughput architecture. Narratives Protocol is engineered to handle a large number of transactions per second,
-               ensuring that you can execute transactions swiftly and efficiently."
+              description="Narratives allows users to gain exposure into a whole sector with just one token. For example, instead of buying 8-10 “AI” tokens we enable users to track the whole sector with just one “AI Narrative” token."
               icon="/assets/site/icons/box-remove.png"
               vectorColor="blue"
             />
 
             <FeaturedCard
               title="Reduce Risk"
-              description="Experience lightning-fast transaction speeds with our high-throughput architecture. Narratives Protocol is engineered to handle a large number of transactions per second, ensuring that you can execute transactions swiftly and efficiently"
+              description="Often times tokens are spread out between multiple chains, exchanges and wallets. With Narratives we reduce complexity by bringing all assets into one place without the need of bridging, swapping and multiple exchanges."
               icon="/assets/site/icons/security-safe.png"
               vectorColor="red"
             />
 
             <FeaturedCard
               title="Exposure to Upside"
-              description="As the demand for blockchain technology grows, Narratives Protocol scales effortlessly to meet the evolving needs of its users. Enjoy a scalable infrastructure that adapts to increasing transaction volumes without compromising performance."
+              description="Never Miss a Pump, Never miss a rotation. Narrative Tokens give you the ability to always have exposure to multiple tokens in a sector so you never have to choose between tokens and miss out on gains."
               icon="/assets/site/icons/chart.png"
               vectorColor="blue"
             />
@@ -501,7 +503,7 @@ export default function Home() {
 
             <FeaturedCard
               title="Low Fees"
-              description="Narratives Protocol prioritizes cost-effectiveness by offering low transaction fees. Say goodbye to exorbitant fees and. Enjoy the benefits of a cost-efficient platform that makes blockchain technology accessible to a broader audience."
+              description="Narratives Protocol is launching on the Base blockchain which offers extremely low fees compared to Mainnet."
               icon="/assets/site/icons/money-recive.png"
               vectorColor="blue"
             />

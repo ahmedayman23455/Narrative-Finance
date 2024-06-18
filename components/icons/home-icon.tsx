@@ -19,7 +19,7 @@ const HomeIcon = ({active}: {active: boolean}) => {
         fill={
           theme === "dark" || active === true
             ? "white"
-            : "black"
+            : "#292D32"
         }
       />
     </svg>

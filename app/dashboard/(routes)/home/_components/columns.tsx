@@ -71,7 +71,7 @@ export const columns: ColumnDef<Ifund>[] = [
       console.log("🚀 ~ row:", row);
       return (
         <div className="flex items-center gap-2">
-          <Avatar className="w-8 h-8 rounded-md">
+          <Avatar className="w-11 h-11 rounded-md">
             {row.original.image && (
               <AvatarImage
                 className="object-cover"
