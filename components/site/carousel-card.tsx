@@ -116,21 +116,26 @@ const CarouselCard = ({
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="flex items-center  p-0">
-                  {images.map((image, index) => {
-                    return (
+                  {images
+                    .slice(
+                      0,
+                      images.length > 3 ? 3 : images.length
+                    )
+                    .map((coin, index) => (
                       <Image
+                        alt={title}
                         key={index}
-                        src={image}
-                        width={28}
-                        height={28}
-                        alt="coin image"
+                        className="rounded-full"
+                        src={coin}
+                        width={32}
+                        height={32}
                       />
-                    );
-                  })}
-
-                  <div className="h-7 w-7 text-white text-xs text-center bg-[#1D9BF0] rounded-full flex items-center justify-center">
-                    +10
-                  </div>
+                    ))}
+                  {images.length > 3 && (
+                    <span className="inline-flex items-center justify-center h-8 w-8 shrink-0 rounded-full bg-[#1D9BF0] text-white text-sm">
+                      +{images.length - 3}
+                    </span>
+                  )}
                 </CardContent>
               </Card>
 

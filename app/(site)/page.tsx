@@ -181,6 +181,9 @@ export default function Home() {
                   "/assets/site/coins/coin4.png",
                   "/assets/site/coins/coin5.png",
                   "/assets/site/coins/coin6.png",
+                  "/assets/site/coins/coin4.png",
+                  "/assets/site/coins/coin5.png",
+                  "/assets/site/coins/coin6.png",
                 ]}
               />
             </SwiperSlide>
@@ -193,6 +196,9 @@ export default function Home() {
                 price="$500"
                 tvl="$760.000"
                 images={[
+                  "/assets/site/coins/coin7.png",
+                  "/assets/site/coins/coin8.png",
+                  "/assets/site/coins/coin9.png",
                   "/assets/site/coins/coin7.png",
                   "/assets/site/coins/coin8.png",
                   "/assets/site/coins/coin9.png",
@@ -211,6 +217,9 @@ export default function Home() {
                   "/assets/site/coins/coin10.png",
                   "/assets/site/coins/coin11.png",
                   "/assets/site/coins/coin12.png",
+                  "/assets/site/coins/coin10.png",
+                  "/assets/site/coins/coin11.png",
+                  "/assets/site/coins/coin12.png",
                 ]}
               />
             </SwiperSlide>
@@ -223,6 +232,9 @@ export default function Home() {
                 price="$500"
                 tvl="$760.000"
                 images={[
+                  "/assets/site/coins/coin13.png",
+                  "/assets/site/coins/coin14.png",
+                  "/assets/site/coins/coin15.png",
                   "/assets/site/coins/coin13.png",
                   "/assets/site/coins/coin14.png",
                   "/assets/site/coins/coin15.png",
@@ -241,6 +253,9 @@ export default function Home() {
                   "/assets/site/coins/coin16.png",
                   "/assets/site/coins/coin17.png",
                   "/assets/site/coins/coin18.png",
+                  "/assets/site/coins/coin16.png",
+                  "/assets/site/coins/coin17.png",
+                  "/assets/site/coins/coin18.png",
                 ]}
               />
             </SwiperSlide>
@@ -253,6 +268,9 @@ export default function Home() {
                 price="$500"
                 tvl="$760.000"
                 images={[
+                  "/assets/site/coins/coin19.png",
+                  "/assets/site/coins/coin20.png",
+                  "/assets/site/coins/coin21.png",
                   "/assets/site/coins/coin19.png",
                   "/assets/site/coins/coin20.png",
                   "/assets/site/coins/coin21.png",
@@ -271,6 +289,9 @@ export default function Home() {
                   "/assets/site/coins/coin22.png",
                   "/assets/site/coins/coin23.png",
                   "/assets/site/coins/coin24.png",
+                  "/assets/site/coins/coin22.png",
+                  "/assets/site/coins/coin23.png",
+                  "/assets/site/coins/coin24.png",
                 ]}
               />
             </SwiperSlide>
@@ -283,6 +304,9 @@ export default function Home() {
                 price="$500"
                 tvl="$760.000"
                 images={[
+                  "/assets/site/coins/coin25.png",
+                  "/assets/site/coins/coin26.png",
+                  "/assets/site/coins/coin27.png",
                   "/assets/site/coins/coin25.png",
                   "/assets/site/coins/coin26.png",
                   "/assets/site/coins/coin27.png",
