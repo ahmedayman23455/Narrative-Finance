@@ -92,7 +92,9 @@ const HomePage = () => {
                 className="cursor-pointer hover:opacity-90 w-max bg-primary flex items-center rounded-lg px-3 gap-4 py-2"
               >
                 <StarCircle />
-                <div>Introducing private funds</div>
+                <div>
+                  Narratives Token Launch Announcment
+                </div>
                 <ArrowRight />
               </Link>
 
@@ -101,9 +103,7 @@ const HomePage = () => {
                 className="cursor-pointer hover:opacity-90 w-max bg-primary flex items-center rounded-lg px-3 gap-4 py-2"
               >
                 <StarCircle />
-                <div>
-                  Lido is sunsetting stSOL on solana we...
-                </div>
+                <div>Narratives DAO Manifesto</div>
                 <ArrowRight />
               </Link>
             </div>
@@ -119,7 +119,7 @@ const HomePage = () => {
             className="relative p-4 z-30 bg-[#F8FAFE] dark:bg-[#1E1E1E] shadow-lg dark:shadow-none dark:border-[0.5px] dark:border-[#363638]
          rounded-xl mt-8"
           >
-            <div className="flex flex-wrap items-center gap-4 relative z-30">
+            <div className="flex  flex-wrap gap-4 relative z-30">
               <StatsCard
                 tvl="TVL"
                 change24hr="3$"
@@ -128,25 +128,25 @@ const HomePage = () => {
                 change1week="Over the last 1 week"
               />
               <StatsCard
-                tvl="TVL"
+                tvl="Volume"
                 change24hr="3$"
                 totalValue="$2,279,507"
                 percentageChange="+10.5%"
                 change1week="Over the last 1 week"
               />
               <StatsCard
-                tvl="TVL"
+                tvl="Fees"
                 change24hr="3$"
                 totalValue="$2,279,507"
                 percentageChange="+10.5%"
                 change1week="Over the last 1 week"
               />
               <StatsCard
-                tvl="TVL"
+                tvl="Live funds"
                 change24hr="3$"
-                totalValue="$2,279,507"
-                percentageChange="+10.5%"
-                change1week="Over the last 1 week"
+                totalValue="254"
+                percentageChange=""
+                change1week=""
               />
             </div>
           </div>
