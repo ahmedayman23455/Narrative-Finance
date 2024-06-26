@@ -68,7 +68,6 @@ export const columns: ColumnDef<Ifund>[] = [
       );
     },
     cell: ({row}) => {
-      console.log("🚀 ~ row:", row);
       return (
         <div className="flex items-center gap-2">
           <Avatar className="w-11 h-11 rounded-md">

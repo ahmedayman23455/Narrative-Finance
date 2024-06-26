@@ -1,0 +1,469 @@
+"use client";
+import React from "react";
+import {useTheme} from "next-themes";
+import {cn} from "@/lib/utils";
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/components/ui/avatar";
+import {Button} from "@/components/ui/button";
+
+import StatsCard from "@/components/dashboard/stats-card";
+import {DataTable} from "@/components/table/data-table";
+import {columns} from "./_components/columns";
+import {fundsParamters} from "@/data/demoFunds";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/components/ui/tabs";
+import VerifiedIcon from "@/components/icons/verified-icon";
+import Image from "next/image";
+import {Input} from "@/components/ui/input";
+import Link from "next/link";
+import ArrowRight from "@/components/icons/arrow-right";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import SolanaChart from "@/components/dashboard/solana-chart";
+
+const FundPage = () => {
+  const {theme} = useTheme();
+
+  return (
+    <div
+      className={cn(
+        "relative h-full pt-10 px-4 pb-4 lg:pl-[264px] lg:pt-0 lg:pb-20"
+      )}
+    >
+      <div className="w-full relative">
+        {/* header */}
+        <div className="sticky mt-8 lg:mt-0 right-0 left-0 top-0 lg:py-4 flex items-center justify-between lg:z-[80] ">
+          <h1 className="text-2xl  text-black dark:text-white font-semibold">
+            Home &gt;
+            <span className="font-normal">
+              &nbsp; Solana my guy
+            </span>
+          </h1>
+
+          <div className=" items-center gap-4 hidden lg:flex">
+            <div className="flex items-center gap-2">
+              <Avatar className="w-8 h-8 rounded-md">
+                <AvatarImage src="https://github.com/shadcn.png" />
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
+              <p className="text-sm truncate w-[106px]">
+                Ahmed Ayma nAyma nAymanAyman Ayman Ayman
+              </p>
+            </div>
+
+            <Button size="sm">Disconnect</Button>
+          </div>
+        </div>
+
+        {/* Analytics  */}
+        <div>
+          <div className="flex items-center gap-8 mt-4">
+            <div className="flex items-center gap-2">
+              <Image
+                src="/assets/site/coins/coin1.png"
+                alt="Image"
+                width={42}
+                height={42}
+              />
+
+              <div className="flex flex-col ">
+                <p className="whitespace-nowrap flex items-center gap-2">
+                  Solana My Guy
+                  <VerifiedIcon />
+                </p>
+
+                <p className="text-xs bg-[#E4E7EC] text-[#484856] w-max font-medium px-1 rounded-sm">
+                  SMG
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <h4>Composition</h4>
+              <div className="flex items-center -space-x-2 ">
+                <Image
+                  src="/assets/site/coins/coin31.png"
+                  alt="Image"
+                  width={26}
+                  height={26}
+                />
+                <Image
+                  src="/assets/site/coins/coin32.png"
+                  alt="Image"
+                  width={26}
+                  height={26}
+                />
+                <Image
+                  src="/assets/site/coins/coin33.png"
+                  alt="Image"
+                  width={26}
+                  height={26}
+                />
+                <Image
+                  src="/assets/site/coins/coin34.png"
+                  alt="Image"
+                  width={26}
+                  height={26}
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 w-full my-8 gap-4 lg:gap-8">
+            <div className="bg-white dark:bg-[#1E1E1E] rounded-xl lg:col-span-2 p-4  h-max pb-40">
+              <SolanaChart />
+            </div>
+
+            <div className="flex flex-col  w-full lg:max-w-[468px]">
+              <div className="relative w-full lg:max-w-[468px]">
+                <div
+                  className="relative  z-30 bg-[#F8FAFE] dark:bg-[#1E1E1E] shadow-lg dark:shadow-none dark:border-[0.5px] dark:border-[#363638]
+         rounded-xl mt-8"
+                >
+                  <Tabs
+                    defaultValue="mintSmg"
+                    className="flex flex-col gap-4 w-full"
+                  >
+                    <div className="relative flex flex-col w-full  justify-between">
+                      {/* > tabs */}
+
+                      <div className=" z-10 flex flex-col gap-4 lg:flex-row items-center justify-between w-full px-4 pt-4">
+                        <TabsList className="!w-full">
+                          <TabsTrigger value="mintSmg">
+                            Mint SMG
+                          </TabsTrigger>
+                          <TabsTrigger value="redeem">
+                            Redeem
+                          </TabsTrigger>
+                        </TabsList>
+                      </div>
+
+                      <TabsContent value="mintSmg">
+                        <Tabs
+                          defaultValue="depositUSDC"
+                          className="flex flex-col gap-4"
+                        >
+                          <div className="relative flex flex-col gap-4 w-full  justify-between">
+                            {/* > tabs */}
+
+                            <div className=" z-10 flex flex-col gap-4 lg:flex-row items-center justify-between w-full px-4">
+                              <TabsList className="!w-full">
+                                <TabsTrigger value="depositUSDC">
+                                  Deposit USDC
+                                </TabsTrigger>
+                                <TabsTrigger value="depositToken">
+                                  Deposit Token
+                                </TabsTrigger>
+                              </TabsList>
+                            </div>
+
+                            <TabsContent value="depositUSDC">
+                              <div className="flex items-center justify-between px-4">
+                                <p>
+                                  Balance:
+                                  <span className="font-semibold">
+                                    &nbsp; 3425.8 USDC
+                                  </span>
+                                </p>
+                                MAX
+                              </div>
+
+                              <div className="mt-4 px-4">
+                                <label htmlFor="amount">
+                                  Enter Amount
+                                </label>
+
+                                <div className="relative text-3xl font-semibold">
+                                  <span className="absolute left-0 top-1/2 transform -translate-y-1/2 text-[#6C7685]">
+                                    $
+                                  </span>
+
+                                  <Input
+                                    type="text"
+                                    name="amount"
+                                    id="amount"
+                                    className="w-full pl-6 outline-none !bg-none !shadow-none text-3xl border-none !focus:outline-none"
+                                  />
+                                </div>
+                              </div>
+
+                              <div className="flex items-center justify-between bg-primary text-white mt-8 px-4 py-2 rounded-bl-lg rounded-br-lg">
+                                <p>
+                                  Minting
+                                  <span className="font-semibold">
+                                    &nbsp; ~4.596 SMG
+                                  </span>
+                                </p>
+
+                                <Link
+                                  href="#"
+                                  className="stroke-white text-white border-white rounded-sm flex items-center gap-2 py-1 px-2 border hover:opacity-90"
+                                >
+                                  <p>Mint</p>
+                                  <div className="flex-shrink-0">
+                                    <ArrowRight />
+                                  </div>
+                                </Link>
+                              </div>
+                            </TabsContent>
+
+                            <TabsContent value="depositToken">
+                              <div className="px-4">
+                                depositToken content here
+                              </div>
+                            </TabsContent>
+                          </div>
+                        </Tabs>
+                      </TabsContent>
+
+                      <TabsContent value="redeem">
+                        <div className="px-4">
+                          redeem content here
+                        </div>
+                      </TabsContent>
+                    </div>
+                  </Tabs>
+                </div>
+
+                <div className="absolute z-20 rounded-xl  top-4 left-4 right-4 h-full bg-[#F8FAFE] dark:bg-[#1E1E1E] shadow-lg dark:shadow-none dark:border-[0.5px] dark:border-[#363638]"></div>
+                <div className="absolute z-10 rounded-xl  top-8 left-8 right-8 h-full bg-[#F8FAFE] dark:bg-[#1E1E1E] shadow-lg dark:shadow-none dark:border-[0.5px] dark:border-[#363638]"></div>
+              </div>
+
+              <h4 className="mt-12 text-base font-medium text-center">
+                Please enter desired amount above.
+              </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* stats */}
+      <div className="relative">
+        <div
+          className="relative p-4 z-30 bg-[#F8FAFE] dark:bg-[#1E1E1E] shadow-lg dark:shadow-none dark:border-[0.5px] dark:border-[#363638]
+         rounded-xl mt-8"
+        >
+          <div className="flex  flex-wrap gap-4 relative z-30">
+            <StatsCard
+              tvl="AUM"
+              totalValue="$2,279,507"
+              percentageChange="+7.5%"
+              change1week="Over the last 1 week"
+            />
+            <StatsCard
+              tvl="Circulating supply"
+              totalValue="$2,279,507"
+              percentageChange="-7.5%"
+              change1week="Over the last 1 week"
+            />
+
+            <StatsCard
+              tvl="Total Volume"
+              totalValue="$54,679,507.09"
+              percentageChange="+7.5%"
+              change1week="Over the last 1 week"
+            />
+
+            <StatsCard
+              tvl="Fund Liquidity"
+              totalValue="$18,679,507.09"
+              percentageChange="+7.5%"
+              change1week="Over the last 1 week"
+            />
+          </div>
+        </div>
+
+        <div className="absolute z-20 rounded-xl  top-4 left-4 right-4 h-full bg-[#F8FAFE] dark:bg-[#1E1E1E] shadow-lg dark:shadow-none dark:border-[0.5px] dark:border-[#363638]"></div>
+        <div className="absolute z-10 rounded-xl  top-8 left-8 right-8 h-full bg-[#F8FAFE] dark:bg-[#1E1E1E] shadow-lg dark:shadow-none dark:border-[0.5px] dark:border-[#363638]"></div>
+      </div>
+
+      {/* table */}
+
+      <div
+        className=" min-h-[500px] relative p-4 bg-[#F8FAFE] dark:bg-[#1E1E1E] shadow-lg dark:shadow-none dark:border-[0.5px] dark:border-[#363638]
+rounded-2xl mt-16"
+      >
+        <Tabs
+          defaultValue="composition"
+          className="flex flex-col gap-4"
+        >
+          <div className="relative flex flex-col gap-4 w-full  justify-between">
+            {/* > tabs */}
+
+            <div className="lg:absolute lg:top-0 lg:left-0 lg:w-max z-10 flex flex-col gap-4 lg:flex-row items-center justify-between w-full">
+              <TabsList>
+                <TabsTrigger value="composition">
+                  Composition
+                </TabsTrigger>
+                <TabsTrigger value="activity">
+                  Activity
+                </TabsTrigger>
+                <TabsTrigger value="about">
+                  About
+                </TabsTrigger>
+              </TabsList>
+
+              {/* <div>right side</div> */}
+            </div>
+
+            <TabsContent value="composition">
+              <DataTable
+                columns={columns}
+                data={fundsParamters}
+                searchColumn="name"
+              >
+                <tr className="relative h-[91px]">
+                  <div className="flex gap-2  w-full absolute inset-0 ">
+                    <div className="rounded-md flex items-center justify-center w-[70%] bg-[#B2BBFF]">
+                      <div className="bg-white text-[#1E1E1E] flex flex-col items-center py-2 px-8 rounded-sm">
+                        <p className="text-[#1E1E1E] text-base">
+                          Solana
+                        </p>
+                        <p className="text-[#1E1E1E] text-3xl font-medium">
+                          75%
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="w-[6%] bg-[#E1E7F2] rounded-lg"></div>
+                    <div className="w-[6%] bg-[#E1E7F2] rounded-lg"></div>
+
+                    <div className="w-[3%] bg-[#E1E7F2] rounded-lg"></div>
+                    <div className="w-[4%] bg-[#E1E7F2] rounded-lg"></div>
+                    <div className="w-[40%] bg-[#CBD5DF] rounded-lg"></div>
+                    <div className="w-[17%] bg-[#E1E7F2] rounded-lg"></div>
+                    <div className="w-[5%] bg-[#E1E7F2] rounded-lg"></div>
+                  </div>
+                </tr>
+              </DataTable>
+            </TabsContent>
+
+            <TabsContent value="activity">
+              <DataTable
+                columns={columns}
+                data={fundsParamters}
+                searchColumn="name"
+              >
+                <tr className="relative h-[91px]">
+                  <div className="flex gap-2  w-full absolute inset-0 ">
+                    <div className="rounded-md flex items-center justify-center w-[70%] bg-[#B2BBFF]">
+                      <div className="bg-white text-[#1E1E1E] flex flex-col items-center py-2 px-8 rounded-sm">
+                        <p className="text-[#1E1E1E] text-base">
+                          Solana
+                        </p>
+                        <p className="text-[#1E1E1E] text-3xl font-medium">
+                          75%
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="w-[6%] bg-[#E1E7F2] rounded-lg"></div>
+                    <div className="w-[6%] bg-[#E1E7F2] rounded-lg"></div>
+
+                    <div className="w-[3%] bg-[#E1E7F2] rounded-lg"></div>
+                    <div className="w-[4%] bg-[#E1E7F2] rounded-lg"></div>
+                    <div className="w-[40%] bg-[#CBD5DF] rounded-lg"></div>
+                    <div className="w-[17%] bg-[#E1E7F2] rounded-lg"></div>
+                    <div className="w-[5%] bg-[#E1E7F2] rounded-lg"></div>
+                  </div>
+                </tr>
+              </DataTable>
+            </TabsContent>
+
+            <TabsContent value="about">
+              <div className="lg:mt-16 flex flex-col gap-4">
+                <h4 className="text-xl font-semibold">
+                  Overview
+                </h4>
+                <p>
+                  The DeFi Pulse Index
+                  is a capitalization-weighted index that
+                  tracks the performance of decentralized
+                  financial (DeFi) assets across Ethereum.
+                  It combines the features of an ERC-20
+                  token and a traditional structured product
+                  to create a 21st century digital upgrade
+                  to structured products.
+                </p>
+
+                <Accordion
+                  type="single"
+                  collapsible
+                  className="w-full flex flex-col gap-4"
+                >
+                  <AccordionItem value="item-1">
+                    <AccordionTrigger>
+                      Methodology
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      Lorem ipsum dolor sit amet consectetur
+                      adipisicing elit. Voluptatibus in
+                      veritatis consequuntur quis voluptate
+                      quam animi veniam dolore, quia
+                      delectus. Inventore soluta iste earum,
+                      non ab temporibus? Ipsa exercitationem
+                      commodi neque ad veniam, tempore
+                      assumenda? Asperiores dignissimos
+                      delectus sint accusantium.
+                    </AccordionContent>
+                  </AccordionItem>
+                  <AccordionItem value="item-2">
+                    <AccordionTrigger>
+                      Maintenance
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      Lorem ipsum dolor sit amet consectetur
+                      adipisicing elit. Amet architecto
+                      eaque excepturi adipisci, numquam
+                      minima eligendi distinctio odio
+                      repellat, rerum perferendis tempora
+                      porro labore neque ducimus doloribus
+                      consequatur sequi expedita.
+                    </AccordionContent>
+                  </AccordionItem>
+                  <AccordionItem value="item-3">
+                    <AccordionTrigger>
+                      Fees
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      Lorem ipsum dolor sit amet consectetur
+                      adipisicing elit. Velit quasi
+                      obcaecati sit eaque quibusdam dolor
+                      vel ab molestias nisi culpa?
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  <AccordionItem value="item-4">
+                    <AccordionTrigger>
+                      Risk
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      Lorem ipsum dolor sit amet consectetur
+                      adipisicing elit. Perferendis,
+                      exercitationem quo quas quae explicabo
+                      itaque facere ipsam aut ipsum ducimus
+                      vero qui reiciendis nulla excepturi!
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+              </div>
+            </TabsContent>
+          </div>
+        </Tabs>
+      </div>
+    </div>
+  );
+};
+
+export default FundPage;

@@ -16,6 +16,16 @@ interface Ifund {
   }[];
 }
 
+interface IFundParamter {
+  name: string;
+  image: string;
+  price?: number;
+  currentWeight: number;
+  targetWeight: number;
+  percentage1: number;
+  percentage2: number;
+}
+
 export const funds: Ifund[] = [
   {
     id: "1",
@@ -581,5 +591,44 @@ export const funds: Ifund[] = [
         amt: 2100,
       },
     ],
+  },
+];
+
+export const fundsParamters: IFundParamter[] = [
+  {
+    name: "USDC",
+    image: "/assets/site/coins/coin31.png",
+    price: 50,
+    currentWeight: 0,
+    targetWeight: 0,
+    percentage1: 0.46663,
+    percentage2: 0.47,
+  },
+  {
+    name: "My Staked SOL (mSOL)",
+    image: "/assets/site/coins/coin32.png",
+    price: 88.3,
+    currentWeight: 0,
+    targetWeight: 0,
+    percentage1: 0.46663,
+    percentage2: 0.47,
+  },
+  {
+    name: "Doli Staked SOL",
+    image: "/assets/site/coins/coin33.png",
+    price: 23.4,
+    currentWeight: 0,
+    targetWeight: 0,
+    percentage1: 0.46663,
+    percentage2: 0.47,
+  },
+  {
+    name: "Jojo Staked SOL",
+    image: "/assets/site/coins/coin34.png",
+    price: 90.55,
+    currentWeight: 0,
+    targetWeight: 0,
+    percentage1: 0.46663,
+    percentage2: 0.47,
   },
 ];

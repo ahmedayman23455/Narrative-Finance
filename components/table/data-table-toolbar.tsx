@@ -10,18 +10,16 @@ import {Input} from "@/components/ui/input";
 interface DataTableToolbarProps<TData> {
   table: Table<TData>;
   serachColumn: string;
-  selectedRows: any[];
-  dbName: string;
+
 }
 
 export function DataTableToolbar<TData>({
   table,
   serachColumn,
-  selectedRows,
-  dbName,
+
 }: DataTableToolbarProps<TData>) {
   return (
-    <div className="flex items-center justify-between w-full lg:w-max  ">
+    <div className="flex items-center justify-between w-full lg:w-max lg:ml-auto  ">
       <div className="flex flex-1 items-center space-x-2  w-full lg:w-[321px]">
         <Input
           isSearchInput

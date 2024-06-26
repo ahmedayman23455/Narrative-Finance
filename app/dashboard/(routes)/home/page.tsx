@@ -18,6 +18,12 @@ import StatsCard from "@/components/dashboard/stats-card";
 import {DataTable} from "@/components/table/data-table";
 import {columns} from "./_components/columns";
 import {funds} from "@/data/demoFunds";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/components/ui/tabs";
 
 const HomePage = () => {
   const {theme} = useTheme();
@@ -25,11 +31,7 @@ const HomePage = () => {
   return (
     <div
       className={cn(
-        "relative h-full pt-10 px-4 pb-4 lg:pl-[264px] lg:pt-0 lg:pb-20",
-        {
-          "bg-[#242424]": theme === "dark",
-          "bg-[#E7F0FD]": theme === "light",
-        }
+        "relative h-full pt-10 px-4 pb-4 lg:pl-[264px] lg:pt-0 lg:pb-20"
       )}
     >
       <div className="w-full relative">
@@ -156,16 +158,68 @@ const HomePage = () => {
         </div>
 
         {/* table */}
+
         <div
-          className=" relative p-4 bg-[#F8FAFE] dark:bg-[#1E1E1E] shadow-lg dark:shadow-none dark:border-[0.5px] dark:border-[#363638]
-         rounded-2xl mt-16"
+          className="min-h-[500px]  relative p-4 bg-[#F8FAFE] dark:bg-[#1E1E1E] shadow-lg dark:shadow-none dark:border-[0.5px] dark:border-[#363638]
+rounded-2xl mt-16"
         >
-          <DataTable
-            columns={columns}
-            data={funds}
-            searchColumn="name"
-            dbName="review"
-          />
+          <Tabs
+            defaultValue="topFunds"
+            className="flex flex-col gap-4"
+          >
+            <div className="relative flex flex-col gap-4 w-full  justify-between">
+              {/* > tabs */}
+
+              <div className="lg:absolute lg:top-0 lg:left-0 lg:w-max z-10 flex flex-col gap-4 lg:flex-row items-center justify-between w-full">
+                <TabsList>
+                  <TabsTrigger value="topFunds">
+                    Top Funds
+                  </TabsTrigger>
+                  <TabsTrigger value="recents">
+                    Recents
+                  </TabsTrigger>
+                  <TabsTrigger value="favourites">
+                    Favourites
+                  </TabsTrigger>
+                  <TabsTrigger value="all">All</TabsTrigger>
+                </TabsList>
+
+                {/* <div>right side</div> */}
+              </div>
+
+              <TabsContent value="topFunds">
+                <DataTable
+                  columns={columns}
+                  data={funds}
+                  searchColumn="name"
+                />
+              </TabsContent>
+
+              <TabsContent value="recents">
+                <DataTable
+                  columns={columns}
+                  data={funds}
+                  searchColumn="name"
+                />
+              </TabsContent>
+
+              <TabsContent value="favourites">
+                <DataTable
+                  columns={columns}
+                  data={funds}
+                  searchColumn="name"
+                />
+              </TabsContent>
+
+              <TabsContent value="all">
+                <DataTable
+                  columns={columns}
+                  data={funds}
+                  searchColumn="name"
+                />
+              </TabsContent>
+            </div>
+          </Tabs>
         </div>
       </div>
     </div>

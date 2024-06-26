@@ -7,10 +7,11 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import {cn} from "@/lib/utils";
 
 interface IStatsCard {
   tvl: string;
-  change24hr: string;
+  change24hr?: string;
   totalValue: string;
   percentageChange: string;
   change1week: string;
@@ -31,14 +32,16 @@ const StatsCard = ({
             {tvl}
           </div>
 
-          <div className="flex items-center gap-2 border border-[#6C7685] rounded-md p-1">
-            <span className="text-sm text-[#3FB68B] font-bold">
-              {change24hr}
-            </span>
-            <span className="text-xs bg-[#E8ECFF] text-[#6C7685] p-1 rounded-sm">
-              24h
-            </span>
-          </div>
+          {change24hr && (
+            <div className="flex items-center gap-2 border border-[#6C7685] rounded-md p-1">
+              <span className="text-sm text-[#3FB68B] font-bold">
+                {change24hr}
+              </span>
+              <span className="text-xs bg-[#E8ECFF] text-[#6C7685] p-1 rounded-sm">
+                24h
+              </span>
+            </div>
+          )}
         </div>
       </div>
 
@@ -48,7 +51,14 @@ const StatsCard = ({
         </div>
 
         <div className="flex justify-between items-center">
-          <span className="text-[#239564] font-bold ">
+          <span
+            className={cn("font-bold ", {
+              "text-[#239564]":
+                percentageChange.startsWith("+"),
+              "text-[#FF3B30]":
+                percentageChange.startsWith("-"),
+            })}
+          >
             {percentageChange}
           </span>
           <span className="text-sm text-[#484856]   dark:text-[#B7B7B7]">
