@@ -177,7 +177,7 @@ const SolanaChart: React.FC = () => {
         </div>
       </div>
 
-      <div className={styles.price}>
+      <div className="text-lg mb-3">
         <div className="flex items-center gap-2">
           <p className="font-bold text-2xl text-[#484856] ">
             ${currentPrice?.toFixed(2)}
