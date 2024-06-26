@@ -15,7 +15,7 @@ import {
   Legend,
 } from "chart.js";
 import {ChartData, ChartOptions} from "chart.js";
-import styles from "./SolanaChart.module.css";
+
 import {cn} from "@/lib/utils";
 
 ChartJS.register(
@@ -152,7 +152,8 @@ const SolanaChart: React.FC = () => {
                 "w-max rounded-lg !border-none p-2 bg-transparent",
 
                 {
-                  " shadow-md bg-[#FCFCFC] text-[#252939] dark:!bg-[#1E1E1E] dark:text-white ": selectedRange === range,
+                  " shadow-md bg-[#FCFCFC] text-[#252939] dark:!bg-[#1E1E1E] dark:text-white ":
+                    selectedRange === range,
                 },
 
                 {
