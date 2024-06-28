@@ -104,9 +104,9 @@ export function DataTable<TData, TValue>({
             ))}
           </TableHeader>
 
-          {children}
 
           <TableBody>
+          {children}
             {table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row) => {
                 // @ts-ignore

@@ -91,8 +91,6 @@ const FundPage = () => {
     }, 5000);
   };
 
-  
-
   return (
     <div
       className={cn(
@@ -908,29 +906,27 @@ rounded-2xl mt-16"
                 data={fundsParamters}
                 searchColumn="name"
               >
-                 <tr className="relative h-[91px]">
-                  <td className="w-full">
-                    <div className="flex gap-2 w-full absolute inset-0">
-                      <div className="rounded-md flex items-center justify-center w-[70%] bg-[#B2BBFF] cursor-pointer hover:scale-95 transition">
-                        <div className="bg-white text-[#1E1E1E] flex flex-col items-center py-2 px-8 rounded-sm">
-                          <p className="text-[#1E1E1E] text-base">
-                            Solana
-                          </p>
-                          <p className="text-[#1E1E1E] text-3xl font-medium">
-                            75%
-                          </p>
-                        </div>
+                <tr className="relative h-[91px]">
+                  <td className="w-full flex gap-2 w-full absolute inset-0">
+                    <div className="rounded-md flex items-center justify-center w-[70%] bg-[#B2BBFF] cursor-pointer hover:scale-95 transition">
+                      <div className="bg-white text-[#1E1E1E] flex flex-col items-center py-2 px-8 rounded-sm">
+                        <p className="text-[#1E1E1E] text-base">
+                          Solana
+                        </p>
+                        <p className="text-[#1E1E1E] text-3xl font-medium">
+                          75%
+                        </p>
                       </div>
-
-                      <div className="w-[40%] bg-[#CBD5DF] rounded-lg cursor-pointer hover:scale-95 transition"></div>
-                      <div className="w-[17%] bg-[#E1E7F2] rounded-lg cursor-pointer hover:scale-95 transition"></div>
-                      <div className="w-[6%] bg-[#E1E7F2] rounded-lg cursor-pointer hover:scale-95 transition"></div>
-                      <div className="w-[6%] bg-[#E1E7F2] rounded-lg cursor-pointer hover:scale-95 transition"></div>
-
-                      <div className="w-[5%] bg-[#E1E7F2] rounded-lg cursor-pointer hover:scale-95 transition"></div>
-                      <div className="w-[4%] bg-[#E1E7F2] rounded-lg cursor-pointer hover:scale-95 transition"></div>
-                      <div className="w-[3%] bg-[#E1E7F2] rounded-lg cursor-pointer hover:scale-95 transition"></div>
                     </div>
+
+                    <div className="w-[40%] bg-[#CBD5DF] rounded-lg cursor-pointer hover:scale-95 transition"></div>
+                    <div className="w-[17%] bg-[#E1E7F2] rounded-lg cursor-pointer hover:scale-95 transition"></div>
+                    <div className="w-[6%] bg-[#E1E7F2] rounded-lg cursor-pointer hover:scale-95 transition"></div>
+                    <div className="w-[6%] bg-[#E1E7F2] rounded-lg cursor-pointer hover:scale-95 transition"></div>
+
+                    <div className="w-[5%] bg-[#E1E7F2] rounded-lg cursor-pointer hover:scale-95 transition"></div>
+                    <div className="w-[4%] bg-[#E1E7F2] rounded-lg cursor-pointer hover:scale-95 transition"></div>
+                    <div className="w-[3%] bg-[#E1E7F2] rounded-lg cursor-pointer hover:scale-95 transition"></div>
                   </td>
                 </tr>
               </DataTable>
