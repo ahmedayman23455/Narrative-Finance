@@ -57,6 +57,10 @@ const FundPage = () => {
     (fund) => fund.id === fundId
   );
 
+  if (!selectedFund) {
+    // Return the notFound object if the FAQ does not exist
+    return {notFound: true};
+  }
   const claimHandler = () => {
     setRedeemLoading(true);
     setRedeemCompleted(false);
