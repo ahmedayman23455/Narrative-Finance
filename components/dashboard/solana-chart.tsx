@@ -15,7 +15,6 @@ import {
   Legend,
 } from "chart.js";
 import {ChartData, ChartOptions} from "chart.js";
-
 import {cn} from "@/lib/utils";
 
 ChartJS.register(
@@ -136,15 +135,15 @@ const SolanaChart: React.FC = () => {
       style={{
         position: "relative",
         width: "100%",
-        height: "300px",
+        height: "400px",
       }}
     >
-      <div className="flex items-center justify-between">
+      <div className="flex items-start  flex-col lg:flex-row lg:items-center justify-between">
         <div className="flex items-center mb-5 gap-4 bg-[#F3F4F6] dark:bg-[#242424] w-max py-2 px-4 rounded-md ">
           TVL$
         </div>
 
-        <div className="flex items-center gap-4 mb-5 bg-[#F3F4F6] dark:bg-[#242424] w-max py-2 px-4 rounded-xl ">
+        <div className="flex items-center gap-4 mb-5 py-1 bg-[#F3F4F6] dark:bg-[#242424] w-max  px-4 rounded-xl ">
           {Object.keys(timeRanges).map((range) => (
             <button
               key={range}
@@ -152,8 +151,7 @@ const SolanaChart: React.FC = () => {
                 "w-max rounded-lg !border-none p-2 bg-transparent",
 
                 {
-                  " shadow-md bg-[#FCFCFC] text-[#252939] dark:!bg-[#1E1E1E] dark:text-white ":
-                    selectedRange === range,
+                  " shadow-md bg-[#FCFCFC] text-[#252939] dark:!bg-[#1E1E1E] dark:text-white ": selectedRange === range,
                 },
 
                 {
@@ -177,7 +175,7 @@ const SolanaChart: React.FC = () => {
         </div>
       </div>
 
-      <div className="text-lg mb-3">
+      <div className="text-2xl mb-3">
         <div className="flex items-center gap-2">
           <p className="font-bold text-2xl text-[#484856] ">
             ${currentPrice?.toFixed(2)}

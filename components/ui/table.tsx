@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 import Link from "next/link";
 import {cn} from "@/lib/utils";
@@ -70,14 +72,23 @@ const TableRow = React.forwardRef<
   HTMLTableRowElement,
   React.HTMLAttributes<HTMLTableRowElement> & {
     rowId?: string;
+    existRedirection?: boolean;
   }
->(({className, rowId, ...props}, ref) => {
+>(({className, rowId, existRedirection, ...props}, ref) => {
+  const router = useRouter();
+
   return (
     <tr
+      onClick={(e) => {
+        if (existRedirection) {
+          router.push(`funds/${rowId}`);
+        }
+      }}
       ref={ref}
       className={cn(
-        "test_solution overflow-hidden rounded-2xl  shadow-sm cursor-pointer border-b transition-colors  data-[state=selected]:bg-muted  ",
-        className
+        "test_solution overflow-hidden rounded-2xl  shadow-sm  border-b transition-colors  data-[state=selected]:bg-muted  ",
+        className,
+        {"cursor-pointer": "existRedirection"}
       )}
       {...props}
     />

@@ -167,6 +167,7 @@ export default function Home() {
                   "/assets/site/coins/coin2.png",
                   "/assets/site/coins/coin3.png",
                 ]}
+                link="/dashboard/funds/1"
               />
             </SwiperSlide>
 
@@ -185,6 +186,7 @@ export default function Home() {
                   "/assets/site/coins/coin5.png",
                   "/assets/site/coins/coin6.png",
                 ]}
+                link="/dashboard/funds/2"
               />
             </SwiperSlide>
 
@@ -203,6 +205,7 @@ export default function Home() {
                   "/assets/site/coins/coin8.png",
                   "/assets/site/coins/coin9.png",
                 ]}
+                link="/dashboard/funds/3"
               />
             </SwiperSlide>
 
@@ -221,6 +224,7 @@ export default function Home() {
                   "/assets/site/coins/coin11.png",
                   "/assets/site/coins/coin12.png",
                 ]}
+                link="/dashboard/funds/4"
               />
             </SwiperSlide>
 
@@ -239,6 +243,7 @@ export default function Home() {
                   "/assets/site/coins/coin14.png",
                   "/assets/site/coins/coin15.png",
                 ]}
+                link="/dashboard/funds/5"
               />
             </SwiperSlide>
 
@@ -257,6 +262,7 @@ export default function Home() {
                   "/assets/site/coins/coin17.png",
                   "/assets/site/coins/coin18.png",
                 ]}
+                link="/dashboard/funds/6"
               />
             </SwiperSlide>
 
@@ -275,6 +281,7 @@ export default function Home() {
                   "/assets/site/coins/coin20.png",
                   "/assets/site/coins/coin21.png",
                 ]}
+                link="/dashboard/funds/7"
               />
             </SwiperSlide>
 
@@ -293,6 +300,7 @@ export default function Home() {
                   "/assets/site/coins/coin23.png",
                   "/assets/site/coins/coin24.png",
                 ]}
+                link="/dashboard/funds/8"
               />
             </SwiperSlide>
 
@@ -311,6 +319,8 @@ export default function Home() {
                   "/assets/site/coins/coin26.png",
                   "/assets/site/coins/coin27.png",
                 ]}
+
+                       link="/dashboard/funds/9"
               />
             </SwiperSlide>
           </Swiper>

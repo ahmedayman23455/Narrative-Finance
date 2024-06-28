@@ -28,6 +28,7 @@ interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
   searchColumn: string;
+  existRedirection?: boolean;
   children?: React.ReactNode;
 }
 
@@ -35,7 +36,8 @@ export function DataTable<TData, TValue>({
   columns,
   data,
   searchColumn,
-  children,
+  existRedirection,
+  children
 }: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] =
     React.useState<SortingState>([]);
@@ -119,6 +121,7 @@ export function DataTable<TData, TValue>({
                     rowId={
                       (row.original as {id: string}).id
                     }
+                    existRedirection={existRedirection}
                   >
                     {row.getVisibleCells().map((cell) => {
                       return (

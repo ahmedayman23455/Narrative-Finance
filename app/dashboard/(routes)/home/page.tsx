@@ -192,6 +192,7 @@ rounded-2xl mt-16"
                   columns={columns}
                   data={funds}
                   searchColumn="name"
+                  existRedirection
                 />
               </TabsContent>
 
@@ -200,6 +201,7 @@ rounded-2xl mt-16"
                   columns={columns}
                   data={funds}
                   searchColumn="name"
+                  existRedirection
                 />
               </TabsContent>
 
@@ -208,6 +210,7 @@ rounded-2xl mt-16"
                   columns={columns}
                   data={funds}
                   searchColumn="name"
+                  existRedirection
                 />
               </TabsContent>
 
@@ -216,6 +219,7 @@ rounded-2xl mt-16"
                   columns={columns}
                   data={funds}
                   searchColumn="name"
+                  existRedirection
                 />
               </TabsContent>
             </div>

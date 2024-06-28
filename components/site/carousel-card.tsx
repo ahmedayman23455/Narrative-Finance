@@ -14,6 +14,7 @@ import CircularProgress from "@mui/joy/CircularProgress";
 import {useTheme} from "next-themes";
 import {cn} from "@/lib/utils";
 import {light} from "@mui/material/styles/createPalette";
+import {useRouter} from "next/navigation";
 
 const CarouselCard = ({
   vectorColor,
@@ -22,6 +23,7 @@ const CarouselCard = ({
   images,
   price,
   tvl,
+  link,
 }: {
   vectorColor: "red" | "blue";
   title: string;
@@ -30,8 +32,10 @@ const CarouselCard = ({
   images: string[];
   price: string;
   tvl: string;
+  link: string;
 }) => {
   const {theme} = useTheme();
+  const router = useRouter();
 
   return (
     <div data-aos="zoom-in" className="relative   ">
@@ -200,7 +204,11 @@ const CarouselCard = ({
         </CardContent>
 
         <CardFooter className="flex justify-between">
-          <Button className="w-full" size="lg">
+          <Button
+            className="w-full"
+            size="lg"
+            onClick={() => router.push(link)}
+          >
             See Details
           </Button>
         </CardFooter>
