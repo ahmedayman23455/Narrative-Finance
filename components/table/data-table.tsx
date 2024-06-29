@@ -97,7 +97,7 @@ export function DataTable<TData, TValue>({
           </div>
         )}
 
-        <div className="relative"></div>
+
 
         <Table
           className={cn(
