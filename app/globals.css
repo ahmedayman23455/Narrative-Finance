@@ -163,3 +163,27 @@ body,
 .test_solution {
   background-clip: text !important;
 }
+
+.custom-table thead tr th:first-child {
+  width: 300px !important;
+}
+
+.custom-table thead tr th:nth-child(2) {
+  width: 491px !important;
+}
+
+.custom-table thead tr th:nth-child(3) {
+  width: 150px !important;
+}
+
+.custom-table tbody tr td:first-child {
+  width: 300px !important;
+}
+
+.custom-table tbody tr td:nth-child(2) {
+  width: 491px !important;
+}
+
+.custom-table tbody tr td:nth-child(3) {
+  width: 150px !important;
+}
