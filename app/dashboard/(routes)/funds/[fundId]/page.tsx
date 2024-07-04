@@ -11,7 +11,7 @@ import {Button} from "@/components/ui/button";
 import StatsCard from "@/components/dashboard/stats-card";
 import {DataTable} from "@/components/table/data-table";
 import {columns} from "./_components/columns";
-import {funds, fundsParamters} from "@/data/demoFunds";
+import {funds} from "@/data/demoFunds";
 import {
   Tabs,
   TabsContent,
@@ -38,6 +38,7 @@ import LoadingSpinner from "@/components/general/loading-spinner";
 import {Check, Circle, CircleCheck} from "lucide-react";
 import {Progress} from "@/components/ui/progress";
 import Timeline from "@/components/general/timeline";
+import {columnsActivities} from "./_components/activites_columns";
 
 const FundPage = () => {
   const [redeemLoading, setRedeemLoading] = useState(false);
@@ -61,6 +62,7 @@ const FundPage = () => {
     // Return the notFound object if the FAQ does not exist
     return {notFound: true};
   }
+
   const claimHandler = () => {
     setRedeemLoading(true);
     setRedeemCompleted(false);
@@ -164,7 +166,7 @@ const FundPage = () => {
                         alt={selectedFund?.name}
                         key={index}
                         className="rounded-full"
-                        src={coin}
+                        src={coin.image}
                         width={32}
                         height={32}
                       />
@@ -903,85 +905,133 @@ rounded-2xl mt-16"
             <TabsContent value="composition">
               <DataTable
                 columns={columns}
-                data={fundsParamters}
+                data={selectedFund.composition}
                 className="custom-table"
                 searchColumn="name"
-                notShowTbody
                 notShowPagination
-              />
-
-              <div className="relative h-[91px] w-full flex gap-1">
-                <div className="rounded-md flex items-center justify-center w-[70%] bg-[#B2BBFF] cursor-pointer hover:scale-95 transition">
-                  <div className="bg-white text-[#1E1E1E] flex flex-col items-center py-2 px-8 rounded-sm">
-                    <p className="text-[#1E1E1E] text-base">
-                      Solana
-                    </p>
-                    <p className="text-[#1E1E1E] text-3xl font-medium">
-                      75%
-                    </p>
+              >
+                <div className="relative h-[91px] w-full flex gap-1">
+                  <div className="rounded-md flex items-center justify-center w-[70%] bg-[#B2BBFF] cursor-pointer  transition">
+                    <div className="bg-white text-[#1E1E1E] flex flex-col items-center py-2 px-6 rounded-sm">
+                      <p className="text-[#1E1E1E] text-base">
+                        Solana
+                      </p>
+                      <p className="text-[#1E1E1E] text-3xl  font-medium">
+                        75%
+                      </p>
+                    </div>
                   </div>
-                </div>
 
-                <div className="w-[40%] bg-[#CBD5DF] rounded-lg cursor-pointer hover:scale-95 transition"></div>
+                  <div className="rounded-md flex items-center justify-center w-[17%] bg-[#E1E7F2] cursor-pointer hover:scale-95 transition relative group">
+                    <div className=" gap-4 items-center px-4 py-2 text-xs bg-primary text-white rounded-lg absolute -top-10  hidden group-hover:flex">
+                      <p className="whitespace-nowrap font-bold">
+                        Coin 2
+                      </p>
+                      <p> 40%</p>
+                    </div>
+                  </div>
+
+                  <div className="rounded-md flex items-center justify-center w-[17%] bg-[#E1E7F2] cursor-pointer hover:scale-95 transition relative group">
+                    <div className=" gap-4 items-center px-4 py-2 text-xs bg-primary text-white rounded-lg absolute -top-10  hidden group-hover:flex">
+                      <p className="whitespace-nowrap font-bold">
+                        Coin 3
+                      </p>
+                      <p> 30%</p>
+                    </div>
+                  </div>
+                  <div className="rounded-md flex items-center justify-center w-[17%] bg-[#E1E7F2] cursor-pointer hover:scale-95 transition relative group">
+                    <div className=" gap-4 items-center px-4 py-2 text-xs bg-primary text-white rounded-lg absolute -top-10  hidden group-hover:flex">
+                      <p className="whitespace-nowrap font-bold">
+                        Coin 4
+                      </p>
+                      <p> 30%</p>
+                    </div>
+                  </div>
+
+                  <div className="rounded-md flex items-center justify-center w-[6%] bg-[#E1E7F2] cursor-pointer hover:scale-95 transition relative group">
+                    <div className=" gap-4 items-center px-4 py-2 text-xs bg-primary text-white rounded-lg absolute -top-10  hidden group-hover:flex">
+                      <p className="whitespace-nowrap font-bold">
+                        Coin 5
+                      </p>
+                      <p> 20%</p>
+                    </div>
+                  </div>
+                  <div className="rounded-md flex items-center justify-center w-[6%] bg-[#E1E7F2] cursor-pointer hover:scale-95 transition relative group">
+                    <div className=" gap-4 items-center px-4 py-2 text-xs bg-primary text-white rounded-lg absolute -top-10  hidden group-hover:flex">
+                      <p className="whitespace-nowrap font-bold">
+                        Coin 6
+                      </p>
+                      <p> 20%</p>
+                    </div>
+                  </div>
+
+                  <div className="rounded-md flex items-center justify-center w-[6%] bg-[#E1E7F2] cursor-pointer hover:scale-95 transition relative group">
+                    <div className=" gap-4 items-center px-4 py-2 text-xs bg-primary text-white rounded-lg absolute -top-10  hidden group-hover:flex">
+                      <p className="whitespace-nowrap font-bold">
+                        Coin 7
+                      </p>
+                      <p> 15%</p>
+                    </div>
+                  </div>
+                  <div className="rounded-md flex items-center justify-center w-[5%] bg-[#E1E7F2] cursor-pointer hover:scale-95 transition relative group">
+                    <div className=" gap-4 items-center px-4 py-2 text-xs bg-primary text-white rounded-lg absolute -top-10  hidden group-hover:flex">
+                      <p className="whitespace-nowrap font-bold">
+                        Coin 8
+                      </p>
+                      <p> 10%</p>
+                    </div>
+                  </div>
+                  <div className="rounded-md flex items-center justify-center w-[4%] bg-[#E1E7F2] cursor-pointer hover:scale-95 transition relative group">
+                    <div className=" gap-4 items-center px-4 py-2 text-xs bg-primary text-white rounded-lg absolute -top-10  hidden group-hover:flex">
+                      <p className="whitespace-nowrap font-bold">
+                        Coin 9
+                      </p>
+                      <p> 8%</p>
+                    </div>
+                  </div>
+                  <div className="rounded-md flex items-center justify-center w-[4%] bg-[#E1E7F2] cursor-pointer hover:scale-95 transition relative group">
+                    <div className=" gap-4 items-center px-4 py-2 text-xs bg-primary text-white rounded-lg absolute -top-10  hidden group-hover:flex">
+                      <p className="whitespace-nowrap font-bold">
+                        Coin 10
+                      </p>
+                      <p> 8%</p>
+                    </div>
+                  </div>
+                  <div className="rounded-md flex items-center justify-center w-[3%] bg-[#E1E7F2] cursor-pointer hover:scale-95 transition relative group">
+                    <div className=" gap-4 items-center px-4 py-2 text-xs bg-primary text-white rounded-lg absolute -top-10 right-0 hidden group-hover:flex">
+                      <p className="whitespace-nowrap font-bold">
+                        Coin 11
+                      </p>
+                      <p> 3%</p>
+                    </div>
+                  </div>
+
+                  {/* <div className="w-[40%] bg-[#CBD5DF] rounded-lg cursor-pointer hover:scale-95 transition"></div>
                 <div className="w-[17%] bg-[#E1E7F2] rounded-lg cursor-pointer hover:scale-95 transition"></div>
                 <div className="w-[6%] bg-[#E1E7F2] rounded-lg cursor-pointer hover:scale-95 transition"></div>
                 <div className="w-[6%] bg-[#E1E7F2] rounded-lg cursor-pointer hover:scale-95 transition"></div>
 
                 <div className="w-[5%] bg-[#E1E7F2] rounded-lg cursor-pointer hover:scale-95 transition"></div>
                 <div className="w-[4%] bg-[#E1E7F2] rounded-lg cursor-pointer hover:scale-95 transition"></div>
-                <div className="w-[3%] bg-[#E1E7F2] rounded-lg cursor-pointer hover:scale-95 transition"></div>
-              </div>
+                <div className="w-[3%] bg-[#E1E7F2] rounded-lg cursor-pointer hover:scale-95 transition"></div> */}
+                </div>
+              </DataTable>
 
-              <DataTable
+              {/* <DataTable
                 columns={columns}
-                data={fundsParamters}
+                data={selectedFund.composition}
                 className="custom-table"
                 searchColumn="name"
                 notShowThead
-                notShowToolbar
-              />
+              /> */}
             </TabsContent>
-
 
             <TabsContent value="activity">
               <DataTable
-                columns={columns}
-                data={fundsParamters}
+                columns={columnsActivities}
+                data={selectedFund.activities}
                 className="custom-table"
-                searchColumn="name"
-                notShowTbody
-                notShowPagination
-              />
-
-              <div className="relative h-[91px] w-full flex gap-1">
-                <div className="rounded-md flex items-center justify-center w-[70%] bg-[#B2BBFF] cursor-pointer hover:scale-95 transition">
-                  <div className="bg-white text-[#1E1E1E] flex flex-col items-center py-2 px-8 rounded-sm">
-                    <p className="text-[#1E1E1E] text-base">
-                      Solana
-                    </p>
-                    <p className="text-[#1E1E1E] text-3xl font-medium">
-                      75%
-                    </p>
-                  </div>
-                </div>
-
-                <div className="w-[40%] bg-[#CBD5DF] rounded-lg cursor-pointer hover:scale-95 transition"></div>
-                <div className="w-[17%] bg-[#E1E7F2] rounded-lg cursor-pointer hover:scale-95 transition"></div>
-                <div className="w-[6%] bg-[#E1E7F2] rounded-lg cursor-pointer hover:scale-95 transition"></div>
-                <div className="w-[6%] bg-[#E1E7F2] rounded-lg cursor-pointer hover:scale-95 transition"></div>
-
-                <div className="w-[5%] bg-[#E1E7F2] rounded-lg cursor-pointer hover:scale-95 transition"></div>
-                <div className="w-[4%] bg-[#E1E7F2] rounded-lg cursor-pointer hover:scale-95 transition"></div>
-                <div className="w-[3%] bg-[#E1E7F2] rounded-lg cursor-pointer hover:scale-95 transition"></div>
-              </div>
-
-              <DataTable
-                columns={columns}
-                data={fundsParamters}
-                className="custom-table"
-                searchColumn="name"
-                notShowThead
-                notShowToolbar
+                searchColumn="holder"
               />
             </TabsContent>
 

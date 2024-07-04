@@ -22,6 +22,16 @@ import {
 import StarIcon from "@/components/icons/star-icon";
 import VerifiedIcon from "@/components/icons/verified-icon";
 
+interface IFundParamter {
+  name: string;
+  image: string;
+  price?: number;
+  currentWeight: number;
+  targetWeight: number;
+  percentage1: number;
+  percentage2: number;
+}
+
 interface Ifund {
   id: string;
   name: string;
@@ -31,7 +41,7 @@ interface Ifund {
   tvl: number;
   D3O: number;
   alltime: number;
-  composition: string[];
+  composition: IFundParamter[];
   chart: {
     name: string;
     uv: number;
@@ -205,7 +215,7 @@ export const columns: ColumnDef<Ifund>[] = [
                 alt={row.original.name}
                 key={index}
                 className="rounded-full"
-                src={coin}
+                src={coin.image}
                 width={32}
                 height={32}
               />

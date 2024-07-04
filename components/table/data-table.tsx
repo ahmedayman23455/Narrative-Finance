@@ -92,12 +92,12 @@ export function DataTable<TData, TValue>({
           <div className="flex flex-col gap-4 lg:flex-row items-left justify-between w-full">
             <DataTableToolbar
               table={table}
-              serachColumn={searchColumn}
+              searchColumn={searchColumn}
             />
           </div>
         )}
 
-
+        {children}
 
         <Table
           className={cn(

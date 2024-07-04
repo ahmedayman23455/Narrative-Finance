@@ -8,19 +8,7 @@ import {
   AvatarFallback,
   AvatarImage,
 } from "@/components/ui/avatar";
-import {Badge} from "@/components/ui/badge";
-import Image from "next/image";
-import {
-  AreaChart,
-  Area,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-} from "recharts";
-import StarIcon from "@/components/icons/star-icon";
-import VerifiedIcon from "@/components/icons/verified-icon";
+
 import {Progress} from "@/components/ui/progress";
 
 interface IFundParamter {
@@ -45,6 +33,7 @@ export const columns: ColumnDef<IFundParamter>[] = [
       );
     },
     cell: ({row}) => {
+      console.log(row.original);
       return (
         <div className="flex items-center gap-2">
           <Avatar className="w-11 h-11 rounded-md">

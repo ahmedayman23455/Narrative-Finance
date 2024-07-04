@@ -1,3 +1,22 @@
+interface IFundParamter {
+  name: string;
+  image: string;
+  price?: number;
+  currentWeight: number;
+  targetWeight: number;
+  percentage1: number;
+  percentage2: number;
+}
+
+interface IFundActivity {
+  time: string;
+  action: string;
+  resultAction: string;
+  usdc: string;
+  holder: string;
+  badge: string;
+}
+
 interface Ifund {
   id: string;
   name: string;
@@ -7,23 +26,15 @@ interface Ifund {
   tvl: number;
   D3O: number;
   alltime: number;
-  composition: string[];
+  composition: IFundParamter[];
   chart: {
     name: string;
     uv: number;
     pv: number;
     amt: number;
   }[];
-}
 
-interface IFundParamter {
-  name: string;
-  image: string;
-  price?: number;
-  currentWeight: number;
-  targetWeight: number;
-  percentage1: number;
-  percentage2: number;
+  activities: IFundActivity[];
 }
 
 export const funds: Ifund[] = [
@@ -37,12 +48,33 @@ export const funds: Ifund[] = [
     D3O: 75,
     alltime: 180,
     composition: [
-      "/assets/site/coins/coin1.png",
-      "/assets/site/coins/coin2.png",
-      "/assets/site/coins/coin3.png",
-      "/assets/site/coins/coin1.png",
-      "/assets/site/coins/coin2.png",
-      "/assets/site/coins/coin3.png",
+      {
+        name: "sdfds",
+        image: "/assets/site/coins/coin1.png",
+        price: 50,
+        currentWeight: 0,
+        targetWeight: 0,
+        percentage1: 0.46663,
+        percentage2: 0.47,
+      },
+      {
+        name: "USDC",
+        image: "/assets/site/coins/coin2.png",
+        price: 50,
+        currentWeight: 0,
+        targetWeight: 0,
+        percentage1: 0.46663,
+        percentage2: 0.47,
+      },
+      {
+        name: "USDC",
+        image: "/assets/site/coins/coin3.png",
+        price: 50,
+        currentWeight: 0,
+        targetWeight: 0,
+        percentage1: 0.46663,
+        percentage2: 0.47,
+      },
     ],
 
     chart: [
@@ -87,6 +119,49 @@ export const funds: Ifund[] = [
         uv: 3490,
         pv: 4300,
         amt: 2100,
+      },
+    ],
+
+    activities: [
+      {
+        time: "2 Minutes ago",
+        action: "Burn",
+        resultAction: "Burn",
+        usdc: "4.910000",
+        holder: "8weruweiwerewrwerwere",
+        badge: "USDC",
+      },
+      {
+        time: "5 Minutes ago",
+        action: "Withdraw",
+        resultAction: "Claim",
+        usdc: "4.910000",
+        holder: "8weruweiwerewrwerwere",
+        badge: "SolMOG",
+      },
+      {
+        time: "24 Minutes ago",
+        action: "Mint",
+        resultAction: "Mint",
+        usdc: "4.910000",
+        holder: "8weruweiwerewrwerwere",
+        badge: "USDC",
+      },
+      {
+        time: "35 Minutes ago",
+        action: "Mint",
+        resultAction: "Mint",
+        usdc: "4.910000",
+        holder: "8weruweiwerewrwerwere",
+        badge: "USDC",
+      },
+      {
+        time: "45 Minutes ago",
+        action: "Withdraw",
+        resultAction: "Claim",
+        usdc: "4.910000",
+        holder: "8weruweiwerewrwerwere",
+        badge: "SolMOG",
       },
     ],
   },
@@ -100,12 +175,33 @@ export const funds: Ifund[] = [
     D3O: 75,
     alltime: 180,
     composition: [
-      "/assets/site/coins/coin4.png",
-      "/assets/site/coins/coin5.png",
-      "/assets/site/coins/coin6.png",
-      "/assets/site/coins/coin4.png",
-      "/assets/site/coins/coin5.png",
-      "/assets/site/coins/coin6.png",
+      {
+        name: "USDC",
+        image: "/assets/site/coins/coin4.png",
+        price: 50,
+        currentWeight: 0,
+        targetWeight: 0,
+        percentage1: 0.46663,
+        percentage2: 0.47,
+      },
+      {
+        name: "USDC",
+        image: "/assets/site/coins/coin5.png",
+        price: 50,
+        currentWeight: 0,
+        targetWeight: 0,
+        percentage1: 0.46663,
+        percentage2: 0.47,
+      },
+      {
+        name: "USDC",
+        image: "/assets/site/coins/coin6.png",
+        price: 50,
+        currentWeight: 0,
+        targetWeight: 0,
+        percentage1: 0.46663,
+        percentage2: 0.47,
+      },
     ],
     chart: [
       {
@@ -149,6 +245,48 @@ export const funds: Ifund[] = [
         uv: 3490,
         pv: 4300,
         amt: 2100,
+      },
+    ],
+    activities: [
+      {
+        time: "2 Minutes ago",
+        action: "Burn",
+        resultAction: "Burn",
+        usdc: "4.910000",
+        holder: "8weruweiwerewrwerwere",
+        badge: "USDC",
+      },
+      {
+        time: "5 Minutes ago",
+        action: "Withdraw",
+        resultAction: "Claim",
+        usdc: "4.910000",
+        holder: "8weruweiwerewrwerwere",
+        badge: "SolMOG",
+      },
+      {
+        time: "24 Minutes ago",
+        action: "Mint",
+        resultAction: "Mint",
+        usdc: "4.910000",
+        holder: "8weruweiwerewrwerwere",
+        badge: "USDC",
+      },
+      {
+        time: "35 Minutes ago",
+        action: "Mint",
+        resultAction: "Mint",
+        usdc: "4.910000",
+        holder: "8weruweiwerewrwerwere",
+        badge: "USDC",
+      },
+      {
+        time: "45 Minutes ago",
+        action: "Withdraw",
+        resultAction: "Claim",
+        usdc: "4.910000",
+        holder: "8weruweiwerewrwerwere",
+        badge: "SolMOG",
       },
     ],
   },
@@ -162,12 +300,33 @@ export const funds: Ifund[] = [
     D3O: 75,
     alltime: 180,
     composition: [
-      "/assets/site/coins/coin7.png",
-      "/assets/site/coins/coin8.png",
-      "/assets/site/coins/coin9.png",
-      "/assets/site/coins/coin7.png",
-      "/assets/site/coins/coin8.png",
-      "/assets/site/coins/coin9.png",
+      {
+        name: "USDC",
+        image: "/assets/site/coins/coin7.png",
+        price: 50,
+        currentWeight: 0,
+        targetWeight: 0,
+        percentage1: 0.46663,
+        percentage2: 0.47,
+      },
+      {
+        name: "USDC",
+        image: "/assets/site/coins/coin8.png",
+        price: 50,
+        currentWeight: 0,
+        targetWeight: 0,
+        percentage1: 0.46663,
+        percentage2: 0.47,
+      },
+      {
+        name: "USDC",
+        image: "/assets/site/coins/coin9.png",
+        price: 50,
+        currentWeight: 0,
+        targetWeight: 0,
+        percentage1: 0.46663,
+        percentage2: 0.47,
+      },
     ],
     chart: [
       {
@@ -211,6 +370,48 @@ export const funds: Ifund[] = [
         uv: 3490,
         pv: 4300,
         amt: 2100,
+      },
+    ],
+    activities: [
+      {
+        time: "2 Minutes ago",
+        action: "Burn",
+        resultAction: "Burn",
+        usdc: "4.910000",
+        holder: "8weruweiwerewrwerwere",
+        badge: "USDC",
+      },
+      {
+        time: "5 Minutes ago",
+        action: "Withdraw",
+        resultAction: "Claim",
+        usdc: "4.910000",
+        holder: "8weruweiwerewrwerwere",
+        badge: "SolMOG",
+      },
+      {
+        time: "24 Minutes ago",
+        action: "Mint",
+        resultAction: "Mint",
+        usdc: "4.910000",
+        holder: "8weruweiwerewrwerwere",
+        badge: "USDC",
+      },
+      {
+        time: "35 Minutes ago",
+        action: "Mint",
+        resultAction: "Mint",
+        usdc: "4.910000",
+        holder: "8weruweiwerewrwerwere",
+        badge: "USDC",
+      },
+      {
+        time: "45 Minutes ago",
+        action: "Withdraw",
+        resultAction: "Claim",
+        usdc: "4.910000",
+        holder: "8weruweiwerewrwerwere",
+        badge: "SolMOG",
       },
     ],
   },
@@ -224,12 +425,33 @@ export const funds: Ifund[] = [
     D3O: 75,
     alltime: 180,
     composition: [
-      "/assets/site/coins/coin10.png",
-      "/assets/site/coins/coin11.png",
-      "/assets/site/coins/coin12.png",
-      "/assets/site/coins/coin10.png",
-      "/assets/site/coins/coin11.png",
-      "/assets/site/coins/coin12.png",
+      {
+        name: "USDC",
+        image: "/assets/site/coins/coin10.png",
+        price: 50,
+        currentWeight: 0,
+        targetWeight: 0,
+        percentage1: 0.46663,
+        percentage2: 0.47,
+      },
+      {
+        name: "USDC",
+        image: "/assets/site/coins/coin11.png",
+        price: 50,
+        currentWeight: 0,
+        targetWeight: 0,
+        percentage1: 0.46663,
+        percentage2: 0.47,
+      },
+      {
+        name: "USDC",
+        image: "/assets/site/coins/coin12.png",
+        price: 50,
+        currentWeight: 0,
+        targetWeight: 0,
+        percentage1: 0.46663,
+        percentage2: 0.47,
+      },
     ],
 
     chart: [
@@ -274,6 +496,49 @@ export const funds: Ifund[] = [
         uv: 3490,
         pv: 4300,
         amt: 2100,
+      },
+    ],
+
+    activities: [
+      {
+        time: "2 Minutes ago",
+        action: "Burn",
+        resultAction: "Burn",
+        usdc: "4.910000",
+        holder: "8weruweiwerewrwerwere",
+        badge: "USDC",
+      },
+      {
+        time: "5 Minutes ago",
+        action: "Withdraw",
+        resultAction: "Claim",
+        usdc: "4.910000",
+        holder: "8weruweiwerewrwerwere",
+        badge: "SolMOG",
+      },
+      {
+        time: "24 Minutes ago",
+        action: "Mint",
+        resultAction: "Mint",
+        usdc: "4.910000",
+        holder: "8weruweiwerewrwerwere",
+        badge: "USDC",
+      },
+      {
+        time: "35 Minutes ago",
+        action: "Mint",
+        resultAction: "Mint",
+        usdc: "4.910000",
+        holder: "8weruweiwerewrwerwere",
+        badge: "USDC",
+      },
+      {
+        time: "45 Minutes ago",
+        action: "Withdraw",
+        resultAction: "Claim",
+        usdc: "4.910000",
+        holder: "8weruweiwerewrwerwere",
+        badge: "SolMOG",
       },
     ],
   },
@@ -287,12 +552,33 @@ export const funds: Ifund[] = [
     D3O: 75,
     alltime: 180,
     composition: [
-      "/assets/site/coins/coin13.png",
-      "/assets/site/coins/coin14.png",
-      "/assets/site/coins/coin15.png",
-      "/assets/site/coins/coin13.png",
-      "/assets/site/coins/coin14.png",
-      "/assets/site/coins/coin15.png",
+      {
+        name: "USDC",
+        image: "/assets/site/coins/coin13.png",
+        price: 50,
+        currentWeight: 0,
+        targetWeight: 0,
+        percentage1: 0.46663,
+        percentage2: 0.47,
+      },
+      {
+        name: "USDC",
+        image: "/assets/site/coins/coin14.png",
+        price: 50,
+        currentWeight: 0,
+        targetWeight: 0,
+        percentage1: 0.46663,
+        percentage2: 0.47,
+      },
+      {
+        name: "USDC",
+        image: "/assets/site/coins/coin15.png",
+        price: 50,
+        currentWeight: 0,
+        targetWeight: 0,
+        percentage1: 0.46663,
+        percentage2: 0.47,
+      },
     ],
 
     chart: [
@@ -337,6 +623,49 @@ export const funds: Ifund[] = [
         uv: 3490,
         pv: 4300,
         amt: 2100,
+      },
+    ],
+
+    activities: [
+      {
+        time: "2 Minutes ago",
+        action: "Burn",
+        resultAction: "Burn",
+        usdc: "4.910000",
+        holder: "8weruweiwerewrwerwere",
+        badge: "USDC",
+      },
+      {
+        time: "5 Minutes ago",
+        action: "Withdraw",
+        resultAction: "Claim",
+        usdc: "4.910000",
+        holder: "8weruweiwerewrwerwere",
+        badge: "SolMOG",
+      },
+      {
+        time: "24 Minutes ago",
+        action: "Mint",
+        resultAction: "Mint",
+        usdc: "4.910000",
+        holder: "8weruweiwerewrwerwere",
+        badge: "USDC",
+      },
+      {
+        time: "35 Minutes ago",
+        action: "Mint",
+        resultAction: "Mint",
+        usdc: "4.910000",
+        holder: "8weruweiwerewrwerwere",
+        badge: "USDC",
+      },
+      {
+        time: "45 Minutes ago",
+        action: "Withdraw",
+        resultAction: "Claim",
+        usdc: "4.910000",
+        holder: "8weruweiwerewrwerwere",
+        badge: "SolMOG",
       },
     ],
   },
@@ -350,12 +679,33 @@ export const funds: Ifund[] = [
     D3O: 75,
     alltime: 180,
     composition: [
-      "/assets/site/coins/coin16.png",
-      "/assets/site/coins/coin17.png",
-      "/assets/site/coins/coin18.png",
-      "/assets/site/coins/coin16.png",
-      "/assets/site/coins/coin17.png",
-      "/assets/site/coins/coin18.png",
+      {
+        name: "USDC",
+        image: "/assets/site/coins/coin16.png",
+        price: 50,
+        currentWeight: 0,
+        targetWeight: 0,
+        percentage1: 0.46663,
+        percentage2: 0.47,
+      },
+      {
+        name: "USDC",
+        image: "/assets/site/coins/coin17.png",
+        price: 50,
+        currentWeight: 0,
+        targetWeight: 0,
+        percentage1: 0.46663,
+        percentage2: 0.47,
+      },
+      {
+        name: "USDC",
+        image: "/assets/site/coins/coin18.png",
+        price: 50,
+        currentWeight: 0,
+        targetWeight: 0,
+        percentage1: 0.46663,
+        percentage2: 0.47,
+      },
     ],
 
     chart: [
@@ -400,6 +750,49 @@ export const funds: Ifund[] = [
         uv: 3490,
         pv: 4300,
         amt: 2100,
+      },
+    ],
+
+    activities: [
+      {
+        time: "2 Minutes ago",
+        action: "Burn",
+        resultAction: "Burn",
+        usdc: "4.910000",
+        holder: "8weruweiwerewrwerwere",
+        badge: "USDC",
+      },
+      {
+        time: "5 Minutes ago",
+        action: "Withdraw",
+        resultAction: "Claim",
+        usdc: "4.910000",
+        holder: "8weruweiwerewrwerwere",
+        badge: "SolMOG",
+      },
+      {
+        time: "24 Minutes ago",
+        action: "Mint",
+        resultAction: "Mint",
+        usdc: "4.910000",
+        holder: "8weruweiwerewrwerwere",
+        badge: "USDC",
+      },
+      {
+        time: "35 Minutes ago",
+        action: "Mint",
+        resultAction: "Mint",
+        usdc: "4.910000",
+        holder: "8weruweiwerewrwerwere",
+        badge: "USDC",
+      },
+      {
+        time: "45 Minutes ago",
+        action: "Withdraw",
+        resultAction: "Claim",
+        usdc: "4.910000",
+        holder: "8weruweiwerewrwerwere",
+        badge: "SolMOG",
       },
     ],
   },
@@ -413,12 +806,33 @@ export const funds: Ifund[] = [
     D3O: 75,
     alltime: 180,
     composition: [
-      "/assets/site/coins/coin19.png",
-      "/assets/site/coins/coin20.png",
-      "/assets/site/coins/coin21.png",
-      "/assets/site/coins/coin19.png",
-      "/assets/site/coins/coin20.png",
-      "/assets/site/coins/coin21.png",
+      {
+        name: "USDC",
+        image: "/assets/site/coins/coin19.png",
+        price: 50,
+        currentWeight: 0,
+        targetWeight: 0,
+        percentage1: 0.46663,
+        percentage2: 0.47,
+      },
+      {
+        name: "USDC",
+        image: "/assets/site/coins/coin20.png",
+        price: 50,
+        currentWeight: 0,
+        targetWeight: 0,
+        percentage1: 0.46663,
+        percentage2: 0.47,
+      },
+      {
+        name: "USDC",
+        image: "/assets/site/coins/coin21.png",
+        price: 50,
+        currentWeight: 0,
+        targetWeight: 0,
+        percentage1: 0.46663,
+        percentage2: 0.47,
+      },
     ],
 
     chart: [
@@ -463,6 +877,49 @@ export const funds: Ifund[] = [
         uv: 3490,
         pv: 4300,
         amt: 2100,
+      },
+    ],
+
+    activities: [
+      {
+        time: "2 Minutes ago",
+        action: "Burn",
+        resultAction: "Burn",
+        usdc: "4.910000",
+        holder: "8weruweiwerewrwerwere",
+        badge: "USDC",
+      },
+      {
+        time: "5 Minutes ago",
+        action: "Withdraw",
+        resultAction: "Claim",
+        usdc: "4.910000",
+        holder: "8weruweiwerewrwerwere",
+        badge: "SolMOG",
+      },
+      {
+        time: "24 Minutes ago",
+        action: "Mint",
+        resultAction: "Mint",
+        usdc: "4.910000",
+        holder: "8weruweiwerewrwerwere",
+        badge: "USDC",
+      },
+      {
+        time: "35 Minutes ago",
+        action: "Mint",
+        resultAction: "Mint",
+        usdc: "4.910000",
+        holder: "8weruweiwerewrwerwere",
+        badge: "USDC",
+      },
+      {
+        time: "45 Minutes ago",
+        action: "Withdraw",
+        resultAction: "Claim",
+        usdc: "4.910000",
+        holder: "8weruweiwerewrwerwere",
+        badge: "SolMOG",
       },
     ],
   },
@@ -476,12 +933,33 @@ export const funds: Ifund[] = [
     D3O: 75,
     alltime: 180,
     composition: [
-      "/assets/site/coins/coin22.png",
-      "/assets/site/coins/coin23.png",
-      "/assets/site/coins/coin24.png",
-      "/assets/site/coins/coin22.png",
-      "/assets/site/coins/coin23.png",
-      "/assets/site/coins/coin24.png",
+      {
+        name: "USDC",
+        image: "/assets/site/coins/coin22.png",
+        price: 50,
+        currentWeight: 0,
+        targetWeight: 0,
+        percentage1: 0.46663,
+        percentage2: 0.47,
+      },
+      {
+        name: "USDC",
+        image: "/assets/site/coins/coin23.png",
+        price: 50,
+        currentWeight: 0,
+        targetWeight: 0,
+        percentage1: 0.46663,
+        percentage2: 0.47,
+      },
+      {
+        name: "USDC",
+        image: "/assets/site/coins/coin24.png",
+        price: 50,
+        currentWeight: 0,
+        targetWeight: 0,
+        percentage1: 0.46663,
+        percentage2: 0.47,
+      },
     ],
 
     chart: [
@@ -526,6 +1004,49 @@ export const funds: Ifund[] = [
         uv: 3490,
         pv: 4300,
         amt: 2100,
+      },
+    ],
+
+    activities: [
+      {
+        time: "2 Minutes ago",
+        action: "Burn",
+        resultAction: "Burn",
+        usdc: "4.910000",
+        holder: "8weruweiwerewrwerwere",
+        badge: "USDC",
+      },
+      {
+        time: "5 Minutes ago",
+        action: "Withdraw",
+        resultAction: "Claim",
+        usdc: "4.910000",
+        holder: "8weruweiwerewrwerwere",
+        badge: "SolMOG",
+      },
+      {
+        time: "24 Minutes ago",
+        action: "Mint",
+        resultAction: "Mint",
+        usdc: "4.910000",
+        holder: "8weruweiwerewrwerwere",
+        badge: "USDC",
+      },
+      {
+        time: "35 Minutes ago",
+        action: "Mint",
+        resultAction: "Mint",
+        usdc: "4.910000",
+        holder: "8weruweiwerewrwerwere",
+        badge: "USDC",
+      },
+      {
+        time: "45 Minutes ago",
+        action: "Withdraw",
+        resultAction: "Claim",
+        usdc: "4.910000",
+        holder: "8weruweiwerewrwerwere",
+        badge: "SolMOG",
       },
     ],
   },
@@ -539,12 +1060,33 @@ export const funds: Ifund[] = [
     D3O: 75,
     alltime: 180,
     composition: [
-      "/assets/site/coins/coin25.png",
-      "/assets/site/coins/coin26.png",
-      "/assets/site/coins/coin27.png",
-      "/assets/site/coins/coin25.png",
-      "/assets/site/coins/coin26.png",
-      "/assets/site/coins/coin27.png",
+      {
+        name: "USDC",
+        image: "/assets/site/coins/coin25.png",
+        price: 50,
+        currentWeight: 0,
+        targetWeight: 0,
+        percentage1: 0.46663,
+        percentage2: 0.47,
+      },
+      {
+        name: "USDC",
+        image: "/assets/site/coins/coin26.png",
+        price: 50,
+        currentWeight: 0,
+        targetWeight: 0,
+        percentage1: 0.46663,
+        percentage2: 0.47,
+      },
+      {
+        name: "USDC",
+        image: "/assets/site/coins/coin27.png",
+        price: 50,
+        currentWeight: 0,
+        targetWeight: 0,
+        percentage1: 0.46663,
+        percentage2: 0.47,
+      },
     ],
 
     chart: [
@@ -589,6 +1131,49 @@ export const funds: Ifund[] = [
         uv: 3490,
         pv: 4300,
         amt: 2100,
+      },
+    ],
+
+    activities: [
+      {
+        time: "2 Minutes ago",
+        action: "Burn",
+        resultAction: "Burn",
+        usdc: "4.910000",
+        holder: "8weruweiwerewrwerwere",
+        badge: "USDC",
+      },
+      {
+        time: "5 Minutes ago",
+        action: "Withdraw",
+        resultAction: "Claim",
+        usdc: "4.910000",
+        holder: "8weruweiwerewrwerwere",
+        badge: "SolMOG",
+      },
+      {
+        time: "24 Minutes ago",
+        action: "Mint",
+        resultAction: "Mint",
+        usdc: "4.910000",
+        holder: "8weruweiwerewrwerwere",
+        badge: "USDC",
+      },
+      {
+        time: "35 Minutes ago",
+        action: "Mint",
+        resultAction: "Mint",
+        usdc: "4.910000",
+        holder: "8weruweiwerewrwerwere",
+        badge: "USDC",
+      },
+      {
+        time: "45 Minutes ago",
+        action: "Withdraw",
+        resultAction: "Claim",
+        usdc: "4.910000",
+        holder: "8weruweiwerewrwerwere",
+        badge: "SolMOG",
       },
     ],
   },
