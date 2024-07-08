@@ -40,6 +40,29 @@ import {Progress} from "@/components/ui/progress";
 import Timeline from "@/components/general/timeline";
 import {columnsActivities} from "./_components/activites_columns";
 
+interface Coin {
+  name: string;
+  percentage: number;
+}
+
+interface CoinProps {
+  coin: Coin;
+  isExpanded: boolean;
+  onToggle: () => void;
+}
+const coins: Coin[] = [
+  {name: "Solana", percentage: 75},
+  {name: "Bitcoin", percentage: 60},
+  {name: "Ethereum", percentage: 55},
+  {name: "Cardano", percentage: 45},
+  {name: "Ripple", percentage: 40},
+  {name: "Litecoin", percentage: 35},
+  {name: "Polkadot", percentage: 30},
+  {name: "Chainlink", percentage: 25},
+  {name: "Dogecoin", percentage: 20},
+  {name: "Stellar", percentage: 15},
+];
+
 const FundPage = () => {
   const [redeemLoading, setRedeemLoading] = useState(false);
   const [redeemCompleted, setRedeemCompleted] =
@@ -51,6 +74,24 @@ const FundPage = () => {
   const [depositToken, setDepositToken] = useState(false);
   const [depositTokenCompleted, setDepositCompleted] =
     useState(false);
+
+  const [clicked, setIsClicked] = useState(false);
+  const [hoveredCard, setHoveredCard] =
+    useState<null | Number>(null);
+
+  // const [expandedCoin, setExpandedCoin] = useState<
+  //   string | null
+  // >(null);
+
+  const [expandedCoin, setExpandedCoin] = useState<
+    string | null
+  >(coins[0].name);
+
+  const handleToggle = (coinName: string) => {
+    setExpandedCoin(
+      expandedCoin === coinName ? null : coinName
+    );
+  };
 
   const {fundId} = useParams();
 
@@ -766,7 +807,7 @@ const FundPage = () => {
                               <h4 className="text-sm">
                                 Available Tokens
                               </h4>
-                              <div className="flex flex-wrap gap-1 items-end gap-1">
+                              <div className="flex flex-wrap gap-1 items-end ">
                                 <TokenBadge
                                   imageSrc="/assets/site/coins/coin1.png"
                                   tag="Msol"
@@ -908,9 +949,8 @@ rounded-2xl mt-16"
                 data={selectedFund.composition}
                 className="custom-table"
                 searchColumn="name"
-                notShowPagination
               >
-                <div className="relative h-[91px] w-full flex gap-1">
+                {/* <div className="relative h-[91px] w-full flex gap-1">
                   <div className="rounded-md flex items-center justify-center w-[70%] bg-[#B2BBFF] cursor-pointer  transition">
                     <div className="bg-white text-[#1E1E1E] flex flex-col items-center py-2 px-6 rounded-sm">
                       <p className="text-[#1E1E1E] text-base">
@@ -939,6 +979,7 @@ rounded-2xl mt-16"
                       <p> 30%</p>
                     </div>
                   </div>
+
                   <div className="rounded-md flex items-center justify-center w-[17%] bg-[#E1E7F2] cursor-pointer hover:scale-95 transition relative group">
                     <div className=" gap-4 items-center px-4 py-2 text-xs bg-primary text-white rounded-lg absolute -top-10  hidden group-hover:flex">
                       <p className="whitespace-nowrap font-bold">
@@ -956,6 +997,7 @@ rounded-2xl mt-16"
                       <p> 20%</p>
                     </div>
                   </div>
+
                   <div className="rounded-md flex items-center justify-center w-[6%] bg-[#E1E7F2] cursor-pointer hover:scale-95 transition relative group">
                     <div className=" gap-4 items-center px-4 py-2 text-xs bg-primary text-white rounded-lg absolute -top-10  hidden group-hover:flex">
                       <p className="whitespace-nowrap font-bold">
@@ -973,6 +1015,7 @@ rounded-2xl mt-16"
                       <p> 15%</p>
                     </div>
                   </div>
+
                   <div className="rounded-md flex items-center justify-center w-[5%] bg-[#E1E7F2] cursor-pointer hover:scale-95 transition relative group">
                     <div className=" gap-4 items-center px-4 py-2 text-xs bg-primary text-white rounded-lg absolute -top-10  hidden group-hover:flex">
                       <p className="whitespace-nowrap font-bold">
@@ -981,6 +1024,7 @@ rounded-2xl mt-16"
                       <p> 10%</p>
                     </div>
                   </div>
+
                   <div className="rounded-md flex items-center justify-center w-[4%] bg-[#E1E7F2] cursor-pointer hover:scale-95 transition relative group">
                     <div className=" gap-4 items-center px-4 py-2 text-xs bg-primary text-white rounded-lg absolute -top-10  hidden group-hover:flex">
                       <p className="whitespace-nowrap font-bold">
@@ -989,6 +1033,7 @@ rounded-2xl mt-16"
                       <p> 8%</p>
                     </div>
                   </div>
+
                   <div className="rounded-md flex items-center justify-center w-[4%] bg-[#E1E7F2] cursor-pointer hover:scale-95 transition relative group">
                     <div className=" gap-4 items-center px-4 py-2 text-xs bg-primary text-white rounded-lg absolute -top-10  hidden group-hover:flex">
                       <p className="whitespace-nowrap font-bold">
@@ -997,6 +1042,7 @@ rounded-2xl mt-16"
                       <p> 8%</p>
                     </div>
                   </div>
+
                   <div className="rounded-md flex items-center justify-center w-[3%] bg-[#E1E7F2] cursor-pointer hover:scale-95 transition relative group">
                     <div className=" gap-4 items-center px-4 py-2 text-xs bg-primary text-white rounded-lg absolute -top-10 right-0 hidden group-hover:flex">
                       <p className="whitespace-nowrap font-bold">
@@ -1005,15 +1051,21 @@ rounded-2xl mt-16"
                       <p> 3%</p>
                     </div>
                   </div>
+                </div> */}
 
-                  {/* <div className="w-[40%] bg-[#CBD5DF] rounded-lg cursor-pointer hover:scale-95 transition"></div>
-                <div className="w-[17%] bg-[#E1E7F2] rounded-lg cursor-pointer hover:scale-95 transition"></div>
-                <div className="w-[6%] bg-[#E1E7F2] rounded-lg cursor-pointer hover:scale-95 transition"></div>
-                <div className="w-[6%] bg-[#E1E7F2] rounded-lg cursor-pointer hover:scale-95 transition"></div>
-
-                <div className="w-[5%] bg-[#E1E7F2] rounded-lg cursor-pointer hover:scale-95 transition"></div>
-                <div className="w-[4%] bg-[#E1E7F2] rounded-lg cursor-pointer hover:scale-95 transition"></div>
-                <div className="w-[3%] bg-[#E1E7F2] rounded-lg cursor-pointer hover:scale-95 transition"></div> */}
+                <div className="flex flex-row gap-1 overflow-auto">
+                  {coins.map((coin) => (
+                    <Coin
+                      key={coin.name}
+                      coin={coin}
+                      isExpanded={
+                        expandedCoin === coin.name
+                      }
+                      onToggle={() =>
+                        handleToggle(coin.name)
+                      }
+                    />
+                  ))}
                 </div>
               </DataTable>
 
@@ -1116,6 +1168,42 @@ rounded-2xl mt-16"
           </div>
         </Tabs>
       </div>
+    </div>
+  );
+};
+
+const Coin: React.FC<CoinProps> = ({
+  coin,
+  isExpanded,
+  onToggle,
+}) => {
+  const widthClass = `!w-[${coin.percentage + "%"}]`;
+
+  return (
+    <div
+      className={`p-3 border bg-[#E1E7F2]  h-[70px] lg:h-[91px] cursor-pointer rounded-md text-center transition-all duration-300 flex items-center justify-center ${
+        isExpanded
+          ? "!bg-[#B2BBFF] flex-grow px-16"
+          : widthClass
+      }`}
+      onClick={() => {
+        if (!isExpanded) {
+          onToggle();
+        }
+      }}
+    >
+      {isExpanded && (
+        <>
+          <div className="bg-white text-[#1E1E1E] flex flex-col items-center py-2 px-2 lg:px-7 rounded-sm w-max">
+            <p className="text-[#1E1E1E] text-xs lg:text-base">
+              {coin.name}
+            </p>
+            <p className="text-[#1E1E1E] text-base lg:text-3xl  font-medium">
+              {coin.percentage}%
+            </p>
+          </div>
+        </>
+      )}
     </div>
   );
 };

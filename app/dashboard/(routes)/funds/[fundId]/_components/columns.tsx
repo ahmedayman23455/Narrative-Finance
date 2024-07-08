@@ -33,7 +33,6 @@ export const columns: ColumnDef<IFundParamter>[] = [
       );
     },
     cell: ({row}) => {
-      console.log(row.original);
       return (
         <div className="flex items-center gap-2">
           <Avatar className="w-11 h-11 rounded-md">

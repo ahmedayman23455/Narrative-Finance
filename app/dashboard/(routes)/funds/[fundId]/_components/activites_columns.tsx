@@ -30,7 +30,6 @@ export const columnsActivities: ColumnDef<IFundActivity>[] =
         );
       },
       cell: ({row}) => {
-        console.log(row.original);
         return (
           <div className="flex items-center gap-2">
             <div className="flex flex-col ">
