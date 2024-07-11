@@ -63,6 +63,27 @@ const coins: Coin[] = [
   {name: "Stellar", percentage: 15},
 ];
 
+// const coins2: Coin[] = [
+//   {name: "Solana", percentage: 40},
+//   {name: "Bitcoin", percentage: 6},
+//   {name: "Ethereum", percentage: 6},
+//   {name: "Cardano", percentage: 5},
+//   {name: "Ripple", percentage: 3},
+//   {name: "Chainlink", percentage: 30},
+//   {name: "Dogecoin", percentage: 10},
+//   {name: "Stellar", percentage: 5},
+// ];
+const coins2: Coin[] = [
+  {name: "Solana", percentage: 75},
+  {name: "Bitcoin", percentage: 5},
+  {name: "Ethereum", percentage: 5},
+  {name: "Cardano", percentage: 2},
+  {name: "Ripple", percentage: 4},
+  {name: "Chainlink", percentage: 70},
+  {name: "Dogecoin", percentage: 20},
+  {name: "Stellar", percentage: 2},
+];
+
 const FundPage = () => {
   const [redeemLoading, setRedeemLoading] = useState(false);
   const [redeemCompleted, setRedeemCompleted] =
@@ -83,13 +104,23 @@ const FundPage = () => {
   //   string | null
   // >(null);
 
-  const [expandedCoin, setExpandedCoin] = useState<
-    string | null
-  >(coins[0].name);
+  // const [expandedCoin, setExpandedCoin] = useState<
+  //   string | null
+  // >(coins[0].name);
 
-  const handleToggle = (coinName: string) => {
-    setExpandedCoin(
-      expandedCoin === coinName ? null : coinName
+  const [expandedCoin2, setExpandedCoin2] = useState<
+    string | null
+  >(coins2[0].name);
+
+  // const handleToggle = (coinName: string) => {
+  //   setExpandedCoin(
+  //     expandedCoin === coinName ? null : coinName
+  //   );
+  // };
+
+  const handleToggle2 = (coinName: string) => {
+    setExpandedCoin2(
+      expandedCoin2 === coinName ? null : coinName
     );
   };
 
@@ -1053,7 +1084,8 @@ rounded-2xl mt-16"
                   </div>
                 </div> */}
 
-                <div className="flex flex-row gap-1 overflow-auto">
+                {/* coins 1 */}
+                {/* <div className="flex flex-row gap-1 overflow-auto">
                   {coins.map((coin) => (
                     <Coin
                       key={coin.name}
@@ -1066,6 +1098,25 @@ rounded-2xl mt-16"
                       }
                     />
                   ))}
+                </div> */}
+
+                {/* coins 2 */}
+
+                <div className="max-sm:w-full max-sm:overflow-auto">
+                  <div className="flex flex-row gap-1 max-sm:overflow-auto max-sm:w-[500px]">
+                    {coins2.map((coin) => (
+                      <Coin2
+                        key={coin.name}
+                        coin={coin}
+                        isExpanded={
+                          expandedCoin2 === coin.name
+                        }
+                        onToggle={() =>
+                          handleToggle2(coin.name)
+                        }
+                      />
+                    ))}
+                  </div>
                 </div>
               </DataTable>
 
@@ -1172,20 +1223,69 @@ rounded-2xl mt-16"
   );
 };
 
-const Coin: React.FC<CoinProps> = ({
+// const Coin: React.FC<CoinProps> = ({
+//   coin,
+//   isExpanded,
+//   onToggle,
+// }) => {
+//   const widthClass = `!w-[${coin.percentage + "%"}]`;
+
+//   return (
+//     <div
+//       className={`p-3 border bg-[#E1E7F2]  h-[70px] lg:h-[91px] cursor-pointer rounded-md text-center transition-all duration-300 flex items-center justify-center ${
+//         isExpanded
+//           ? "!bg-[#B2BBFF] flex-grow px-16"
+//           : widthClass
+//       }`}
+//       onClick={() => {
+//         if (!isExpanded) {
+//           onToggle();
+//         }
+//       }}
+//     >
+//       {isExpanded && (
+//         <>
+//           <div className="bg-white text-[#1E1E1E] flex flex-col items-center py-2 px-2 lg:px-7 rounded-sm w-max">
+//             <p className="text-[#1E1E1E] text-xs lg:text-base">
+//               {coin.name}
+//             </p>
+//             <p className="text-[#1E1E1E] text-base lg:text-3xl  font-medium">
+//               {coin.percentage}%
+//             </p>
+//           </div>
+//         </>
+//       )}
+//     </div>
+//   );
+// };
+
+const Coin2: React.FC<CoinProps> = ({
   coin,
   isExpanded,
   onToggle,
 }) => {
   const widthClass = `!w-[${coin.percentage + "%"}]`;
 
+  console.log("🚀 ~ widthClass:", widthClass);
   return (
     <div
-      className={`p-3 border bg-[#E1E7F2]  h-[70px] lg:h-[91px] cursor-pointer rounded-md text-center transition-all duration-300 flex items-center justify-center ${
-        isExpanded
-          ? "!bg-[#B2BBFF] flex-grow px-16"
-          : widthClass
-      }`}
+      // className={`p-3 border bg-[#E1E7F2] h-[70px] lg:h-[91px] cursor-pointer rounded-md text-center transition-all duration-300 flex items-center justify-center
+      //    ${
+      //      isExpanded
+      //        ? "!bg-[#B2BBFF] flex-grow px-16"
+      //        : widthClass
+      //    }`}
+      className={cn(
+        `p-3 border bg-[#E1E7F2] h-[70px] lg:h-[91px] cursor-pointer rounded-md text-center transition-all duration-300 flex
+         items-center justify-center `,
+        {"!bg-[#B2BBFf] ": isExpanded}
+        // {widthClass: !isExpanded}
+      )}
+      style={{
+        width: !isExpanded
+          ? coin.percentage + "%"
+          : coin.percentage + 30 + "%",
+      }}
       onClick={() => {
         if (!isExpanded) {
           onToggle();
