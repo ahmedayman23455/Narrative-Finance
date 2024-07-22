@@ -35,7 +35,11 @@ import TokenBadge from "@/components/dashboard/token-badge";
 import {useParams} from "next/navigation";
 import Link from "next/link";
 import LoadingSpinner from "@/components/general/loading-spinner";
-import {Check, Circle, CircleCheck} from "lucide-react";
+import {
+  Check,
+  Circle,
+  CircleCheck,
+} from "lucide-react";
 import {Progress} from "@/components/ui/progress";
 import Timeline from "@/components/general/timeline";
 import {columnsActivities} from "./_components/activites_columns";
@@ -50,18 +54,19 @@ interface CoinProps {
   isExpanded: boolean;
   onToggle: () => void;
 }
-const coins: Coin[] = [
-  {name: "Solana", percentage: 75},
-  {name: "Bitcoin", percentage: 60},
-  {name: "Ethereum", percentage: 55},
-  {name: "Cardano", percentage: 45},
-  {name: "Ripple", percentage: 40},
-  {name: "Litecoin", percentage: 35},
-  {name: "Polkadot", percentage: 30},
-  {name: "Chainlink", percentage: 25},
-  {name: "Dogecoin", percentage: 20},
-  {name: "Stellar", percentage: 15},
-];
+
+// const coins: Coin[] = [
+//   {name: "Solana", percentage: 75},
+//   {name: "Bitcoin", percentage: 60},
+//   {name: "Ethereum", percentage: 55},
+//   {name: "Cardano", percentage: 45},
+//   {name: "Ripple", percentage: 40},
+//   {name: "Litecoin", percentage: 35},
+//   {name: "Polkadot", percentage: 30},
+//   {name: "Chainlink", percentage: 25},
+//   {name: "Dogecoin", percentage: 20},
+//   {name: "Stellar", percentage: 15},
+// ];
 
 // const coins2: Coin[] = [
 //   {name: "Solana", percentage: 40},
@@ -73,28 +78,41 @@ const coins: Coin[] = [
 //   {name: "Dogecoin", percentage: 10},
 //   {name: "Stellar", percentage: 5},
 // ];
+// const coins2: Coin[] = [
+//   {name: "Solana", percentage: 75},
+//   {name: "Bitcoin", percentage: 5},
+//   {name: "Ethereum", percentage: 5},
+//   {name: "Cardano", percentage: 2},
+//   {name: "Ripple", percentage: 4},
+//   {name: "Chainlink", percentage: 70},
+//   {name: "Dogecoin", percentage: 20},
+//   {name: "Stellar", percentage: 2},
+// ];
 const coins2: Coin[] = [
-  {name: "Solana", percentage: 75},
-  {name: "Bitcoin", percentage: 5},
-  {name: "Ethereum", percentage: 5},
-  {name: "Cardano", percentage: 2},
-  {name: "Ripple", percentage: 4},
-  {name: "Chainlink", percentage: 70},
-  {name: "Dogecoin", percentage: 20},
-  {name: "Stellar", percentage: 2},
+  {name: "Solana", percentage: 45},
+  {name: "Bitcoin", percentage: 35},
+  {name: "Ethereum", percentage: 15},
+  {name: "Cardano", percentage: 5},
 ];
 
 const FundPage = () => {
-  const [redeemLoading, setRedeemLoading] = useState(false);
+  const [redeemLoading, setRedeemLoading] =
+    useState(false);
   const [redeemCompleted, setRedeemCompleted] =
     useState(false);
-  const [depositUSDC, setDepositUSDC] = useState(false);
-  const [despositUSDCCompleted, setDespositUSDCCompleted] =
+  const [depositUSDC, setDepositUSDC] =
     useState(false);
+  const [
+    despositUSDCCompleted,
+    setDespositUSDCCompleted,
+  ] = useState(false);
 
-  const [depositToken, setDepositToken] = useState(false);
-  const [depositTokenCompleted, setDepositCompleted] =
+  const [depositToken, setDepositToken] =
     useState(false);
+  const [
+    depositTokenCompleted,
+    setDepositCompleted,
+  ] = useState(false);
 
   const [clicked, setIsClicked] = useState(false);
   const [hoveredCard, setHoveredCard] =
@@ -108,9 +126,8 @@ const FundPage = () => {
   //   string | null
   // >(coins[0].name);
 
-  const [expandedCoin2, setExpandedCoin2] = useState<
-    string | null
-  >(coins2[0].name);
+  const [expandedCoin2, setExpandedCoin2] =
+    useState<string | null>(coins2[0].name);
 
   // const handleToggle = (coinName: string) => {
   //   setExpandedCoin(
@@ -175,7 +192,11 @@ const FundPage = () => {
         {/* header */}
         <div className="sticky mt-8 lg:mt-0 right-0 left-0 top-0 lg:py-4 flex items-center justify-between lg:z-[80] ">
           <h1 className="text-2xl  text-black dark:text-white font-semibold">
-            <Link href="/dashboard/home"> Home </Link> &gt;
+            <Link href="/dashboard/home">
+              {" "}
+              Home{" "}
+            </Link>{" "}
+            &gt;
             <span className="font-normal">
               &nbsp; {selectedFund?.name}
             </span>
@@ -185,10 +206,13 @@ const FundPage = () => {
             <div className="flex items-center gap-2">
               <Avatar className="w-8 h-8 rounded-md">
                 <AvatarImage src="https://github.com/shadcn.png" />
-                <AvatarFallback>CN</AvatarFallback>
+                <AvatarFallback>
+                  CN
+                </AvatarFallback>
               </Avatar>
               <p className="text-sm truncate w-[106px]">
-                Ahmed Ayma nAyma nAymanAyman Ayman Ayman
+                Ahmed Ayma nAyma nAymanAyman Ayman
+                Ayman
               </p>
             </div>
 
@@ -229,9 +253,11 @@ const FundPage = () => {
                   {selectedFund?.composition
                     .slice(
                       0,
-                      selectedFund?.composition.length > 3
+                      selectedFund?.composition
+                        .length > 3
                         ? 3
-                        : selectedFund?.composition.length
+                        : selectedFund
+                            ?.composition.length
                     )
                     .map((coin, index) => (
                       <Image
@@ -243,12 +269,12 @@ const FundPage = () => {
                         height={32}
                       />
                     ))}
-                  {selectedFund?.composition?.length >
-                    3 && (
+                  {selectedFund?.composition
+                    ?.length > 3 && (
                     <span className="inline-flex items-center justify-center h-8 w-8 shrink-0 rounded-full bg-[#1D9BF0] text-white text-sm">
                       +
-                      {selectedFund?.composition?.length -
-                        3}
+                      {selectedFund?.composition
+                        ?.length - 3}
                     </span>
                   )}
                 </div>
@@ -312,7 +338,9 @@ const FundPage = () => {
                                       <p>
                                         Balance:
                                         <span className="font-semibold">
-                                          &nbsp; 3425.8 USDC
+                                          &nbsp;
+                                          3425.8
+                                          USDC
                                         </span>
                                       </p>
                                       MAX
@@ -320,7 +348,8 @@ const FundPage = () => {
 
                                     <div className="mt-4 px-4">
                                       <label htmlFor="amount">
-                                        Enter Amount
+                                        Enter
+                                        Amount
                                       </label>
 
                                       <div className="relative text-3xl font-semibold">
@@ -341,7 +370,9 @@ const FundPage = () => {
                                       <p>
                                         Minting
                                         <span className="font-semibold">
-                                          &nbsp; ~4.596 SMG
+                                          &nbsp;
+                                          ~4.596
+                                          SMG
                                         </span>
                                       </p>
 
@@ -351,7 +382,9 @@ const FundPage = () => {
                                         }
                                         className="stroke-white text-white border-white rounded-sm flex items-center gap-2 py-1 px-2 border hover:opacity-90"
                                       >
-                                        <p>Mint</p>
+                                        <p>
+                                          Mint
+                                        </p>
                                         <div className="flex-shrink-0">
                                           <ArrowRight />
                                         </div>
@@ -363,7 +396,8 @@ const FundPage = () => {
                               {depositUSDC && (
                                 <div className="flex flex-col px-4 gap-4 pb-4 ">
                                   <h3>
-                                    Minting in progress
+                                    Minting in
+                                    progress
                                   </h3>
                                   <Progress
                                     value={70}
@@ -376,7 +410,9 @@ const FundPage = () => {
                                         <div className=" w-5 h-5 bg-green-500 rounded-full absolute -left-1 translate-x-[-29.5px] z-10 top-1  flex items-center justify-center shrink-0">
                                           <Check className="text-white w-4 h-4" />
                                         </div>
-                                        <p>Desposit</p>
+                                        <p>
+                                          Desposit
+                                        </p>
                                         <div className="flex flex-wrap gap-1 justify-end">
                                           <TokenBadge
                                             imageSrc="/assets/site/coins/coin1.png"
@@ -431,7 +467,9 @@ const FundPage = () => {
                                           <LoadingSpinner className="text-gray-500" />
                                         </div>
                                         <div className="flex items-start justify-between">
-                                          <p>Mint</p>
+                                          <p>
+                                            Mint
+                                          </p>
 
                                           <div className="flex flex-wrap gap-1 justify-end">
                                             <TokenBadge
@@ -450,7 +488,8 @@ const FundPage = () => {
                               {despositUSDCCompleted && (
                                 <div className="flex flex-col px-4 gap-4 pb-4 ">
                                   <h3>
-                                    Minting in progress
+                                    Minting in
+                                    progress
                                   </h3>
 
                                   <Progress
@@ -464,7 +503,9 @@ const FundPage = () => {
                                         <div className=" w-5 h-5 bg-green-500 rounded-full absolute -left-1 translate-x-[-29.5px] z-10 top-1  flex items-center justify-center shrink-0">
                                           <Check className="text-white w-4 h-4" />
                                         </div>
-                                        <p>Desposit</p>
+                                        <p>
+                                          Desposit
+                                        </p>
                                         <div className="flex flex-wrap gap-1 justify-end">
                                           <TokenBadge
                                             imageSrc="/assets/site/coins/coin1.png"
@@ -561,7 +602,9 @@ const FundPage = () => {
                                       <p>
                                         Balance:
                                         <span className="font-semibold">
-                                          &nbsp; 3425.8 USDC
+                                          &nbsp;
+                                          3425.8
+                                          USDC
                                         </span>
                                       </p>
                                       MAX
@@ -569,7 +612,8 @@ const FundPage = () => {
 
                                     <div className="mt-4 px-4">
                                       <label htmlFor="amount">
-                                        Enter Amount
+                                        Enter
+                                        Amount
                                       </label>
 
                                       <div className="relative text-3xl font-semibold">
@@ -590,7 +634,9 @@ const FundPage = () => {
                                       <p>
                                         Minting
                                         <span className="font-semibold">
-                                          &nbsp; ~4.596 SMG
+                                          &nbsp;
+                                          ~4.596
+                                          SMG
                                         </span>
                                       </p>
 
@@ -600,7 +646,9 @@ const FundPage = () => {
                                         }
                                         className="stroke-white text-white border-white rounded-sm flex items-center gap-2 py-1 px-2 border hover:opacity-90"
                                       >
-                                        <p>Mint</p>
+                                        <p>
+                                          Mint
+                                        </p>
                                         <div className="flex-shrink-0">
                                           <ArrowRight />
                                         </div>
@@ -612,7 +660,8 @@ const FundPage = () => {
                               {depositToken && (
                                 <div className="flex flex-col px-4 gap-4 pb-4 ">
                                   <h3>
-                                    Minting in progress
+                                    Minting in
+                                    progress
                                   </h3>
                                   <Progress
                                     value={70}
@@ -625,7 +674,9 @@ const FundPage = () => {
                                         <div className=" w-5 h-5 bg-green-500 rounded-full absolute -left-1 translate-x-[-29.5px] z-10 top-1  flex items-center justify-center shrink-0">
                                           <Check className="text-white w-4 h-4" />
                                         </div>
-                                        <p>Desposit</p>
+                                        <p>
+                                          Desposit
+                                        </p>
                                         <div className="flex flex-wrap gap-1 justify-end">
                                           <TokenBadge
                                             imageSrc="/assets/site/coins/coin1.png"
@@ -680,7 +731,9 @@ const FundPage = () => {
                                           <LoadingSpinner className="text-gray-500" />
                                         </div>
                                         <div className="flex items-start justify-between">
-                                          <p>Mint</p>
+                                          <p>
+                                            Mint
+                                          </p>
 
                                           <div className="flex flex-wrap gap-1 justify-end">
                                             <TokenBadge
@@ -699,7 +752,8 @@ const FundPage = () => {
                               {depositTokenCompleted && (
                                 <div className="flex flex-col px-4 gap-4 pb-4 ">
                                   <h3>
-                                    Minting in progress
+                                    Minting in
+                                    progress
                                   </h3>
 
                                   <Progress
@@ -713,7 +767,9 @@ const FundPage = () => {
                                         <div className=" w-5 h-5 bg-green-500 rounded-full absolute -left-1 translate-x-[-29.5px] z-10 top-1  flex items-center justify-center shrink-0">
                                           <Check className="text-white w-4 h-4" />
                                         </div>
-                                        <p>Desposit</p>
+                                        <p>
+                                          Desposit
+                                        </p>
                                         <div className="flex flex-wrap gap-1 justify-end">
                                           <TokenBadge
                                             imageSrc="/assets/site/coins/coin1.png"
@@ -768,7 +824,9 @@ const FundPage = () => {
                                           <Check className="text-white w-4 h-4" />
                                         </div>
                                         <div className="flex items-start justify-between">
-                                          <p>Mint</p>
+                                          <p>
+                                            Mint
+                                          </p>
 
                                           <div className="flex flex-wrap gap-1 justify-end">
                                             <TokenBadge
@@ -815,10 +873,13 @@ const FundPage = () => {
                           ) : (
                             !redeemCompleted && (
                               <p className="italic text-xs font-light">
-                                You are free to choode your
-                                preferred redeem method, you
-                                can choose to redeem them
-                                directly or convert them to
+                                You are free to
+                                choode your
+                                preferred redeem
+                                method, you can
+                                choose to redeem
+                                them directly or
+                                convert them to
                                 USDC
                               </p>
                             )
@@ -873,8 +934,10 @@ const FundPage = () => {
                             </div>
                           )}
 
-                          {redeemCompleted === false &&
-                            redeemLoading === false && (
+                          {redeemCompleted ===
+                            false &&
+                            redeemLoading ===
+                              false && (
                               <div className="flex flex-col gap-2">
                                 <Button
                                   className="w-full"
@@ -1109,7 +1172,8 @@ rounded-2xl mt-16"
                         key={coin.name}
                         coin={coin}
                         isExpanded={
-                          expandedCoin2 === coin.name
+                          expandedCoin2 ===
+                          coin.name
                         }
                         onToggle={() =>
                           handleToggle2(coin.name)
@@ -1145,13 +1209,15 @@ rounded-2xl mt-16"
                 </h4>
                 <p>
                   The DeFi Pulse Index
-                  is a capitalization-weighted index that
-                  tracks the performance of decentralized
-                  financial (DeFi) assets across Ethereum.
-                  It combines the features of an ERC-20
-                  token and a traditional structured product
-                  to create a 21st century digital upgrade
-                  to structured products.
+                  is a capitalization-weighted
+                  index that tracks the
+                  performance of decentralized
+                  financial (DeFi) assets across
+                  Ethereum. It combines the
+                  features of an ERC-20 token and
+                  a traditional structured product
+                  to create a 21st century digital
+                  upgrade to structured products.
                 </p>
 
                 <Accordion
@@ -1164,15 +1230,19 @@ rounded-2xl mt-16"
                       Methodology
                     </AccordionTrigger>
                     <AccordionContent>
-                      Lorem ipsum dolor sit amet consectetur
-                      adipisicing elit. Voluptatibus in
-                      veritatis consequuntur quis voluptate
-                      quam animi veniam dolore, quia
-                      delectus. Inventore soluta iste earum,
-                      non ab temporibus? Ipsa exercitationem
-                      commodi neque ad veniam, tempore
-                      assumenda? Asperiores dignissimos
-                      delectus sint accusantium.
+                      Lorem ipsum dolor sit amet
+                      consectetur adipisicing
+                      elit. Voluptatibus in
+                      veritatis consequuntur quis
+                      voluptate quam animi veniam
+                      dolore, quia delectus.
+                      Inventore soluta iste earum,
+                      non ab temporibus? Ipsa
+                      exercitationem commodi neque
+                      ad veniam, tempore
+                      assumenda? Asperiores
+                      dignissimos delectus sint
+                      accusantium.
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem value="item-2">
@@ -1180,13 +1250,16 @@ rounded-2xl mt-16"
                       Maintenance
                     </AccordionTrigger>
                     <AccordionContent>
-                      Lorem ipsum dolor sit amet consectetur
-                      adipisicing elit. Amet architecto
-                      eaque excepturi adipisci, numquam
-                      minima eligendi distinctio odio
-                      repellat, rerum perferendis tempora
-                      porro labore neque ducimus doloribus
-                      consequatur sequi expedita.
+                      Lorem ipsum dolor sit amet
+                      consectetur adipisicing
+                      elit. Amet architecto eaque
+                      excepturi adipisci, numquam
+                      minima eligendi distinctio
+                      odio repellat, rerum
+                      perferendis tempora porro
+                      labore neque ducimus
+                      doloribus consequatur sequi
+                      expedita.
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem value="item-3">
@@ -1194,9 +1267,10 @@ rounded-2xl mt-16"
                       Fees
                     </AccordionTrigger>
                     <AccordionContent>
-                      Lorem ipsum dolor sit amet consectetur
-                      adipisicing elit. Velit quasi
-                      obcaecati sit eaque quibusdam dolor
+                      Lorem ipsum dolor sit amet
+                      consectetur adipisicing
+                      elit. Velit quasi obcaecati
+                      sit eaque quibusdam dolor
                       vel ab molestias nisi culpa?
                     </AccordionContent>
                   </AccordionItem>
@@ -1206,11 +1280,14 @@ rounded-2xl mt-16"
                       Risk
                     </AccordionTrigger>
                     <AccordionContent>
-                      Lorem ipsum dolor sit amet consectetur
-                      adipisicing elit. Perferendis,
-                      exercitationem quo quas quae explicabo
-                      itaque facere ipsam aut ipsum ducimus
-                      vero qui reiciendis nulla excepturi!
+                      Lorem ipsum dolor sit amet
+                      consectetur adipisicing
+                      elit. Perferendis,
+                      exercitationem quo quas quae
+                      explicabo itaque facere
+                      ipsam aut ipsum ducimus vero
+                      qui reiciendis nulla
+                      excepturi!
                     </AccordionContent>
                   </AccordionItem>
                 </Accordion>
@@ -1264,7 +1341,9 @@ const Coin2: React.FC<CoinProps> = ({
   isExpanded,
   onToggle,
 }) => {
-  const widthClass = `!w-[${coin.percentage + "%"}]`;
+  const widthClass = `!w-[${
+    coin.percentage + "%"
+  }]`;
 
   console.log("🚀 ~ widthClass:", widthClass);
   return (
