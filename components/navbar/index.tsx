@@ -38,12 +38,10 @@ const Navbar = () => {
         />
 
         <div className="hidden md:flex items-center gap-4">
-          <Button
-            variant="default"
-            className="hidden md:block"
-          >
-            Launch App
+          <Button variant="default" className="hidden md:block" asChild>
+            <Link href="/dashboard/narrativeFunds">Launch App</Link>
           </Button>
+
           <ModeToggle />
         </div>
 
@@ -61,43 +59,30 @@ const Navbar = () => {
             </div>
             <SheetContent showX side="left">
               <SheetHeader className="mb-8">
-                <SheetTitle className="text-left">
-                  Menu
-                </SheetTitle>
+                <SheetTitle className="text-left">Menu</SheetTitle>
               </SheetHeader>
 
               <div className=" flex flex-col items-left gap-4 ">
                 <SheetClose asChild>
-                  <Link
-                    href="#"
-                    className="text-base  w-max"
-                  >
+                  <Link href="#" className="text-base  w-max">
                     Why Narratives
                   </Link>
                 </SheetClose>
 
                 <SheetClose asChild>
-                  <Link
-                    href="#"
-                    className="text-base  w-max"
-                  >
+                  <Link href="#" className="text-base  w-max">
                     Resources
                   </Link>
                 </SheetClose>
 
                 <SheetClose asChild>
-                  <Link
-                    href="#"
-                    className="text-base  w-max"
-                  >
+                  <Link href="#" className="text-base  w-max">
                     Products
                   </Link>
                 </SheetClose>
 
                 <div className="flex items-center gap-4">
-                  <Button variant="default">
-                    Launch App
-                  </Button>
+                  <Button variant="default">Launch App</Button>
                 </div>
               </div>
             </SheetContent>

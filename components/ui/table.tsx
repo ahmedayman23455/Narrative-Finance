@@ -6,32 +6,27 @@ import {cn} from "@/lib/utils";
 import {usePathname, useRouter} from "next/navigation";
 import {useTheme} from "next-themes";
 
-const Table = React.forwardRef<
-  HTMLTableElement,
-  React.HTMLAttributes<HTMLTableElement>
->(({className, ...props}, ref) => (
-  <div className="relative w-full overflow-auto">
-    <table
-      ref={ref}
-      className={cn(
-        "border-collapse w-full caption-bottom text-sm table_separate_rows border-none",
-        className
-      )}
-      {...props}
-    />
-  </div>
-));
+const Table = React.forwardRef<HTMLTableElement, React.HTMLAttributes<HTMLTableElement>>(
+  ({className, ...props}, ref) => (
+    <div className="relative w-full overflow-auto">
+      <table
+        ref={ref}
+        className={cn(
+          "border-collapse w-full caption-bottom text-sm table_separate_rows border-none",
+          className
+        )}
+        {...props}
+      />
+    </div>
+  )
+);
 Table.displayName = "Table";
 
 const TableHeader = React.forwardRef<
   HTMLTableSectionElement,
   React.HTMLAttributes<HTMLTableSectionElement>
 >(({className, ...props}, ref) => (
-  <thead
-    ref={ref}
-    className={cn("[&_tr]:border-b ", className)}
-    {...props}
-  />
+  <thead ref={ref} className={cn("[&_tr]:border-b ", className)} {...props} />
 ));
 TableHeader.displayName = "TableHeader";
 
@@ -41,10 +36,7 @@ const TableBody = React.forwardRef<
 >(({className, ...props}, ref) => (
   <tbody
     ref={ref}
-    className={cn(
-      "[&_tr:last-child]:border-0 text-[13px]   ",
-      className
-    )}
+    className={cn("[&_tr:last-child]:border-0 text-[13px]   ", className)}
     {...props}
   />
 ));
@@ -56,10 +48,7 @@ const TableFooter = React.forwardRef<
 >(({className, ...props}, ref) => (
   <tfoot
     ref={ref}
-    className={cn(
-      "border-t bg-muted/50 font-medium [&>tr]:last:border-b-0",
-      className
-    )}
+    className={cn("border-t bg-muted/50 font-medium [&>tr]:last:border-b-0", className)}
     {...props}
   />
 ));
@@ -81,7 +70,7 @@ const TableRow = React.forwardRef<
     <tr
       onClick={(e) => {
         if (existRedirection) {
-          router.push(`funds/${rowId}`);
+          router.push(`narrativeFunds/${rowId}`);
         }
       }}
       ref={ref}
@@ -127,8 +116,7 @@ const TableCell = React.forwardRef<
       [&>[role=checkbox]]:translate-y-[2px]   first:dark:border-l last:dark:border-r 
       dark:border-[#363638] first:rounded-tl-2xl   first:rounded-bl-2xl last:rounded-tr-2xl   last:rounded-br-2xl `,
         {
-          "dark:first:border-l dark:last:border-r ":
-            theme === "dark",
+          "dark:first:border-l dark:last:border-r ": theme === "dark",
         },
         className
       )}
@@ -145,10 +133,7 @@ const TableCaption = React.forwardRef<
 >(({className, ...props}, ref) => (
   <caption
     ref={ref}
-    className={cn(
-      "mt-4 text-sm text-muted-foreground",
-      className
-    )}
+    className={cn("mt-4 text-sm text-muted-foreground", className)}
     {...props}
   />
 ));

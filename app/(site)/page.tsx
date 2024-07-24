@@ -4,12 +4,7 @@ import Link from "next/link";
 import {useTheme} from "next-themes";
 import {useEffect, useState} from "react";
 import {File} from "lucide-react";
-import {
-  Navigation,
-  Pagination,
-  Scrollbar,
-  A11y,
-} from "swiper/modules";
+import {Navigation, Pagination, Scrollbar, A11y} from "swiper/modules";
 
 import {Swiper, SwiperSlide} from "swiper/react";
 import "swiper/css";
@@ -21,12 +16,7 @@ import Navbar from "@/components/navbar";
 import {Button} from "@/components/ui/button";
 import CarouselCard from "@/components/site/carousel-card";
 
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
 
 import FeaturedCard from "@/components/site/featured-card";
 
@@ -50,10 +40,7 @@ export default function Home() {
       <div className="relative overflow-visible overflow-x-clip ">
         <div className=" max-w-[1164px] mx-auto px-4 mt-4 md:mt-10">
           <div className="flex flex-col md:flex-row items-center gap-12 md:gap-4 justify-between bg-card shadow-2xl shadow-inner p-8 rounded-2xl">
-            <div
-              className="max-w-[500px] flex  gap-10 flex-col"
-              data-aos="fade-right"
-            >
+            <div className="max-w-[500px] flex  gap-10 flex-col" data-aos="fade-right">
               <h1
                 className={cn(
                   "text-2xl  md:text-4xl font-bold   text-[#1D2939] dark:text-white"
@@ -63,19 +50,13 @@ export default function Home() {
               </h1>
 
               <p className="text-muted-foreground text-black dark:text-white">
-                Decentralized Protocol For Narrative-Driven
-                Index Funds. Never miss a rotation, Never
-                miss a Pump.
+                Decentralized Protocol For Narrative-Driven Index Funds. Never miss a
+                rotation, Never miss a Pump.
               </p>
 
               <div className="flex items-center gap-4 ">
                 <Button size="lg">Get started</Button>
-                <Button
-                  variant="link"
-                  size="lg"
-                  className="text-primary mx-0"
-                  asChild
-                >
+                <Button variant="link" size="lg" className="text-primary mx-0" asChild>
                   <Link
                     href="#"
                     className="!p-0 underline text-[#2466D7] dark:text-white"
@@ -130,12 +111,7 @@ export default function Home() {
           </h2>
 
           <Swiper
-            modules={[
-              Navigation,
-              Pagination,
-              Scrollbar,
-              A11y,
-            ]}
+            modules={[Navigation, Pagination, Scrollbar, A11y]}
             slidesPerGroup={1}
             spaceBetween={24}
             slidesPerView={1}
@@ -167,7 +143,7 @@ export default function Home() {
                   "/assets/site/coins/coin2.png",
                   "/assets/site/coins/coin3.png",
                 ]}
-                link="/dashboard/funds/1"
+                link="/dashboard/narrativeFunds/1"
               />
             </SwiperSlide>
 
@@ -186,7 +162,7 @@ export default function Home() {
                   "/assets/site/coins/coin5.png",
                   "/assets/site/coins/coin6.png",
                 ]}
-                link="/dashboard/funds/2"
+                link="/dashboard/narrativeFunds/2"
               />
             </SwiperSlide>
 
@@ -205,7 +181,7 @@ export default function Home() {
                   "/assets/site/coins/coin8.png",
                   "/assets/site/coins/coin9.png",
                 ]}
-                link="/dashboard/funds/3"
+                link="/dashboard/narrativeFunds/3"
               />
             </SwiperSlide>
 
@@ -224,7 +200,7 @@ export default function Home() {
                   "/assets/site/coins/coin11.png",
                   "/assets/site/coins/coin12.png",
                 ]}
-                link="/dashboard/funds/4"
+                link="/dashboard/narrativeFunds/4"
               />
             </SwiperSlide>
 
@@ -243,7 +219,7 @@ export default function Home() {
                   "/assets/site/coins/coin14.png",
                   "/assets/site/coins/coin15.png",
                 ]}
-                link="/dashboard/funds/5"
+                link="/dashboard/narrativeFunds/5"
               />
             </SwiperSlide>
 
@@ -262,7 +238,7 @@ export default function Home() {
                   "/assets/site/coins/coin17.png",
                   "/assets/site/coins/coin18.png",
                 ]}
-                link="/dashboard/funds/6"
+                link="/dashboard/narrativeFunds/6"
               />
             </SwiperSlide>
 
@@ -281,7 +257,7 @@ export default function Home() {
                   "/assets/site/coins/coin20.png",
                   "/assets/site/coins/coin21.png",
                 ]}
-                link="/dashboard/funds/7"
+                link="/dashboard/narrativeFunds/7"
               />
             </SwiperSlide>
 
@@ -300,7 +276,7 @@ export default function Home() {
                   "/assets/site/coins/coin23.png",
                   "/assets/site/coins/coin24.png",
                 ]}
-                link="/dashboard/funds/8"
+                link="/dashboard/narrativeFunds/8"
               />
             </SwiperSlide>
 
@@ -319,8 +295,7 @@ export default function Home() {
                   "/assets/site/coins/coin26.png",
                   "/assets/site/coins/coin27.png",
                 ]}
-
-                       link="/dashboard/funds/9"
+                link="/dashboard/narrativeFunds/9"
               />
             </SwiperSlide>
           </Swiper>
@@ -412,18 +387,14 @@ export default function Home() {
             className="relative p-8 md:p-16 bg-primary text-white rounded-3xl flex flex-col md:flex-row 
           items-center gap-8 md:gap-4 min-h-[400px] overflow-hidden border border-white border-4"
           >
-            <div
-              className="flex flex-col gap-8 max-w-[500px] "
-              data-aos="fade-right"
-            >
+            <div className="flex flex-col gap-8 max-w-[500px] " data-aos="fade-right">
               <h3 className="text-2xl  md:text-4xl font-bold">
                 Earn Up to 25% APY Staking Narratives $N
               </h3>
               <p>
-                Participate in the network and earn rewards
-                by leveraging our built-in staking
-                mechanism. Narratives Protocol encourages
-                users to stake their assets.
+                Participate in the network and earn rewards by leveraging our built-in
+                staking mechanism. Narratives Protocol encourages users to stake their
+                assets.
               </p>
 
               <div className="flex items-center gap-2">
@@ -443,10 +414,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div
-              className="flex items-center justify-center w-full"
-              data-aos="fade-left"
-            >
+            <div className="flex items-center justify-center w-full" data-aos="fade-left">
               <div className="relative h-[200px] w-[200px] sm:w-[250px] sm:h-[250px] md:h-[300px] md:w-[300px]">
                 <Image
                   src="/assets/site/bigCoin.png"
@@ -492,11 +460,9 @@ export default function Home() {
           </h2>
 
           <p className="text-[#292d32] dark:text-white">
-            Welcome to Narratives Protocol, a cutting-edge
-            cryptocurrency protocol platform designed to
-            revolutionize the way we interact with digital
-            assets. Here&apos;s why Narratives Protocol
-            stands out:
+            Welcome to Narratives Protocol, a cutting-edge cryptocurrency protocol
+            platform designed to revolutionize the way we interact with digital assets.
+            Here&apos;s why Narratives Protocol stands out:
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -11,13 +11,8 @@ import DiscordIcon from "@/components/icons/discord-icon";
 
 export const sidebarLinks = [
   {
-    name: "Home",
-    link: "/dashboard/home",
-    icon: HomeIcon,
-  },
-  {
     name: "Narrative Funds",
-    link: "/dashboard/narrative-funds",
+    link: "/dashboard/narrativeFunds",
     icon: NarrativeFundsIcon,
   },
   {

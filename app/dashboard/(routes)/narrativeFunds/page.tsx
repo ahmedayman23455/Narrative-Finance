@@ -2,11 +2,7 @@
 import React from "react";
 import {useTheme} from "next-themes";
 import {cn} from "@/lib/utils";
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "@/components/ui/avatar";
+import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
 import {Button} from "@/components/ui/button";
 import RightArrow from "@/components/icons/right-arrow";
 import StarCircle from "@/components/icons/star-circle";
@@ -18,27 +14,18 @@ import StatsCard from "@/components/dashboard/stats-card";
 import {DataTable} from "@/components/table/data-table";
 import {columns} from "./_components/columns";
 import {funds} from "@/data/demoFunds";
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "@/components/ui/tabs";
+import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs";
 
-const HomePage = () => {
+const NarrativeFundsPage = () => {
   const {theme} = useTheme();
 
   return (
-    <div
-      className={cn(
-        "relative h-full pt-10 px-4 pb-4 lg:pl-[264px] lg:pt-0 lg:pb-20"
-      )}
-    >
+    <div className={cn("relative h-full pt-10 px-4 pb-4 lg:pl-[264px] lg:pt-0 lg:pb-20")}>
       <div className="w-full relative">
         {/* header */}
         <div className="sticky mt-8 lg:mt-0 right-0 left-0 top-0 lg:py-4 flex items-center justify-between lg:z-[80] ">
           <h1 className="text-2xl  text-black dark:text-white font-semibold">
-            Home
+            Narrative Funds
           </h1>
 
           <div className=" items-center gap-4 hidden lg:flex">
@@ -63,9 +50,7 @@ const HomePage = () => {
         >
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-4">
-              <h2 className="text-lg lg:text-2xl font-semibold">
-                Narrative funds
-              </h2>
+              <h2 className="text-lg lg:text-2xl font-semibold">Narrative funds</h2>
               <Button className="lg:hidden relative z-10 bg-white text-[#484856] hover:bg-white hover:opacity-80">
                 News
               </Button>
@@ -84,9 +69,7 @@ const HomePage = () => {
           </div>
 
           <div className="relative z-10 bg-white p-4 w-max rounded-lg mr-12 hidden lg:block">
-            <h4 className="text-base font-semibold text-[#475467]">
-              Recent News
-            </h4>
+            <h4 className="text-base font-semibold text-[#475467]">Recent News</h4>
 
             <div className="flex flex-col gap-2 mt-2">
               <Link
@@ -94,9 +77,7 @@ const HomePage = () => {
                 className="cursor-pointer hover:opacity-90 w-max bg-primary flex items-center rounded-lg px-3 gap-4 py-2"
               >
                 <StarCircle />
-                <div>
-                  Narratives Token Launch Announcment
-                </div>
+                <div>Narratives Token Launch Announcment</div>
                 <ArrowRight />
               </Link>
 
@@ -163,24 +144,15 @@ const HomePage = () => {
           className="min-h-[500px]  relative p-4 bg-[#F8FAFE] dark:bg-[#1E1E1E] shadow-lg dark:shadow-none dark:border-[0.5px] dark:border-[#363638]
 rounded-2xl mt-16"
         >
-          <Tabs
-            defaultValue="topFunds"
-            className="flex flex-col gap-4"
-          >
+          <Tabs defaultValue="topFunds" className="flex flex-col gap-4">
             <div className="relative flex flex-col gap-4 w-full  justify-between">
               {/* > tabs */}
 
               <div className="lg:absolute lg:top-0 lg:left-0 lg:w-max z-10 flex flex-col gap-4 lg:flex-row items-center justify-between w-full">
                 <TabsList>
-                  <TabsTrigger value="topFunds">
-                    Top Funds
-                  </TabsTrigger>
-                  <TabsTrigger value="recents">
-                    Recents
-                  </TabsTrigger>
-                  <TabsTrigger value="favourites">
-                    Favourites
-                  </TabsTrigger>
+                  <TabsTrigger value="topFunds">Top Funds</TabsTrigger>
+                  <TabsTrigger value="recents">Recents</TabsTrigger>
+                  <TabsTrigger value="favourites">Favourites</TabsTrigger>
                   <TabsTrigger value="all">All</TabsTrigger>
                 </TabsList>
 
@@ -230,4 +202,4 @@ rounded-2xl mt-16"
   );
 };
 
-export default HomePage;
+export default NarrativeFundsPage;

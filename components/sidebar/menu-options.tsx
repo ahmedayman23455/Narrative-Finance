@@ -17,33 +17,19 @@ import {
 } from "@/components/ui/sheet";
 
 import {cn} from "@/lib/utils";
-import {
-  sidebarLinks,
-  socialMediaLinks,
-} from "@/data/sidebarLinks";
+import {sidebarLinks, socialMediaLinks} from "@/data/sidebarLinks";
 import {ModeToggle} from "../general/mode-toggle";
 import HomeIcon from "../icons/home-icon";
 import LogoutIcon from "../icons/logout-icon";
 import DocumentationIcon from "../icons/documentation-icon";
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "../ui/avatar";
+import {Avatar, AvatarFallback, AvatarImage} from "../ui/avatar";
 
-const MenuOptions = ({
-  defaultOpen,
-}: {
-  defaultOpen?: boolean;
-}) => {
+const MenuOptions = ({defaultOpen}: {defaultOpen?: boolean}) => {
   const [isMounted, setIsMounted] = useState(false);
   const pathName = usePathname();
   const router = useRouter();
   const {theme} = useTheme();
-  const openState = useMemo(
-    () => (defaultOpen ? {open: true} : {}),
-    [defaultOpen]
-  );
+  const openState = useMemo(() => (defaultOpen ? {open: true} : {}), [defaultOpen]);
 
   useEffect(() => {
     setIsMounted(true);
@@ -56,11 +42,7 @@ const MenuOptions = ({
       <div className="fixed top-0 right-0 left-0 z-[50]  p-4 lg:!hidden flex items-center justify-between  bg-background">
         <div className="flex items-center gap-4">
           <SheetTrigger asChild className=" ">
-            <Button
-              variant="ghost"
-              size="icon"
-              className="hover:bg-secondary/10"
-            >
+            <Button variant="ghost" size="icon" className="hover:bg-secondary/10">
               <Menu
                 className={cn("w-6 h-6", {
                   "text-[#252939]": theme === "light",
@@ -99,8 +81,7 @@ const MenuOptions = ({
         className={cn(
           " backdrop-blur-xl fixed top-0 border-r-[1px] p-4 overflow-y-auto",
           {
-            "hidden lg:inline-block z-0 w-[240px] shadow-none ":
-              defaultOpen,
+            "hidden lg:inline-block z-0 w-[240px] shadow-none ": defaultOpen,
             "inline-block lg:hidden z-[400] ": !defaultOpen,
             "bg-[#1E1E1E]": theme === "dark",
             "bg-white": theme === "light",
@@ -109,43 +90,46 @@ const MenuOptions = ({
       >
         <div className="flex flex-col gap-4 h-full">
           <SheetHeader className="text-left mb-4">
-            <Image
-              src={
-                theme === "dark"
-                  ? "/assets/dashboard/sidebar/logoDark.png"
-                  : "/assets/dashboard/sidebar/logoLight.png"
-              }
-              alt="logo"
-              width={150}
-              height={150}
-            />
+            <Link href="/">
+              <Image
+                src={
+                  theme === "dark"
+                    ? "/assets/dashboard/sidebar/logoDark.png"
+                    : "/assets/dashboard/sidebar/logoLight.png"
+                }
+                alt="logo"
+                width={150}
+                height={150}
+              />
+            </Link>
           </SheetHeader>
 
           <div className="flex flex-col">
-            {sidebarLinks.map((link, index) => (
-              <Link
-                href={link.link}
-                key={index}
-                className={cn(
-                  "flex items-center justify-between p-3 rounded-lg text-sm text-[#252939] dark:text-white",
-                  {
-                    "bg-primary text-white":
-                      pathName === link.link,
-                  },
-                  {
-                    "hover:bg-secondary/10":
-                      pathName !== link.link,
-                  }
-                )}
-              >
-                <div className="flex items-center gap-2  ">
-                  <link.icon
-                    active={pathName === link.link}
-                  />
-                  <span>{link.name}</span>
-                </div>
-              </Link>
-            ))}
+            {sidebarLinks.map((item, index) => {
+              const isActive =
+                (pathName.includes(item.link) && item.link.length > 1) ||
+                pathName === item.link;
+              return (
+                <Link
+                  href={item.link}
+                  key={index}
+                  className={cn(
+                    "flex items-center justify-between p-3 rounded-lg text-sm text-[#252939] dark:text-white",
+                    {
+                      "bg-primary text-white": isActive,
+                    },
+                    {
+                      "hover:bg-secondary/10": !isActive,
+                    }
+                  )}
+                >
+                  <div className="flex items-center gap-2  ">
+                    <item.icon active={isActive} />
+                    <span>{item.name}</span>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
 
           <ModeToggle />
