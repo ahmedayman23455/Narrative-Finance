@@ -19,9 +19,9 @@ export function ModeToggle() {
   const {theme, setTheme} = useTheme();
   console.log("🚀 ~ ModeToggle ~ theme:", theme);
 
-  useEffect(() => {
-    setTheme("light");
-  }, [setTheme]);
+  // useEffect(() => {
+  //   setTheme("light");
+  // }, [setTheme]);
 
   const switchHandler = () => {
     if (theme === "light") setTheme("dark");
