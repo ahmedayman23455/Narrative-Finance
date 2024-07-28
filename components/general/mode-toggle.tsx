@@ -17,7 +17,6 @@ import Image from "next/image";
 
 export function ModeToggle() {
   const {theme, setTheme} = useTheme();
-  console.log("🚀 ~ ModeToggle ~ theme:", theme);
 
   useEffect(() => {
     setTheme("light");

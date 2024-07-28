@@ -55,7 +55,9 @@ export default function Home() {
               </p>
 
               <div className="flex items-center gap-4 ">
-                <Button size="lg">Get started</Button>
+                <Button size="lg" asChild>
+                  <Link href="/dashboard/narrativeFunds">Get started</Link>
+                </Button>
                 <Button variant="link" size="lg" className="text-primary mx-0" asChild>
                   <Link
                     href="#"
@@ -401,8 +403,9 @@ export default function Home() {
                 <Button
                   size="lg"
                   className="bg-white  text-primary hover:bg-white hover:opacity-80"
+                  asChild
                 >
-                  Buy $N
+                  <Link href="/dashboard/narrativeToken/1">Buy $NF</Link>
                 </Button>
                 <Button
                   size="lg"

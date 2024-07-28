@@ -94,21 +94,7 @@ const FundPage = () => {
   const [clicked, setIsClicked] = useState(false);
   const [hoveredCard, setHoveredCard] = useState<null | Number>(null);
 
-  // const [expandedCoin, setExpandedCoin] = useState<
-  //   string | null
-  // >(null);
-
-  // const [expandedCoin, setExpandedCoin] = useState<
-  //   string | null
-  // >(coins[0].name);
-
   const [expandedCoin2, setExpandedCoin2] = useState<string | null>(coins2[0].name);
-
-  // const handleToggle = (coinName: string) => {
-  //   setExpandedCoin(
-  //     expandedCoin === coinName ? null : coinName
-  //   );
-  // };
 
   const handleToggle2 = (coinName: string) => {
     setExpandedCoin2(expandedCoin2 === coinName ? null : coinName);
@@ -877,125 +863,6 @@ rounded-2xl mt-16"
                 className="custom-table"
                 searchColumn="name"
               >
-                {/* <div className="relative h-[91px] w-full flex gap-1">
-                  <div className="rounded-md flex items-center justify-center w-[70%] bg-[#B2BBFF] cursor-pointer  transition">
-                    <div className="bg-white text-[#1E1E1E] flex flex-col items-center py-2 px-6 rounded-sm">
-                      <p className="text-[#1E1E1E] text-base">
-                        Solana
-                      </p>
-                      <p className="text-[#1E1E1E] text-3xl  font-medium">
-                        75%
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="rounded-md flex items-center justify-center w-[17%] bg-[#E1E7F2] cursor-pointer hover:scale-95 transition relative group">
-                    <div className=" gap-4 items-center px-4 py-2 text-xs bg-primary text-white rounded-lg absolute -top-10  hidden group-hover:flex">
-                      <p className="whitespace-nowrap font-bold">
-                        Coin 2
-                      </p>
-                      <p> 40%</p>
-                    </div>
-                  </div>
-
-                  <div className="rounded-md flex items-center justify-center w-[17%] bg-[#E1E7F2] cursor-pointer hover:scale-95 transition relative group">
-                    <div className=" gap-4 items-center px-4 py-2 text-xs bg-primary text-white rounded-lg absolute -top-10  hidden group-hover:flex">
-                      <p className="whitespace-nowrap font-bold">
-                        Coin 3
-                      </p>
-                      <p> 30%</p>
-                    </div>
-                  </div>
-
-                  <div className="rounded-md flex items-center justify-center w-[17%] bg-[#E1E7F2] cursor-pointer hover:scale-95 transition relative group">
-                    <div className=" gap-4 items-center px-4 py-2 text-xs bg-primary text-white rounded-lg absolute -top-10  hidden group-hover:flex">
-                      <p className="whitespace-nowrap font-bold">
-                        Coin 4
-                      </p>
-                      <p> 30%</p>
-                    </div>
-                  </div>
-
-                  <div className="rounded-md flex items-center justify-center w-[6%] bg-[#E1E7F2] cursor-pointer hover:scale-95 transition relative group">
-                    <div className=" gap-4 items-center px-4 py-2 text-xs bg-primary text-white rounded-lg absolute -top-10  hidden group-hover:flex">
-                      <p className="whitespace-nowrap font-bold">
-                        Coin 5
-                      </p>
-                      <p> 20%</p>
-                    </div>
-                  </div>
-
-                  <div className="rounded-md flex items-center justify-center w-[6%] bg-[#E1E7F2] cursor-pointer hover:scale-95 transition relative group">
-                    <div className=" gap-4 items-center px-4 py-2 text-xs bg-primary text-white rounded-lg absolute -top-10  hidden group-hover:flex">
-                      <p className="whitespace-nowrap font-bold">
-                        Coin 6
-                      </p>
-                      <p> 20%</p>
-                    </div>
-                  </div>
-
-                  <div className="rounded-md flex items-center justify-center w-[6%] bg-[#E1E7F2] cursor-pointer hover:scale-95 transition relative group">
-                    <div className=" gap-4 items-center px-4 py-2 text-xs bg-primary text-white rounded-lg absolute -top-10  hidden group-hover:flex">
-                      <p className="whitespace-nowrap font-bold">
-                        Coin 7
-                      </p>
-                      <p> 15%</p>
-                    </div>
-                  </div>
-
-                  <div className="rounded-md flex items-center justify-center w-[5%] bg-[#E1E7F2] cursor-pointer hover:scale-95 transition relative group">
-                    <div className=" gap-4 items-center px-4 py-2 text-xs bg-primary text-white rounded-lg absolute -top-10  hidden group-hover:flex">
-                      <p className="whitespace-nowrap font-bold">
-                        Coin 8
-                      </p>
-                      <p> 10%</p>
-                    </div>
-                  </div>
-
-                  <div className="rounded-md flex items-center justify-center w-[4%] bg-[#E1E7F2] cursor-pointer hover:scale-95 transition relative group">
-                    <div className=" gap-4 items-center px-4 py-2 text-xs bg-primary text-white rounded-lg absolute -top-10  hidden group-hover:flex">
-                      <p className="whitespace-nowrap font-bold">
-                        Coin 9
-                      </p>
-                      <p> 8%</p>
-                    </div>
-                  </div>
-
-                  <div className="rounded-md flex items-center justify-center w-[4%] bg-[#E1E7F2] cursor-pointer hover:scale-95 transition relative group">
-                    <div className=" gap-4 items-center px-4 py-2 text-xs bg-primary text-white rounded-lg absolute -top-10  hidden group-hover:flex">
-                      <p className="whitespace-nowrap font-bold">
-                        Coin 10
-                      </p>
-                      <p> 8%</p>
-                    </div>
-                  </div>
-
-                  <div className="rounded-md flex items-center justify-center w-[3%] bg-[#E1E7F2] cursor-pointer hover:scale-95 transition relative group">
-                    <div className=" gap-4 items-center px-4 py-2 text-xs bg-primary text-white rounded-lg absolute -top-10 right-0 hidden group-hover:flex">
-                      <p className="whitespace-nowrap font-bold">
-                        Coin 11
-                      </p>
-                      <p> 3%</p>
-                    </div>
-                  </div>
-                </div> */}
-
-                {/* coins 1 */}
-                {/* <div className="flex flex-row gap-1 overflow-auto">
-                  {coins.map((coin) => (
-                    <Coin
-                      key={coin.name}
-                      coin={coin}
-                      isExpanded={
-                        expandedCoin === coin.name
-                      }
-                      onToggle={() =>
-                        handleToggle(coin.name)
-                      }
-                    />
-                  ))}
-                </div> */}
-
                 {/* coins 2 */}
 
                 <div className="max-sm:w-full max-sm:overflow-auto">
@@ -1011,14 +878,6 @@ rounded-2xl mt-16"
                   </div>
                 </div>
               </DataTable>
-
-              {/* <DataTable
-                columns={columns}
-                data={selectedFund.composition}
-                className="custom-table"
-                searchColumn="name"
-                notShowThead
-              /> */}
             </TabsContent>
 
             <TabsContent value="activity">
@@ -1090,54 +949,11 @@ rounded-2xl mt-16"
   );
 };
 
-// const Coin: React.FC<CoinProps> = ({
-//   coin,
-//   isExpanded,
-//   onToggle,
-// }) => {
-//   const widthClass = `!w-[${coin.percentage + "%"}]`;
-
-//   return (
-//     <div
-//       className={`p-3 border bg-[#E1E7F2]  h-[70px] lg:h-[91px] cursor-pointer rounded-md text-center transition-all duration-300 flex items-center justify-center ${
-//         isExpanded
-//           ? "!bg-[#B2BBFF] flex-grow px-16"
-//           : widthClass
-//       }`}
-//       onClick={() => {
-//         if (!isExpanded) {
-//           onToggle();
-//         }
-//       }}
-//     >
-//       {isExpanded && (
-//         <>
-//           <div className="bg-white text-[#1E1E1E] flex flex-col items-center py-2 px-2 lg:px-7 rounded-sm w-max">
-//             <p className="text-[#1E1E1E] text-xs lg:text-base">
-//               {coin.name}
-//             </p>
-//             <p className="text-[#1E1E1E] text-base lg:text-3xl  font-medium">
-//               {coin.percentage}%
-//             </p>
-//           </div>
-//         </>
-//       )}
-//     </div>
-//   );
-// };
-
 const Coin2: React.FC<CoinProps> = ({coin, isExpanded, onToggle}) => {
   const widthClass = `!w-[${coin.percentage + "%"}]`;
 
-  console.log("🚀 ~ widthClass:", widthClass);
   return (
     <div
-      // className={`p-3 border bg-[#E1E7F2] h-[70px] lg:h-[91px] cursor-pointer rounded-md text-center transition-all duration-300 flex items-center justify-center
-      //    ${
-      //      isExpanded
-      //        ? "!bg-[#B2BBFF] flex-grow px-16"
-      //        : widthClass
-      //    }`}
       className={cn(
         `p-3 border bg-[#E1E7F2] h-[70px] lg:h-[91px] cursor-pointer rounded-md text-center transition-all duration-300 flex
          items-center justify-center `,
