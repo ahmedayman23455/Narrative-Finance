@@ -87,7 +87,7 @@ const NarrativeToken2 = () => {
                 <SolanaChart badge={"Undefined"} />
               </div>
 
-              <div className="flex flex-col  w-full lg:max-w-[468px]">
+              {/* <div className="flex flex-col  w-full lg:max-w-[468px]">
                 <div className="relative w-full lg:max-w-[468px] px-4 pb-4   bg-[#F8FAFE] dark:bg-[#1E1E1E] rounded-lg">
                   <Tabs defaultValue="Swap" className="flex flex-col gap-4 w-full ">
                     <div className="relative flex flex-col w-full  justify-between">
@@ -257,7 +257,7 @@ const NarrativeToken2 = () => {
                     <p> 0.00000456ETH</p>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
