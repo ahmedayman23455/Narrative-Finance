@@ -405,7 +405,7 @@ export default function Home() {
                   className="bg-white  text-primary hover:bg-white hover:opacity-80"
                   asChild
                 >
-                  <Link href="/dashboard/narrativeToken/1">Buy $NF</Link>
+                  <Link href="/dashboard/narrativeToken">Buy $NF</Link>
                 </Button>
                 <Button
                   size="lg"

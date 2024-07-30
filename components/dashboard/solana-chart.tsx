@@ -37,10 +37,8 @@ const timeRanges: Record<TimeRange, string> = {
   "1Y": "365",
 };
 
-const SolanaChart: React.FC = () => {
-  const [chartData, setChartData] = useState<
-    ChartData<"line">
-  >({
+const SolanaChart = ({badge}: {badge: string}) => {
+  const [chartData, setChartData] = useState<ChartData<"line">>({
     labels: [],
     datasets: [
       {
@@ -52,11 +50,8 @@ const SolanaChart: React.FC = () => {
       },
     ],
   });
-  const [currentPrice, setCurrentPrice] = useState<
-    number | null
-  >(null);
-  const [selectedRange, setSelectedRange] =
-    useState<TimeRange>("7D");
+  const [currentPrice, setCurrentPrice] = useState<number | null>(null);
+  const [selectedRange, setSelectedRange] = useState<TimeRange>("7D");
 
   const {theme} = useTheme();
 
@@ -73,8 +68,7 @@ const SolanaChart: React.FC = () => {
           }
         );
 
-        const prices: [number, number][] =
-          result.data.prices;
+        const prices: [number, number][] = result.data.prices;
         const lastPrice = prices[prices.length - 1][1];
 
         setChartData({
@@ -84,9 +78,7 @@ const SolanaChart: React.FC = () => {
           datasets: [
             {
               label: "Solana Price",
-              data: prices.map(
-                (price: [number, number]) => price[1]
-              ),
+              data: prices.map((price: [number, number]) => price[1]),
               fill: false,
               backgroundColor: "#07C256",
               borderColor: "#07C256",
@@ -107,10 +99,11 @@ const SolanaChart: React.FC = () => {
     maintainAspectRatio: false,
     plugins: {
       legend: {
+        display: false,
         position: "top",
       },
       title: {
-        display: true,
+        display: false,
         text: `Solana Price Chart (${selectedRange})`,
       },
     },
@@ -140,7 +133,7 @@ const SolanaChart: React.FC = () => {
     >
       <div className="flex items-start  flex-col lg:flex-row lg:items-center justify-between">
         <div className="flex items-center mb-5 gap-4 bg-[#F3F4F6] dark:bg-[#242424] w-max py-2 px-4 rounded-md ">
-          TVL$
+          {badge}
         </div>
 
         <div className="flex items-center gap-4 mb-5 py-1 bg-[#F3F4F6] dark:bg-[#242424] w-max  px-4 rounded-xl ">
@@ -151,23 +144,20 @@ const SolanaChart: React.FC = () => {
                 "w-max rounded-lg !border-none p-2 bg-transparent",
 
                 {
-                  " shadow-md bg-[#FCFCFC] text-[#252939] dark:!bg-[#1E1E1E] dark:text-white ": selectedRange === range,
+                  " shadow-md bg-[#FCFCFC] text-[#252939] dark:!bg-[#1E1E1E] dark:text-white ":
+                    selectedRange === range,
                 },
 
                 {
                   "!bg-[#FCFCFC] text-[#252939] ":
-                    theme === "light" &&
-                    selectedRange === range,
+                    theme === "light" && selectedRange === range,
                 },
                 {
                   "!bg-[#1E1E1E] text-white ":
-                    theme === "dark" &&
-                    selectedRange === range,
+                    theme === "dark" && selectedRange === range,
                 }
               )}
-              onClick={() =>
-                setSelectedRange(range as TimeRange)
-              }
+              onClick={() => setSelectedRange(range as TimeRange)}
             >
               {range}
             </button>
@@ -181,9 +171,7 @@ const SolanaChart: React.FC = () => {
             ${currentPrice?.toFixed(2)}
           </p>
 
-          <span className="font-bold text-[#FF6565] text-base">
-            -2.5%
-          </span>
+          <span className="font-bold text-[#FF6565] text-base">-2.5%</span>
         </div>
         <p className="text-sm text-[#484856] font-light letter-spacing-2">
           NOV, 28, 2023

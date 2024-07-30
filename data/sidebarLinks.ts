@@ -17,7 +17,7 @@ export const sidebarLinks = [
   },
   {
     name: "Narrative Token",
-    link: "/dashboard/narrativeToken/1",
+    link: "/dashboard/narrativeToken",
     icon: NarrativeTokenIcon,
   },
   {
