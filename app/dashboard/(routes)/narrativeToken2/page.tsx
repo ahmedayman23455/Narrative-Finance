@@ -26,10 +26,20 @@ import TokenBadge from "@/components/dashboard/token-badge";
 import {useParams} from "next/navigation";
 import Link from "next/link";
 import LoadingSpinner from "@/components/general/loading-spinner";
-import {Check, Circle, CircleCheck} from "lucide-react";
+import {ArrowDown, Check, Circle, CircleCheck} from "lucide-react";
 import {Progress} from "@/components/ui/progress";
 import Timeline from "@/components/general/timeline";
 import {columnsActivities} from "./_components/activites_columns";
+import {useTheme} from "next-themes";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 interface Coin {
   name: string;
@@ -88,577 +98,176 @@ const NarrativeToken2 = () => {
                 <SolanaChart badge={"Undefined"} />
               </div>
 
-              <div className="flex flex-col  w-full lg:max-w-[468px] -mt-[2.2rem]">
-                <div className="relative w-full lg:max-w-[468px]">
-                  <div
-                    className="relative  z-30 bg-[#F8FAFE] dark:bg-[#1E1E1E] shadow-lg dark:shadow-none dark:border-[0.5px] dark:border-[#363638]
-         rounded-xl mt-8"
-                  >
-                    <Tabs defaultValue="mintSmg" className="flex flex-col gap-4 w-full">
-                      <div className="relative flex flex-col w-full  justify-between">
-                        {/* > tabs */}
-
-                        <div className=" z-10 flex flex-col gap-4 lg:flex-row items-center justify-between w-full px-4 pt-4">
-                          <TabsList className="!w-full">
-                            <TabsTrigger value="mintSmg">Mint SMG</TabsTrigger>
-                            <TabsTrigger value="redeem">Redeem</TabsTrigger>
-                          </TabsList>
-                        </div>
-
-                        <TabsContent value="mintSmg">
-                          <Tabs
-                            defaultValue="depositUSDC"
-                            className="flex flex-col gap-4"
+              <div className="flex flex-col  w-full lg:max-w-[468px]">
+                <div className="relative w-full lg:max-w-[468px] px-4 pb-4   bg-[#F8FAFE] dark:bg-[#1E1E1E] rounded-lg">
+                  <Tabs defaultValue="Swap" className="flex flex-col gap-4 w-full ">
+                    <div className="relative flex flex-col w-full  justify-between">
+                      <div className=" z-10 flex flex-row gap-4  items-center justify-between w-full px-4 mt-4 bg-[#F2F4F7] dark:!bg-[#242424] rounded-md ">
+                        <TabsList className="!w-max  !bg-transparent !shadow-none !border-none !px-0">
+                          <TabsTrigger
+                            value="Swap"
+                            className="max-w-[70px]"
+                            bgWhiteActive
                           >
-                            <div className="relative flex flex-col gap-4 w-full  justify-between">
-                              {/* > tabs */}
+                            Swap
+                          </TabsTrigger>
+                          <TabsTrigger value="Send" className="max-w-[70px]">
+                            Send
+                          </TabsTrigger>
+                          <TabsTrigger value="Buy" className="max-w-[70px]">
+                            Buy
+                          </TabsTrigger>
+                        </TabsList>
 
-                              <div className=" z-10 flex flex-col gap-4 lg:flex-row items-center justify-between w-full px-4">
-                                <TabsList className="!w-full">
-                                  <TabsTrigger value="depositUSDC">
-                                    Deposit USDC
-                                  </TabsTrigger>
-                                  <TabsTrigger value="depositToken">
-                                    Deposit Token
-                                  </TabsTrigger>
-                                </TabsList>
-                              </div>
+                        <Image
+                          src={
+                            theme === "light"
+                              ? "/assets/dashboard/setting.png"
+                              : "/assets/dashboard/settingDark.png"
+                          }
+                          width={24}
+                          height={24}
+                          alt="settings"
+                        />
+                      </div>
 
-                              <TabsContent value="depositUSDC">
-                                {!depositUSDC && !despositUSDCCompleted && (
-                                  <>
-                                    <div className="flex items-center justify-between px-4">
-                                      <p>
-                                        Balance:
-                                        <span className="font-semibold">
-                                          &nbsp; 3425.8 USDC
-                                        </span>
-                                      </p>
-                                      MAX
-                                    </div>
+                      <TabsContent value="Swap">
+                        <>
+                          <div className="relative flex flex-col gap-4">
+                            <div className="p-4 bg-[#F2F4F7] dark:bg-[#242424] rounded-md">
+                              <label htmlFor="amount" className="text-sm font-medium ">
+                                You pay
+                              </label>
 
-                                    <div className="mt-4 px-4">
-                                      <label htmlFor="amount">Enter Amount</label>
+                              <div className="flex items-end justify-between">
+                                <div className="flex flex-col items-start justify-between">
+                                  <div className="relative text-3xl font-semibold">
+                                    <span className="absolute left-0 top-1/2 transform -translate-y-1/2 text-[#6C7685]">
+                                      $
+                                    </span>
 
-                                      <div className="relative text-3xl font-semibold">
-                                        <span className="absolute left-0 top-1/2 transform -translate-y-1/2 text-[#6C7685]">
-                                          $
-                                        </span>
-
-                                        <Input
-                                          type="text"
-                                          name="amount"
-                                          id="amount"
-                                          className="w-full pl-6 outline-none !bg-none !shadow-none text-3xl border-none !focus:outline-none"
-                                        />
-                                      </div>
-                                    </div>
-
-                                    <div className="flex items-center justify-between bg-primary text-white mt-8 px-4 py-2 rounded-bl-lg rounded-br-lg">
-                                      <p>
-                                        Minting
-                                        <span className="font-semibold">
-                                          &nbsp; ~4.596 SMG
-                                        </span>
-                                      </p>
-
-                                      <Button
-                                        onClick={() => depositUSDCHandler()}
-                                        className="stroke-white text-white border-white rounded-sm flex items-center gap-2 py-1 px-2 border hover:opacity-90"
-                                      >
-                                        <p>Mint</p>
-                                        <div className="flex-shrink-0">
-                                          <ArrowRight />
-                                        </div>
-                                      </Button>
-                                    </div>
-                                  </>
-                                )}
-
-                                {depositUSDC && (
-                                  <div className="flex flex-col px-4 gap-4 pb-4 ">
-                                    <h3>Minting in progress</h3>
-                                    <Progress value={70} className="w-full" />
-
-                                    <div className="p-6">
-                                      <div className="after:absolute after:inset-y-0 after:w-px after:bg-gray-500/20 relative pl-6 after:left-0 grid gap-10 dark:after:bg-gray-400/20">
-                                        <div className="grid gap-1 text-sm relative">
-                                          <div className=" w-5 h-5 bg-green-500 rounded-full absolute -left-1 translate-x-[-29.5px] z-10 top-1  flex items-center justify-center shrink-0">
-                                            <Check className="text-white w-4 h-4" />
-                                          </div>
-                                          <p>Desposit</p>
-                                          <div className="flex flex-wrap gap-1 justify-end">
-                                            <TokenBadge
-                                              imageSrc="/assets/site/coins/coin1.png"
-                                              tag="Msol"
-                                              price="$15.000"
-                                            />
-                                          </div>
-                                        </div>
-
-                                        <div className="grid gap-1 text-sm relative">
-                                          <div className=" w-5 h-5 rounded-full absolute -left-1 translate-x-[-29.5px] z-10 top-1  flex items-center justify-center shrink-0">
-                                            <LoadingSpinner className="text-gray-500" />
-                                          </div>
-                                          <div className="flex items-start justify-between">
-                                            <p>Purchasing Tokens</p>
-
-                                            <div className="flex flex-wrap gap-1 justify-end">
-                                              <TokenBadge
-                                                imageSrc="/assets/site/coins/coin1.png"
-                                                tag="Msol"
-                                                price="$15.000"
-                                              />
-                                              <TokenBadge
-                                                imageSrc="/assets/site/coins/coin1.png"
-                                                tag="Msol"
-                                                price="$15.000"
-                                              />
-                                              <TokenBadge
-                                                imageSrc="/assets/site/coins/coin1.png"
-                                                tag="Msol"
-                                                price="$15.000"
-                                              />
-                                              <TokenBadge
-                                                imageSrc="/assets/site/coins/coin1.png"
-                                                tag="Msol"
-                                                price="$15.000"
-                                              />
-                                              <TokenBadge
-                                                imageSrc="/assets/site/coins/coin1.png"
-                                                tag="Msol"
-                                                price="$15.000"
-                                              />
-                                            </div>
-                                          </div>
-                                        </div>
-
-                                        <div className="grid gap-1 text-sm relative">
-                                          <div className=" w-5 h-5 rounded-full absolute -left-1 translate-x-[-29.5px] z-10 top-1  flex items-center justify-center shrink-0">
-                                            <LoadingSpinner className="text-gray-500" />
-                                          </div>
-                                          <div className="flex items-start justify-between">
-                                            <p>Mint</p>
-
-                                            <div className="flex flex-wrap gap-1 justify-end">
-                                              <TokenBadge
-                                                imageSrc="/assets/site/coins/coin1.png"
-                                                tag="Msol"
-                                                price="$15.000"
-                                              />
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
+                                    <Input
+                                      type="text"
+                                      name="amount"
+                                      id="amount"
+                                      className="w-full pl-6 outline-none !bg-none !shadow-none text-3xl border-none !focus:outline-none"
+                                    />
                                   </div>
-                                )}
 
-                                {despositUSDCCompleted && (
-                                  <div className="flex flex-col px-4 gap-4 pb-4 ">
-                                    <h3>Minting in progress</h3>
+                                  <p className=" text-sm font-medium ">$17.24085</p>
+                                </div>
 
-                                    <Progress value={70} className="w-full" />
-
-                                    <div className="p-6">
-                                      <div className="after:absolute after:inset-y-0 after:w-px after:bg-gray-500/20 relative pl-6 after:left-0 grid gap-10 dark:after:bg-gray-400/20">
-                                        <div className="grid gap-1 text-sm relative">
-                                          <div className=" w-5 h-5 bg-green-500 rounded-full absolute -left-1 translate-x-[-29.5px] z-10 top-1  flex items-center justify-center shrink-0">
-                                            <Check className="text-white w-4 h-4" />
-                                          </div>
-                                          <p>Desposit</p>
-                                          <div className="flex flex-wrap gap-1 justify-end">
-                                            <TokenBadge
-                                              imageSrc="/assets/site/coins/coin1.png"
-                                              tag="Msol"
-                                              price="$15.000"
-                                            />
-                                          </div>
+                                <div className="flex flex-col gap-2">
+                                  <Select defaultValue="SOL">
+                                    <SelectTrigger className="w-[130px] bg-[#DADEFF] text-[#484856] font-semibold text-base ">
+                                      <SelectValue />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                      <SelectItem value="SOL">
+                                        <div className="!flex items-center gap-2 w-full">
+                                          <Image
+                                            src="/assets/site/coins/coin35.png"
+                                            width={24}
+                                            height={24}
+                                            alt="ETH"
+                                          />
+                                          <p>ETH</p>
                                         </div>
+                                      </SelectItem>
+                                    </SelectContent>
+                                  </Select>
 
-                                        <div className="grid gap-1 text-sm relative">
-                                          <div className=" w-5 h-5 bg-green-500 rounded-full absolute -left-1 translate-x-[-29.5px] z-10 top-1  flex items-center justify-center shrink-0">
-                                            <Check className="text-white w-4 h-4" />
-                                          </div>
-                                          <div className="flex items-start justify-between">
-                                            <p>Purchasing Tokens</p>
-
-                                            <div className="flex flex-wrap gap-1 justify-end">
-                                              <TokenBadge
-                                                imageSrc="/assets/site/coins/coin1.png"
-                                                tag="Msol"
-                                                price="$15.000"
-                                              />
-                                              <TokenBadge
-                                                imageSrc="/assets/site/coins/coin1.png"
-                                                tag="Msol"
-                                                price="$15.000"
-                                              />
-                                              <TokenBadge
-                                                imageSrc="/assets/site/coins/coin1.png"
-                                                tag="Msol"
-                                                price="$15.000"
-                                              />
-                                              <TokenBadge
-                                                imageSrc="/assets/site/coins/coin1.png"
-                                                tag="Msol"
-                                                price="$15.000"
-                                              />
-                                              <TokenBadge
-                                                imageSrc="/assets/site/coins/coin1.png"
-                                                tag="Msol"
-                                                price="$15.000"
-                                              />
-                                            </div>
-                                          </div>
-                                        </div>
-
-                                        <div className="grid gap-1 text-sm relative">
-                                          <div className=" w-5 h-5 bg-green-500 rounded-full absolute -left-1 translate-x-[-29.5px] z-10 top-1  flex items-center justify-center shrink-0">
-                                            <Check className="text-white w-4 h-4" />
-                                          </div>
-                                          <div className="flex items-start justify-between">
-                                            <p>Purchasing Tokens</p>
-
-                                            <div className="flex flex-wrap gap-1 justify-end">
-                                              <TokenBadge
-                                                imageSrc="/assets/site/coins/coin1.png"
-                                                tag="Msol"
-                                                price="$15.000"
-                                              />
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-
-                                    <div className="flex flex-col gap-2">
-                                      <Button
-                                        className="w-full"
-                                        onClick={() => claimHandler()}
-                                      >
-                                        Rebalance
-                                      </Button>
-                                      <Button className="w-full bg-blue-900 hover:bg-blue-900/90">
-                                        Cancel Mint
-                                      </Button>
-                                    </div>
-                                  </div>
-                                )}
-                              </TabsContent>
-
-                              <TabsContent value="depositToken">
-                                {!depositToken && !depositTokenCompleted && (
-                                  <>
-                                    <div className="flex items-center justify-between px-4">
-                                      <p>
-                                        Balance:
-                                        <span className="font-semibold">
-                                          &nbsp; 3425.8 USDC
-                                        </span>
-                                      </p>
-                                      MAX
-                                    </div>
-
-                                    <div className="mt-4 px-4">
-                                      <label htmlFor="amount">Enter Amount</label>
-
-                                      <div className="relative text-3xl font-semibold">
-                                        <span className="absolute left-0 top-1/2 transform -translate-y-1/2 text-[#6C7685]">
-                                          $
-                                        </span>
-
-                                        <Input
-                                          type="text"
-                                          name="amount"
-                                          id="amount"
-                                          className="w-full pl-6 outline-none !bg-none !shadow-none text-3xl border-none !focus:outline-none"
-                                        />
-                                      </div>
-                                    </div>
-
-                                    <div className="flex items-center justify-between bg-primary text-white mt-8 px-4 py-2 rounded-bl-lg rounded-br-lg">
-                                      <p>
-                                        Minting
-                                        <span className="font-semibold">
-                                          &nbsp; ~4.596 SMG
-                                        </span>
-                                      </p>
-
-                                      <Button
-                                        onClick={() => depositTokenHandler()}
-                                        className="stroke-white text-white border-white rounded-sm flex items-center gap-2 py-1 px-2 border hover:opacity-90"
-                                      >
-                                        <p>Mint</p>
-                                        <div className="flex-shrink-0">
-                                          <ArrowRight />
-                                        </div>
-                                      </Button>
-                                    </div>
-                                  </>
-                                )}
-
-                                {depositToken && (
-                                  <div className="flex flex-col px-4 gap-4 pb-4 ">
-                                    <h3>Minting in progress</h3>
-                                    <Progress value={70} className="w-full" />
-
-                                    <div className="p-6">
-                                      <div className="after:absolute after:inset-y-0 after:w-px after:bg-gray-500/20 relative pl-6 after:left-0 grid gap-10 dark:after:bg-gray-400/20">
-                                        <div className="grid gap-1 text-sm relative">
-                                          <div className=" w-5 h-5 bg-green-500 rounded-full absolute -left-1 translate-x-[-29.5px] z-10 top-1  flex items-center justify-center shrink-0">
-                                            <Check className="text-white w-4 h-4" />
-                                          </div>
-                                          <p>Desposit</p>
-                                          <div className="flex flex-wrap gap-1 justify-end">
-                                            <TokenBadge
-                                              imageSrc="/assets/site/coins/coin1.png"
-                                              tag="Msol"
-                                              price="$15.000"
-                                            />
-                                          </div>
-                                        </div>
-
-                                        <div className="grid gap-1 text-sm relative">
-                                          <div className=" w-5 h-5 rounded-full absolute -left-1 translate-x-[-29.5px] z-10 top-1  flex items-center justify-center shrink-0">
-                                            <LoadingSpinner className="text-gray-500" />
-                                          </div>
-                                          <div className="flex items-start justify-between">
-                                            <p>Purchasing Tokens</p>
-
-                                            <div className="flex flex-wrap gap-1 justify-end">
-                                              <TokenBadge
-                                                imageSrc="/assets/site/coins/coin1.png"
-                                                tag="Msol"
-                                                price="$15.000"
-                                              />
-                                              <TokenBadge
-                                                imageSrc="/assets/site/coins/coin1.png"
-                                                tag="Msol"
-                                                price="$15.000"
-                                              />
-                                              <TokenBadge
-                                                imageSrc="/assets/site/coins/coin1.png"
-                                                tag="Msol"
-                                                price="$15.000"
-                                              />
-                                              <TokenBadge
-                                                imageSrc="/assets/site/coins/coin1.png"
-                                                tag="Msol"
-                                                price="$15.000"
-                                              />
-                                              <TokenBadge
-                                                imageSrc="/assets/site/coins/coin1.png"
-                                                tag="Msol"
-                                                price="$15.000"
-                                              />
-                                            </div>
-                                          </div>
-                                        </div>
-
-                                        <div className="grid gap-1 text-sm relative">
-                                          <div className=" w-5 h-5 rounded-full absolute -left-1 translate-x-[-29.5px] z-10 top-1  flex items-center justify-center shrink-0">
-                                            <LoadingSpinner className="text-gray-500" />
-                                          </div>
-                                          <div className="flex items-start justify-between">
-                                            <p>Mint</p>
-
-                                            <div className="flex flex-wrap gap-1 justify-end">
-                                              <TokenBadge
-                                                imageSrc="/assets/site/coins/coin1.png"
-                                                tag="Msol"
-                                                price="$15.000"
-                                              />
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                )}
-
-                                {depositTokenCompleted && (
-                                  <div className="flex flex-col px-4 gap-4 pb-4 ">
-                                    <h3>Minting in progress</h3>
-
-                                    <Progress value={70} className="w-full" />
-
-                                    <div className="p-6">
-                                      <div className="after:absolute after:inset-y-0 after:w-px after:bg-gray-500/20 relative pl-6 after:left-0 grid gap-10 dark:after:bg-gray-400/20">
-                                        <div className="grid gap-1 text-sm relative">
-                                          <div className=" w-5 h-5 bg-green-500 rounded-full absolute -left-1 translate-x-[-29.5px] z-10 top-1  flex items-center justify-center shrink-0">
-                                            <Check className="text-white w-4 h-4" />
-                                          </div>
-                                          <p>Desposit</p>
-                                          <div className="flex flex-wrap gap-1 justify-end">
-                                            <TokenBadge
-                                              imageSrc="/assets/site/coins/coin1.png"
-                                              tag="Msol"
-                                              price="$15.000"
-                                            />
-                                          </div>
-                                        </div>
-
-                                        <div className="grid gap-1 text-sm relative">
-                                          <div className=" w-5 h-5 bg-green-500 rounded-full absolute -left-1 translate-x-[-29.5px] z-10 top-1  flex items-center justify-center shrink-0">
-                                            <Check className="text-white w-4 h-4" />
-                                          </div>
-                                          <div className="flex items-start justify-between">
-                                            <p>Purchasing Tokens</p>
-
-                                            <div className="flex flex-wrap gap-1 justify-end">
-                                              <TokenBadge
-                                                imageSrc="/assets/site/coins/coin1.png"
-                                                tag="Msol"
-                                                price="$15.000"
-                                              />
-                                              <TokenBadge
-                                                imageSrc="/assets/site/coins/coin1.png"
-                                                tag="Msol"
-                                                price="$15.000"
-                                              />
-                                              <TokenBadge
-                                                imageSrc="/assets/site/coins/coin1.png"
-                                                tag="Msol"
-                                                price="$15.000"
-                                              />
-                                              <TokenBadge
-                                                imageSrc="/assets/site/coins/coin1.png"
-                                                tag="Msol"
-                                                price="$15.000"
-                                              />
-                                              <TokenBadge
-                                                imageSrc="/assets/site/coins/coin1.png"
-                                                tag="Msol"
-                                                price="$15.000"
-                                              />
-                                            </div>
-                                          </div>
-                                        </div>
-
-                                        <div className="grid gap-1 text-sm relative">
-                                          <div className=" w-5 h-5 bg-green-500 rounded-full absolute -left-1 translate-x-[-29.5px] z-10 top-1  flex items-center justify-center shrink-0">
-                                            <Check className="text-white w-4 h-4" />
-                                          </div>
-                                          <div className="flex items-start justify-between">
-                                            <p>Mint</p>
-
-                                            <div className="flex flex-wrap gap-1 justify-end">
-                                              <TokenBadge
-                                                imageSrc="/assets/site/coins/coin1.png"
-                                                tag="Msol"
-                                                price="$15.000"
-                                              />
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-
-                                    <div className="flex flex-col gap-2">
-                                      <Button
-                                        className="w-full"
-                                        onClick={() => claimHandler()}
-                                      >
-                                        Rebalance
-                                      </Button>
-                                      <Button className="w-full bg-blue-900 hover:bg-blue-900/90">
-                                        Cancel Mint
-                                      </Button>
-                                    </div>
-                                  </div>
-                                )}
-                              </TabsContent>
-                            </div>
-                          </Tabs>
-                        </TabsContent>
-
-                        <TabsContent value="redeem">
-                          <div className="flex flex-col px-4 gap-4 my-4">
-                            {!redeemCompleted && <h3>Redeem Tokens</h3>}
-
-                            {redeemLoading ? (
-                              <div className="flex items-center justify-center">
-                                <LoadingSpinner className="text-green-500 w-20 h-20" />
-                              </div>
-                            ) : (
-                              !redeemCompleted && (
-                                <p className="italic text-xs font-light">
-                                  You are free to choode your preferred redeem method, you
-                                  can choose to redeem them directly or convert them to
-                                  USDC
-                                </p>
-                              )
-                            )}
-
-                            {redeemCompleted && (
-                              <div className="flex  flex-col items-center justify-center gap-4">
-                                <CircleCheck className="text-green-500 w-20 h-20" />
-                                <p className="font-medium">Mint Complete!!</p>
-                              </div>
-                            )}
-
-                            {!redeemCompleted && (
-                              <div className="flex flex-col gap-4">
-                                <h4 className="text-sm">Available Tokens</h4>
-                                <div className="flex flex-wrap gap-1 items-end ">
-                                  <TokenBadge
-                                    imageSrc="/assets/site/coins/coin1.png"
-                                    tag="Msol"
-                                    price="$15.000"
-                                  />
-                                  <TokenBadge
-                                    imageSrc="/assets/site/coins/coin1.png"
-                                    tag="Msol"
-                                    price="$15.000"
-                                  />
-                                  <TokenBadge
-                                    imageSrc="/assets/site/coins/coin1.png"
-                                    tag="Msol"
-                                    price="$15.000"
-                                  />
-                                  <TokenBadge
-                                    imageSrc="/assets/site/coins/coin1.png"
-                                    tag="Msol"
-                                    price="$15.000"
-                                  />
-                                  <TokenBadge
-                                    imageSrc="/assets/site/coins/coin1.png"
-                                    tag="Msol"
-                                    price="$15.000"
-                                  />
-                                  <TokenBadge
-                                    imageSrc="/assets/site/coins/coin1.png"
-                                    tag="Msol"
-                                    price="$15.000"
-                                  />
+                                  <p className="whitespace-nowrap text-sm font-medium ">
+                                    Balance: 0.007
+                                  </p>
                                 </div>
                               </div>
-                            )}
+                            </div>
 
-                            {redeemCompleted === false && redeemLoading === false && (
-                              <div className="flex flex-col gap-2">
-                                <Button className="w-full" onClick={() => claimHandler()}>
-                                  Claim
-                                </Button>
-                                <Button className="w-full bg-blue-900 hover:bg-blue-900/90">
-                                  Convert to USDC
-                                </Button>
+                            <div className="p-4 bg-[#F2F4F7] dark:bg-[#242424] rounded-md">
+                              <label htmlFor="amount" className="text-sm font-medium ">
+                                You receive
+                              </label>
+
+                              <div className="flex items-end justify-between">
+                                <div className="flex flex-col items-start justify-between">
+                                  <div className="relative text-3xl font-semibold">
+                                    <span className="absolute left-0 top-1/2 transform -translate-y-1/2 text-[#6C7685]">
+                                      $
+                                    </span>
+
+                                    <Input
+                                      type="text"
+                                      name="amount"
+                                      id="amount"
+                                      className="w-full pl-6 outline-none !bg-none !shadow-none text-3xl border-none !focus:outline-none"
+                                    />
+                                  </div>
+
+                                  <p className=" text-sm font-medium ">$17.24085</p>
+                                </div>
+
+                                <div className="flex flex-col gap-2">
+                                  <Select defaultValue="NRTV">
+                                    <SelectTrigger className="w-[130px] bg-[#DADEFF] text-[#484856] font-semibold text-base ">
+                                      <SelectValue />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                      <SelectItem value="NRTV">
+                                        <div className="!flex items-center gap-2 w-full">
+                                          <Image
+                                            src="/assets/site/coins/coin36.png"
+                                            width={24}
+                                            height={24}
+                                            alt="NRTV"
+                                          />
+                                          <p>NRTV</p>
+                                        </div>
+                                      </SelectItem>
+                                    </SelectContent>
+                                  </Select>
+
+                                  <p className="whitespace-nowrap text-sm font-medium ">
+                                    Balance: 0.007
+                                  </p>
+                                </div>
                               </div>
-                            )}
-                          </div>
-                        </TabsContent>
-                      </div>
-                    </Tabs>
-                  </div>
+                            </div>
 
-                  <div className="absolute z-20 rounded-xl  top-4 left-4 right-4 h-full bg-[#F8FAFE] dark:bg-[#1E1E1E] shadow-lg dark:shadow-none dark:border-[0.5px] dark:border-[#363638]"></div>
-                  <div className="absolute z-10 rounded-xl  top-8 left-8 right-8 h-full bg-[#F8FAFE] dark:bg-[#1E1E1E] shadow-lg dark:shadow-none dark:border-[0.5px] dark:border-[#363638]"></div>
+                            <Button
+                              variant="default"
+                              size="icon"
+                              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                            >
+                              <ArrowDown />
+                            </Button>
+                          </div>
+
+                          <Button variant="default" size="lg" className="w-full mt-4">
+                            Swap
+                          </Button>
+                        </>
+                      </TabsContent>
+                    </div>
+                  </Tabs>
                 </div>
 
-                <h4 className="mt-12 text-base font-medium text-center">
-                  Please enter desired amount above.
-                </h4>
+                <div className="text-sm flex flex-col gap-2 mt-4">
+                  <div className="flex justify-between">
+                    <p> Minimum received:</p>
+                    <p>389240.05 SOL</p>
+                  </div>
+
+                  <div className="flex justify-between">
+                    <p> Minimum received:</p>
+                    <p className="text-[#239564]"> &gt;0.01</p>
+                  </div>
+
+                  <div className="flex justify-between">
+                    <p>Liquidity Provider fee:</p>
+                    <p> 0.00000456ETH</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
