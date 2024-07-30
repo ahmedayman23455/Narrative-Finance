@@ -53,18 +53,7 @@ interface CoinProps {
 }
 
 const NarrativeToken2 = () => {
-  const [redeemLoading, setRedeemLoading] = useState(false);
-  const [redeemCompleted, setRedeemCompleted] = useState(false);
-  const [depositUSDC, setDepositUSDC] = useState(false);
-  const [despositUSDCCompleted, setDespositUSDCCompleted] = useState(false);
-
-  const [depositToken, setDepositToken] = useState(false);
-  const [depositTokenCompleted, setDepositCompleted] = useState(false);
-
-  const [clicked, setIsClicked] = useState(false);
-  const [hoveredCard, setHoveredCard] = useState<null | Number>(null);
-
-  const {fundId} = useParams();
+  const {theme} = useTheme();
 
   return (
     <div className={cn("relative h-full pt-10 px-4 pb-4 lg:pl-[264px] lg:pt-0 lg:pb-20")}>
