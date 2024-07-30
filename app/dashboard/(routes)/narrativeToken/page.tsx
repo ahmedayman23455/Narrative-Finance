@@ -90,12 +90,10 @@ const NarrativeTokenPage = () => {
               <SolanaChart badge="$NRTV" />
             </div>
 
-            <div className="flex flex-col  w-full lg:max-w-[468px]">
+            {/* <div className="flex flex-col  w-full lg:max-w-[468px]">
               <div className="relative w-full lg:max-w-[468px] px-4 pb-4   bg-[#F8FAFE] dark:bg-[#1E1E1E] rounded-lg">
                 <Tabs defaultValue="Swap" className="flex flex-col gap-4 w-full ">
                   <div className="relative flex flex-col w-full  justify-between">
-                    {/* > tabs */}
-
                     <div className=" z-10 flex flex-row gap-4  items-center justify-between w-full px-4 mt-4 bg-[#F2F4F7] dark:!bg-[#242424] rounded-md ">
                       <TabsList className="!w-max  !bg-transparent !shadow-none !border-none !px-0">
                         <TabsTrigger value="Swap" className="max-w-[70px]" bgWhiteActive>
@@ -258,12 +256,11 @@ const NarrativeTokenPage = () => {
                   <p> 0.00000456ETH</p>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
-
-      {/* stats */}
+      F{/* stats */}
       <div className="relative">
         <div
           className="relative p-4 z-30 bg-[#F8FAFE] dark:bg-[#1E1E1E] shadow-lg dark:shadow-none dark:border-[0.5px] dark:border-[#363638]
