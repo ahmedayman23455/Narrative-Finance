@@ -1,12 +1,7 @@
-"use client";
 import Image from "next/image";
 import Link from "next/link";
-import {useTheme} from "next-themes";
-import {useEffect, useState} from "react";
 import {File} from "lucide-react";
-import {Navigation, Pagination, Scrollbar, A11y} from "swiper/modules";
 
-import {Swiper, SwiperSlide} from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -14,24 +9,15 @@ import "swiper/css/pagination";
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import {Button} from "@/components/ui/button";
-import CarouselCard from "@/components/site/carousel-card";
 
 import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
 
-import FeaturedCard from "@/components/site/featured-card";
-
 import {cn} from "@/lib/utils";
+import FeaturedNarratives from "@/components/site/featured-narratives";
+import Companies from "@/components/site/companies";
+import FeaturedCards from "@/components/site/featured-cards";
 
 export default function Home() {
-  const [isMounted, setIsMounted] = useState(false);
-  const {theme} = useTheme();
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  if (!isMounted) return;
-
   return (
     <main>
       <Navbar />
@@ -112,195 +98,7 @@ export default function Home() {
             Featured Narratives
           </h2>
 
-          <Swiper
-            modules={[Navigation, Pagination, Scrollbar, A11y]}
-            slidesPerGroup={1}
-            spaceBetween={24}
-            slidesPerView={1}
-            breakpoints={{
-              768: {
-                slidesPerView: 2,
-                slidesPerGroup: 2,
-              },
-              1024: {
-                slidesPerView: 3,
-                slidesPerGroup: 3,
-              },
-            }}
-            pagination={{clickable: true}}
-            scrollbar={{draggable: true}}
-          >
-            <SwiperSlide>
-              <CarouselCard
-                title="Solana Narrative"
-                badge="$N-Sol"
-                vectorColor="blue"
-                price="$500"
-                tvl="$760.000"
-                images={[
-                  "/assets/site/coins/coin1.png",
-                  "/assets/site/coins/coin2.png",
-                  "/assets/site/coins/coin3.png",
-                  "/assets/site/coins/coin1.png",
-                  "/assets/site/coins/coin2.png",
-                  "/assets/site/coins/coin3.png",
-                ]}
-                link="/dashboard/narrativeFunds/1"
-              />
-            </SwiperSlide>
-
-            <SwiperSlide>
-              <CarouselCard
-                title="AI Narrative"
-                badge="$N-AI"
-                vectorColor="red"
-                price="$500"
-                tvl="$760.000"
-                images={[
-                  "/assets/site/coins/coin4.png",
-                  "/assets/site/coins/coin5.png",
-                  "/assets/site/coins/coin6.png",
-                  "/assets/site/coins/coin4.png",
-                  "/assets/site/coins/coin5.png",
-                  "/assets/site/coins/coin6.png",
-                ]}
-                link="/dashboard/narrativeFunds/2"
-              />
-            </SwiperSlide>
-
-            <SwiperSlide>
-              <CarouselCard
-                title="MEME Narrative"
-                badge="$N-MEME"
-                vectorColor="blue"
-                price="$500"
-                tvl="$760.000"
-                images={[
-                  "/assets/site/coins/coin7.png",
-                  "/assets/site/coins/coin8.png",
-                  "/assets/site/coins/coin9.png",
-                  "/assets/site/coins/coin7.png",
-                  "/assets/site/coins/coin8.png",
-                  "/assets/site/coins/coin9.png",
-                ]}
-                link="/dashboard/narrativeFunds/3"
-              />
-            </SwiperSlide>
-
-            <SwiperSlide>
-              <CarouselCard
-                title="EVM Narrative"
-                badge="$N-EVM"
-                vectorColor="blue"
-                price="$500"
-                tvl="$760.000"
-                images={[
-                  "/assets/site/coins/coin10.png",
-                  "/assets/site/coins/coin11.png",
-                  "/assets/site/coins/coin12.png",
-                  "/assets/site/coins/coin10.png",
-                  "/assets/site/coins/coin11.png",
-                  "/assets/site/coins/coin12.png",
-                ]}
-                link="/dashboard/narrativeFunds/4"
-              />
-            </SwiperSlide>
-
-            <SwiperSlide>
-              <CarouselCard
-                title="DeFi Narrative"
-                badge="$N-Defi"
-                vectorColor="red"
-                price="$500"
-                tvl="$760.000"
-                images={[
-                  "/assets/site/coins/coin13.png",
-                  "/assets/site/coins/coin14.png",
-                  "/assets/site/coins/coin15.png",
-                  "/assets/site/coins/coin13.png",
-                  "/assets/site/coins/coin14.png",
-                  "/assets/site/coins/coin15.png",
-                ]}
-                link="/dashboard/narrativeFunds/5"
-              />
-            </SwiperSlide>
-
-            <SwiperSlide>
-              <CarouselCard
-                title="DePin Narrative"
-                badge="$N-DePin"
-                vectorColor="blue"
-                price="$500"
-                tvl="$760.000"
-                images={[
-                  "/assets/site/coins/coin16.png",
-                  "/assets/site/coins/coin17.png",
-                  "/assets/site/coins/coin18.png",
-                  "/assets/site/coins/coin16.png",
-                  "/assets/site/coins/coin17.png",
-                  "/assets/site/coins/coin18.png",
-                ]}
-                link="/dashboard/narrativeFunds/6"
-              />
-            </SwiperSlide>
-
-            <SwiperSlide>
-              <CarouselCard
-                title="GameFi Narrative"
-                badge="$N-GameFi"
-                vectorColor="blue"
-                price="$500"
-                tvl="$760.000"
-                images={[
-                  "/assets/site/coins/coin19.png",
-                  "/assets/site/coins/coin20.png",
-                  "/assets/site/coins/coin21.png",
-                  "/assets/site/coins/coin19.png",
-                  "/assets/site/coins/coin20.png",
-                  "/assets/site/coins/coin21.png",
-                ]}
-                link="/dashboard/narrativeFunds/7"
-              />
-            </SwiperSlide>
-
-            <SwiperSlide>
-              <CarouselCard
-                title="RWA Narrative"
-                badge="$N-RWA"
-                vectorColor="red"
-                price="$500"
-                tvl="$760.000"
-                images={[
-                  "/assets/site/coins/coin22.png",
-                  "/assets/site/coins/coin23.png",
-                  "/assets/site/coins/coin24.png",
-                  "/assets/site/coins/coin22.png",
-                  "/assets/site/coins/coin23.png",
-                  "/assets/site/coins/coin24.png",
-                ]}
-                link="/dashboard/narrativeFunds/8"
-              />
-            </SwiperSlide>
-
-            <SwiperSlide>
-              <CarouselCard
-                title="BRC20 Narrative"
-                badge="$N-BRC20"
-                vectorColor="blue"
-                price="$500"
-                tvl="$760.000"
-                images={[
-                  "/assets/site/coins/coin25.png",
-                  "/assets/site/coins/coin26.png",
-                  "/assets/site/coins/coin27.png",
-                  "/assets/site/coins/coin25.png",
-                  "/assets/site/coins/coin26.png",
-                  "/assets/site/coins/coin27.png",
-                ]}
-                link="/dashboard/narrativeFunds/9"
-              />
-            </SwiperSlide>
-          </Swiper>
+          <FeaturedNarratives />
         </div>
       </div>
 
@@ -315,54 +113,7 @@ export default function Home() {
             </CardHeader>
 
             <CardContent className="flex items-center  flex-wrap justify-center gap-4 md:gap-24">
-              <Image
-                src={`/assets/site/companies/${
-                  theme === "dark" ? "dark" : "light"
-                }/company1.png`}
-                width={100}
-                height={100}
-                alt="company logo"
-                data-aos="zoom"
-              />
-              <Image
-                src={`/assets/site/companies/${
-                  theme === "dark" ? "dark" : "light"
-                }/company2.png`}
-                width={100}
-                height={100}
-                alt="company logo"
-                data-aos="zoom"
-              />
-
-              <Image
-                src={`/assets/site/companies/${
-                  theme === "dark" ? "dark" : "light"
-                }/company3.png`}
-                width={100}
-                height={100}
-                alt="company logo"
-                data-aos="zoom"
-              />
-
-              <Image
-                src={`/assets/site/companies/${
-                  theme === "dark" ? "dark" : "light"
-                }/company4.png`}
-                width={100}
-                height={100}
-                alt="company logo"
-                data-aos="zoom"
-              />
-
-              <Image
-                src={`/assets/site/companies/${
-                  theme === "dark" ? "dark" : "light"
-                }/company5.png`}
-                width={100}
-                height={100}
-                alt="company logo"
-                data-aos="zoom"
-              />
+              <Companies />
             </CardContent>
           </Card>
         </div>
@@ -469,47 +220,7 @@ export default function Home() {
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <FeaturedCard
-              title="Diversify With Ease"
-              description="Narratives allows users to gain exposure into a whole sector with just one token. For example, instead of buying 8-10 “AI” tokens we enable users to track the whole sector with just one “AI Narrative” token."
-              icon="/assets/site/icons/box-remove.png"
-              vectorColor="blue"
-            />
-
-            <FeaturedCard
-              title="Reduce Risk"
-              description="Often times tokens are spread out between multiple chains, exchanges and wallets. With Narratives we reduce complexity by bringing all assets into one place without the need of bridging, swapping and multiple exchanges."
-              icon="/assets/site/icons/security-safe.png"
-              vectorColor="red"
-            />
-
-            <FeaturedCard
-              title="Exposure to Upside"
-              description="Never Miss a Pump, Never miss a rotation. Narrative Tokens give you the ability to always have exposure to multiple tokens in a sector so you never have to choose between tokens and miss out on gains."
-              icon="/assets/site/icons/chart.png"
-              vectorColor="blue"
-            />
-
-            <FeaturedCard
-              title="Governance Token"
-              description="Narratives Holders will be able to vote on key decisions such as asset allocation and new asset onboarding. Narratives is a decentralized Index fund with rewards to all holders."
-              icon="/assets/site/icons/trade.png"
-              vectorColor="blue"
-            />
-
-            <FeaturedCard
-              title="Built-in Staking"
-              description="Participate in the network and earn rewards by leveraging our built-in staking Protocol. $N stakers will get protocol fees distributed directly into their wallet. "
-              icon="/assets/site/icons/archive.png"
-              vectorColor="red"
-            />
-
-            <FeaturedCard
-              title="Low Fees"
-              description="Narratives Protocol is launching on the Base blockchain which offers extremely low fees compared to Mainnet."
-              icon="/assets/site/icons/money-recive.png"
-              vectorColor="blue"
-            />
+            <FeaturedCards />
           </div>
         </div>
 

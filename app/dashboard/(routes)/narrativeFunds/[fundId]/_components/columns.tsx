@@ -3,11 +3,7 @@
 import {DataTableColumnHeader} from "@/components/table/data-table-column-header";
 import {ColumnDef} from "@tanstack/react-table";
 
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "@/components/ui/avatar";
+import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
 
 import {Progress} from "@/components/ui/progress";
 
@@ -25,28 +21,18 @@ export const columns: ColumnDef<IFundParamter>[] = [
   {
     accessorKey: "name",
     header: ({column}) => {
-      return (
-        <DataTableColumnHeader
-          column={column}
-          title="Assets"
-        />
-      );
+      return <DataTableColumnHeader column={column} title="Assets" />;
     },
     cell: ({row}) => {
       return (
         <div className="flex items-center gap-2">
           <Avatar className="w-11 h-11 rounded-md">
             {row.original.image && (
-              <AvatarImage
-                className="object-cover"
-                src={row.original.image}
-              />
+              <AvatarImage className="object-cover" src={row.original.image} />
             )}
 
             {!row.original.image && (
-              <AvatarFallback>
-                {row.original.name.charAt(0).toUpperCase()}
-              </AvatarFallback>
+              <AvatarFallback>{row.original.name.charAt(0).toUpperCase()}</AvatarFallback>
             )}
           </Avatar>
 
@@ -67,12 +53,7 @@ export const columns: ColumnDef<IFundParamter>[] = [
   {
     accessorKey: "currentWeight",
     header: ({column}) => {
-      return (
-        <DataTableColumnHeader
-          column={column}
-          title="Weights"
-        />
-      );
+      return <DataTableColumnHeader column={column} title="Weights" />;
     },
     cell: ({row}) => {
       return (
@@ -80,16 +61,12 @@ export const columns: ColumnDef<IFundParamter>[] = [
           <div className="flex items-center justify-between gap-40 w-full">
             <div className="flex flex-col  items-start gap-1 w-max font-normal">
               <p>Current weight</p>
-              <p className="text-xs  text-[#9EA3B5] dark:text-[#777777]">
-                0%
-              </p>
+              <p className="text-xs  text-[#9EA3B5] dark:text-[#777777]">0%</p>
             </div>
 
             <div className="flex flex-col  items-start gap-1 w-max font-normal">
               <p>Target weight</p>
-              <p className="text-xs  text-[#9EA3B5] dark:text-[#777777]">
-                0%
-              </p>
+              <p className="text-xs  text-[#9EA3B5] dark:text-[#777777]">0%</p>
             </div>
           </div>
 
@@ -102,12 +79,7 @@ export const columns: ColumnDef<IFundParamter>[] = [
   {
     accessorKey: "percentage1",
     header: ({column}) => {
-      return (
-        <DataTableColumnHeader
-          column={column}
-          title="Balances"
-        />
-      );
+      return <DataTableColumnHeader column={column} title="Balances" />;
     },
     cell: ({row}) => {
       return (

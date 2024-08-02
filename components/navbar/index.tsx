@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -22,6 +22,14 @@ import {useTheme} from "next-themes";
 
 const Navbar = () => {
   const {theme, setTheme} = useTheme();
+
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) return;
 
   return (
     <div className="relative z-10 bg-card">

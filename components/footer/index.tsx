@@ -1,19 +1,10 @@
 import React from "react";
-import {Button} from "../ui/button";
 import Image from "next/image";
-import {
-  Facebook,
-  File,
-  Instagram,
-  Linkedin,
-  Twitter,
-  Youtube,
-} from "lucide-react";
-import {useTheme} from "next-themes";
+import {Facebook, File, Instagram, Linkedin, Twitter, Youtube} from "lucide-react";
+
 import Link from "next/link";
 
 const Footer = () => {
-  const {theme, setTheme} = useTheme();
   return (
     <div className="bg-primary">
       <div className="max-w-[1164px] mx-auto mt-12 px-4">
@@ -23,18 +14,18 @@ const Footer = () => {
         >
           <div className="flex flex-col gap-8 max-w-[300px] ">
             {/* <div className="relative h-25 w-25 md"> */}
-              <Image
-                src="/assets/site/footerLogo.png"
-                alt="Logo"
-                layout="responsive" 
-                width={250}
-                height={250}
-                objectFit="contain"
-              />
+            <Image
+              src="/assets/site/footerLogo.png"
+              alt="Logo"
+              layout="responsive"
+              width={250}
+              height={250}
+              objectFit="contain"
+            />
             {/* </div> */}
             <p>
-              Infrastructure for creating, automating,
-              managing and tracking on-chain funds.
+              Infrastructure for creating, automating, managing and tracking on-chain
+              funds.
             </p>
           </div>
 
@@ -62,9 +53,7 @@ const Footer = () => {
             </div>
 
             <div className="flex flex-col gap-4">
-              <h6 className="text-xl font-semibold">
-                Property
-              </h6>
+              <h6 className="text-xl font-semibold">Property</h6>
 
               <Link href="#" className="hover:opacity-85">
                 Learning Modules
@@ -81,9 +70,7 @@ const Footer = () => {
             </div>
 
             <div className="flex flex-col gap-4">
-              <h6 className="text-xl font-semibold">
-                About
-              </h6>
+              <h6 className="text-xl font-semibold">About</h6>
 
               <Link href="#" className="hover:opacity-85">
                 Our company
@@ -100,9 +87,7 @@ const Footer = () => {
             </div>
 
             <div className="flex flex-col gap-4">
-              <h6 className="text-xl font-semibold">
-                Resources
-              </h6>
+              <h6 className="text-xl font-semibold">Resources</h6>
 
               <Link href="#" className="hover:opacity-85">
                 Contact
