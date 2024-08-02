@@ -1,35 +1,28 @@
-import React, {useState} from "react";
+import React, {memo} from "react";
 import {cn} from "@/lib/utils";
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
 import {Button} from "@/components/ui/button";
 
 import StatsCard from "@/components/dashboard/stats-card";
 
-import {funds} from "@/data/demoFunds";
-import VerifiedIcon from "@/components/icons/verified-icon";
+import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs";
 import Image from "next/image";
+import {Input} from "@/components/ui/input";
+
 import SolanaChart from "@/components/dashboard/solana-chart";
+
 import Link from "next/link";
+import {ArrowDown, VerifiedIcon} from "lucide-react";
+
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import FundContent from "@/components/fund/FundContent";
-import UserTransactionss from "@/components/fund/UserTransactions";
-
-interface Coin {
-  name: string;
-  percentage: number;
-}
-
-interface CoinProps {
-  coin: Coin;
-  isExpanded: boolean;
-  onToggle: () => void;
-}
-
-const coins: Coin[] = [
-  {name: "Solana", percentage: 45},
-  {name: "Bitcoin", percentage: 35},
-  {name: "Ethereum", percentage: 15},
-  {name: "Cardano", percentage: 5},
-];
+import {funds} from "@/data/demoFunds";
 
 const FundPage = ({params}: {params: {fundId: string}}) => {
   const {fundId} = params;
@@ -123,7 +116,182 @@ const FundPage = ({params}: {params: {fundId: string}}) => {
               <SolanaChart badge={selectedFund?.tag || "Undefined"} />
             </div>
 
-            <UserTransactionss />
+            <div className="flex flex-col w-full lg:max-w-[468px]">
+              <div className="relative w-full lg:max-w-[468px] px-4 pb-4 bg-[#F8FAFE] dark:bg-[#1E1E1E] rounded-lg">
+                <Tabs defaultValue="Swap" className="flex flex-col gap-4 w-full">
+                  <div className="relative flex flex-col w-full justify-between">
+                    <div className="z-10 flex flex-row gap-4 items-center justify-between w-full px-4 mt-4 bg-[#F2F4F7] dark:!bg-[#242424] rounded-md">
+                      <TabsList className="!w-max !bg-transparent !shadow-none !border-none !px-0">
+                        <TabsTrigger value="Swap" className="max-w-[70px]" bgWhiteActive>
+                          Swap
+                        </TabsTrigger>
+                        <TabsTrigger value="Send" className="max-w-[70px]">
+                          Send
+                        </TabsTrigger>
+                        <TabsTrigger value="Buy" className="max-w-[70px]">
+                          Buy
+                        </TabsTrigger>
+                      </TabsList>
+
+                      <Image
+                        src={"/assets/dashboard/setting.png"}
+                        width={24}
+                        height={24}
+                        alt="settings"
+                        priority
+                        className="dark:hidden"
+                      />
+
+                      <Image
+                        src={"/assets/dashboard/settingDark.png"}
+                        width={24}
+                        height={24}
+                        alt="settings"
+                        priority
+                        className="hidden dark:inline-flex"
+                      />
+                    </div>
+
+                    <TabsContent value="Swap">
+                      <>
+                        <div className="relative flex flex-col gap-4">
+                          <div className="p-4 bg-[#F2F4F7] dark:bg-[#242424] rounded-md">
+                            <label htmlFor="amount" className="text-sm font-medium">
+                              You pay
+                            </label>
+
+                            <div className="flex items-end justify-between">
+                              <div className="flex flex-col items-start justify-between">
+                                <div className="relative text-3xl font-semibold">
+                                  <span className="absolute left-0 top-1/2 transform -translate-y-1/2 text-[#6C7685]">
+                                    $
+                                  </span>
+
+                                  <Input
+                                    type="text"
+                                    name="amount"
+                                    id="amount"
+                                    className="w-full pl-6 outline-none !bg-none !shadow-none text-3xl border-none !focus:outline-none"
+                                  />
+                                </div>
+
+                                <p className="text-sm font-medium">$17.24085</p>
+                              </div>
+
+                              <div className="flex flex-col gap-2">
+                                <Select defaultValue="SOL">
+                                  <SelectTrigger className="w-[130px] bg-[#DADEFF] text-[#484856] font-semibold text-base">
+                                    <SelectValue />
+                                  </SelectTrigger>
+                                  <SelectContent>
+                                    <SelectItem value="SOL">
+                                      <div className="!flex items-center gap-2 w-full">
+                                        <Image
+                                          src="/assets/site/coins/coin35.png"
+                                          width={24}
+                                          height={24}
+                                          alt="ETH"
+                                          priority
+                                        />
+                                        <p>ETH</p>
+                                      </div>
+                                    </SelectItem>
+                                  </SelectContent>
+                                </Select>
+
+                                <p className="whitespace-nowrap text-sm font-medium">
+                                  Balance: 0.007
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="p-4 bg-[#F2F4F7] dark:bg-[#242424] rounded-md">
+                            <label htmlFor="amount" className="text-sm font-medium">
+                              You receive
+                            </label>
+
+                            <div className="flex items-end justify-between">
+                              <div className="flex flex-col items-start justify-between">
+                                <div className="relative text-3xl font-semibold">
+                                  <span className="absolute left-0 top-1/2 transform -translate-y-1/2 text-[#6C7685]">
+                                    $
+                                  </span>
+
+                                  <Input
+                                    type="text"
+                                    name="amount"
+                                    id="amount"
+                                    className="w-full pl-6 outline-none !bg-none !shadow-none text-3xl border-none !focus:outline-none"
+                                  />
+                                </div>
+
+                                <p className="text-sm font-medium">$17.24085</p>
+                              </div>
+
+                              <div className="flex flex-col gap-2">
+                                <Select defaultValue="NRTV">
+                                  <SelectTrigger className="w-[130px] bg-[#DADEFF] text-[#484856] font-semibold text-base">
+                                    <SelectValue />
+                                  </SelectTrigger>
+                                  <SelectContent>
+                                    <SelectItem value="NRTV">
+                                      <div className="!flex items-center gap-2 w-full">
+                                        <Image
+                                          src="/assets/site/coins/coin36.png"
+                                          width={24}
+                                          height={24}
+                                          alt="NRTV"
+                                          priority
+                                        />
+                                        <p>NRTV</p>
+                                      </div>
+                                    </SelectItem>
+                                  </SelectContent>
+                                </Select>
+
+                                <p className="whitespace-nowrap text-sm font-medium">
+                                  Balance: 0.007
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+
+                          <Button
+                            variant="default"
+                            size="icon"
+                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                          >
+                            <ArrowDown />
+                          </Button>
+                        </div>
+
+                        <Button variant="default" size="lg" className="w-full mt-4">
+                          Swap
+                        </Button>
+                      </>
+                    </TabsContent>
+                  </div>
+                </Tabs>
+              </div>
+
+              <div className="text-sm flex flex-col gap-2 mt-4">
+                <div className="flex justify-between">
+                  <p> Minimum received:</p>
+                  <p>389240.05 SOL</p>
+                </div>
+
+                <div className="flex justify-between">
+                  <p> Minimum received:</p>
+                  <p className="text-[#239564]"> &gt;0.01</p>
+                </div>
+
+                <div className="flex justify-between">
+                  <p>Liquidity Provider fee:</p>
+                  <p> 0.00000456ETH</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
