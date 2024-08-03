@@ -297,7 +297,7 @@ const FundPage = ({params}: {params: {fundId: string}}) => {
       </div>
 
       {/* stats */}
-      <div className="relative">
+      <div className="relative mb-12">
         <div
           className="relative p-4 z-30 bg-[#F8FAFE] dark:bg-[#1E1E1E] shadow-lg dark:shadow-none dark:border-[0.5px] dark:border-[#363638]
          rounded-xl mt-8"
@@ -337,7 +337,7 @@ const FundPage = ({params}: {params: {fundId: string}}) => {
       </div>
 
       {/* table */}
-      <FundContent />
+      {/* <FundContent /> */}
     </div>
   );
 };
